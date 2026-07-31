@@ -281,52 +281,22 @@
                 font-family: Arial, sans-serif;
             }
             
-            /* Removemos itens desnecessários para quem está imprimindo */
             header, nav, footer, #btn-topo, .btn-voltar, .btn-baixar, .btn-agenda, 
             .btn-ouvir, #preloader, .relogio-contador, .slider-comparacao {
                 display: none !important;
             }
 
-            /* Força os blocos ocultos do sistema de abas a aparecerem para impressão,
-               exceto aqueles trancados (eles não serão impressos). */
-            main {
-                box-shadow: none; 
-                margin: 0; padding: 0;
-            }
-            .aba-conteudo { 
-                display: block !important; 
-                page-break-inside: avoid;
-                margin-bottom: 40px;
-                animation: none;
-            }
-            .aba-conteudo:not(.ativo) {
-                /* Você pode comentar a linha abaixo se quiser imprimir o site todo de uma vez.
-                   Mantido assim para evitar impressão acidental de 20 páginas de conteúdo invisível */
-                display: none !important; 
-            }
+            main { box-shadow: none; margin: 0; padding: 0; }
+            .aba-conteudo { display: block !important; page-break-inside: avoid; margin-bottom: 40px; animation: none; }
+            .aba-conteudo:not(.ativo) { display: none !important; }
 
-            /* Adaptações Visuais para Folha A4 */
-            h2 { 
-                color: black; 
-                border-bottom: 1px solid black; 
-            }
+            h2 { color: black; border-bottom: 1px solid black; }
             .caixa-destaque, .parceria-perfil, .cartao-aluno, .cartao-turma {
-                background-color: transparent; 
-                border: 1px solid #ccc;
-                box-shadow: none;
-                page-break-inside: avoid;
+                background-color: transparent; border: 1px solid #ccc; box-shadow: none; page-break-inside: avoid;
             }
-            .pilula-literaria {
-                color: #555;
-                border-top: 1px dotted #ccc;
-                border-bottom: 1px dotted #ccc;
-            }
-            .galeria img {
-                border-radius: 0;
-                box-shadow: none;
-                border: 1px solid #ccc;
-            }
-            .mapa-container { display: none; } /* O iframe do maps não imprime bem, melhor ocultar */
+            .pilula-literaria { color: #555; border-top: 1px dotted #ccc; border-bottom: 1px dotted #ccc; }
+            .galeria img { border-radius: 0; box-shadow: none; border: 1px solid #ccc; }
+            .mapa-container { display: none; }
         }
     </style>
 </head>
@@ -383,7 +353,7 @@
             <p>Este ano, voltamos nossos olhares para a nossa própria casa: <strong>Águas de São Pedro</strong>. Considerada uma das menores e mais charmosas cidades do Brasil, suas paisagens, suas águas termais e sua história rica servem de inspiração para os trabalhos de todas as turmas.</p>
 
             <div class="parceria-perfil">
-                <img src="https://via.placeholder.com/150/0a9396/FFFFFF?text=Foto+Toni" alt="Retrato do Fotógrafo Toni Perecin">
+                <img src="https://via.placeholder.com/150/0a9396/FFFFFF?text=Foto+Toni" alt="Retrato do Fotógrafo Toni Perecin" loading="lazy">
                 <div>
                     <h3>Parceria Especial: Toni Perecin</h3>
                     <p>Para enriquecer ainda mais nosso projeto, contamos com a ilustre parceria do renomado fotógrafo <strong>Toni Perecin</strong>. Conhecido por seu olhar sensível e sua capacidade de capturar a essência da vida urbana e da natureza, Toni compartilhou suas técnicas e inspirações com nossos alunos para o projeto <em>"Visão Diferente"</em>. <br><br>Conheça mais de seu trabalho em sua <a href="https://www.facebook.com/toniperecinfotografia/" target="_blank" style="color: var(--cor-primaria); font-weight: bold; text-decoration: underline;">página no Facebook</a> ou acompanhe pelo <a href="https://www.instagram.com/toniperecin/" target="_blank" style="color: var(--cor-primaria); font-weight: bold; text-decoration: underline;">Instagram</a>.</p>
@@ -392,9 +362,9 @@
 
             <h3 style="margin-top: 30px;">Obras de Inspiração (Toni Perecin)</h3>
             <div class="galeria">
-                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Obra+Toni+1" alt="Foto 1 de Toni Perecin">
-                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Obra+Toni+2" alt="Foto 2 de Toni Perecin">
-                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Obra+Toni+3" alt="Foto 3 de Toni Perecin">
+                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Obra+Toni+1" alt="Foto 1 de Toni Perecin" loading="lazy">
+                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Obra+Toni+2" alt="Foto 2 de Toni Perecin" loading="lazy">
+                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Obra+Toni+3" alt="Foto 3 de Toni Perecin" loading="lazy">
             </div>
         </section>
 
@@ -417,7 +387,7 @@
             <h3 style="margin-top: 30px; color: var(--cor-secundaria);">Figuras Históricas de Nossa Cidade</h3>
             
             <div class="parceria-perfil">
-                <img src="https://via.placeholder.com/150/555555/FFFFFF?text=Moura+Andrade" alt="Octávio Moura Andrade">
+                <img src="https://via.placeholder.com/150/555555/FFFFFF?text=Moura+Andrade" alt="Octávio Moura Andrade" loading="lazy">
                 <div>
                     <h3>Octávio Moura Andrade</h3>
                     <p>O grande fundador e idealizador de Águas de São Pedro. Na década de 1920, poços de prospecção de petróleo foram perfurados na região pelo Governo do Estado. Em vez de petróleo, encontrou-se água mineral. Em 1940, reconhecendo o valor e as propriedades terapêuticas e medicinais dessas águas, o Dr. Octávio Moura Andrade inaugurou o Grande Hotel São Pedro e fundou a estância.</p>
@@ -425,7 +395,7 @@
             </div>
 
             <div class="parceria-perfil">
-                <img src="https://via.placeholder.com/150/777777/FFFFFF?text=Ângelo+Franzin" alt="Ângelo Franzin">
+                <img src="https://via.placeholder.com/150/777777/FFFFFF?text=Ângelo+Franzin" alt="Ângelo Franzin" loading="lazy">
                 <div>
                     <h3>Ângelo Franzin</h3>
                     <p>Pioneiro essencial para a história da cidade, Ângelo Franzin era o proprietário das terras onde as águas sulfurosas jorravam. Observador, notou que seus animais melhoravam de saúde após beberem daquela água. Em 1934, ele mesmo construiu o primeiro balneário rústico da região. A família Franzin possui um enorme legado histórico e cultural em nosso município.</p>
@@ -435,27 +405,27 @@
             <h3 style="margin-top: 30px;">Visão Geral</h3>
             <div class="galeria">
                 <div>
-                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+1" alt="Foto da cidade 1">
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+1" alt="Foto da cidade 1" loading="lazy">
                     <div class="legenda-foto"><strong>📍 Relógio do Sol</strong><br>📸 Turma de Fotografia</div>
                 </div>
                 <div>
-                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+2" alt="Foto da cidade 2">
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+2" alt="Foto da cidade 2" loading="lazy">
                     <div class="legenda-foto"><strong>📍 Fonte da Juventude</strong><br>📸 Turma de Fotografia</div>
                 </div>
                 <div>
-                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+3" alt="Foto da cidade 3">
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+3" alt="Foto da cidade 3" loading="lazy">
                     <div class="legenda-foto"><strong>📍 Boulevard de Águas</strong><br>📸 Turma de Fotografia</div>
                 </div>
                 <div>
-                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+4" alt="Foto da cidade 4">
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+4" alt="Foto da cidade 4" loading="lazy">
                     <div class="legenda-foto"><strong>📍 Praça dos Rouxinóis</strong><br>📸 Turma de Fotografia</div>
                 </div>
                 <div>
-                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+5" alt="Foto da cidade 5">
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+5" alt="Foto da cidade 5" loading="lazy">
                     <div class="legenda-foto"><strong>📍 Spa Thermal</strong><br>📸 Turma de Fotografia</div>
                 </div>
                 <div>
-                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+6" alt="Foto da cidade 6">
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+6" alt="Foto da cidade 6" loading="lazy">
                     <div class="legenda-foto"><strong>📍 Capela N. S. Aparecida</strong><br>📸 Turma de Fotografia</div>
                 </div>
             </div>
@@ -480,7 +450,7 @@
                 <p>Conheça o trabalho brilhante desenvolvido por cada uma das nossas turmas do 5º Ano. Clique na foto da sala para acessar o projeto!</p>
 
                 <div class="cartao-turma" onclick="mostrarSessao('quinto-a', 'btn-turmas')">
-                    <img src="https://via.placeholder.com/400x250/e9c46a/000000?text=Foto+Turma+5+A" alt="Foto da Turma 5º A">
+                    <img src="https://via.placeholder.com/400x250/e9c46a/000000?text=Foto+Turma+5+A" alt="Foto da Turma 5º A" loading="lazy">
                     <div>
                         <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano A</h3>
                         <p><strong>Projeto:</strong> Almanaque de Águas de São Pedro</p>
@@ -489,7 +459,7 @@
                 </div>
 
                 <div class="cartao-turma" onclick="mostrarSessao('quinto-b', 'btn-turmas')">
-                    <img src="https://via.placeholder.com/400x250/2a9d8f/FFFFFF?text=Foto+Turma+5+B" alt="Foto da Turma 5º B">
+                    <img src="https://via.placeholder.com/400x250/2a9d8f/FFFFFF?text=Foto+Turma+5+B" alt="Foto da Turma 5º B" loading="lazy">
                     <div>
                         <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano B</h3>
                         <p><strong>Projeto:</strong> Fotografia "Visão Diferente"</p>
@@ -498,7 +468,7 @@
                 </div>
 
                 <div class="cartao-turma" onclick="mostrarSessao('quinto-c', 'btn-turmas')">
-                    <img src="https://via.placeholder.com/400x250/e76f51/FFFFFF?text=Foto+Turma+5+C" alt="Foto da Turma 5º C">
+                    <img src="https://via.placeholder.com/400x250/e76f51/FFFFFF?text=Foto+Turma+5+C" alt="Foto da Turma 5º C" loading="lazy">
                     <div>
                         <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano C</h3>
                         <p><strong>Projeto:</strong> Fotografia "Visão Diferente"</p>
@@ -515,7 +485,7 @@
             <p>Os alunos do 5º A focaram na pesquisa, redação e ilustração para confeccionar um rico e detalhado <strong>Almanaque sobre Águas de São Pedro</strong>. Clique no Almanaque abaixo para ler a versão digitalizada completa!</p>
             
             <div class="cartao-almanaque" onclick="mostrarSessao('leitura-almanaque', 'btn-turmas')">
-                <img src="https://cdn-icons-png.flaticon.com/512/3145/3145765.png" alt="Capa do Almanaque">
+                <img src="https://cdn-icons-png.flaticon.com/512/3145/3145765.png" alt="Capa do Almanaque" loading="lazy">
                 <h3>Almanaque 5º Ano A</h3>
                 <p>Nossa Cidade em Fatos, Histórias e Desenhos</p>
             </div>
@@ -553,14 +523,14 @@
         <section id="quinto-b" class="aba-conteudo">
             <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">← Voltar para Turmas</button>
             <h2>Projeto "Visão Diferente" - Turma 5º Ano B</h2>
-            <p>Os alunos do 5º B saíram a campo com suas cameras e celulares para capturar os detalhes escondidos de Águas de São Pedro com um ponto de vista único.</p>
+            <p>Os alunos do 5º B saíram a campo com suas câmeras e celulares para capturar os detalhes escondidos de Águas de São Pedro com um ponto de vista único.</p>
             
             <div style="background-color: var(--cor-destaque); padding: 20px; border-radius: 8px; text-align: center; margin-bottom: 30px; color: #333;">
                 <h3 style="margin-top: 0; color: var(--cor-primaria);">Interativo: O Jogo do "Antes e Depois"</h3>
                 <p>Arraste a barra para o lado e veja como o nosso projeto de fotografia funciona na prática! Do lado direito temos a <strong>Visão Normal</strong>, e do lado esquerdo a <strong>Visão Diferente</strong> focada em um detalhe inusitado.</p>
                 <div class="slider-comparacao">
-                    <img src="https://placehold.co/500x330/555555/FFFFFF?text=Visão+Normal" class="img-fundo" alt="Visão Normal">
-                    <img src="https://placehold.co/500x330/0a9396/FFFFFF?text=Visão+Diferente" class="img-sobreposicao" id="img-sobreposicao" alt="Visão Diferente">
+                    <img src="https://placehold.co/500x330/555555/FFFFFF?text=Visão+Normal" class="img-fundo" alt="Visão Normal" loading="lazy">
+                    <img src="https://placehold.co/500x330/0a9396/FFFFFF?text=Visão+Diferente" class="img-sobreposicao" id="img-sobreposicao" alt="Visão Diferente" loading="lazy">
                     <div class="slider-linha" id="slider-linha"></div>
                     <div class="slider-setas" id="slider-setas">◂▸</div>
                     <input type="range" min="0" max="100" value="50" class="slider-input" oninput="ajustarSlider(this.value)">
@@ -571,11 +541,11 @@
 
             <div class="grade-alunos">
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-lucas-b', 'btn-turmas')">
-                    <img src="https://via.placeholder.com/150/99bbff/000000?text=Lucas" alt="Foto do Lucas">
+                    <img src="https://via.placeholder.com/150/99bbff/000000?text=Lucas" alt="Foto do Lucas" loading="lazy">
                     <h3>Lucas Zampiere</h3>
                 </div>
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-sofia-b', 'btn-turmas')">
-                    <img src="https://via.placeholder.com/150/ff99bb/000000?text=Sofia" alt="Foto da Sofia">
+                    <img src="https://via.placeholder.com/150/ff99bb/000000?text=Sofia" alt="Foto da Sofia" loading="lazy">
                     <h3>Sofia Pereira</h3>
                 </div>
             </div>
@@ -589,11 +559,11 @@
             
             <div class="grade-alunos">
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-pedro-c', 'btn-turmas')">
-                    <img src="https://via.placeholder.com/150/bbff99/000000?text=Pedro" alt="Foto do Pedro">
+                    <img src="https://via.placeholder.com/150/bbff99/000000?text=Pedro" alt="Foto do Pedro" loading="lazy">
                     <h3>Pedro Courral</h3>
                 </div>
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-isabela-c', 'btn-turmas')">
-                    <img src="https://via.placeholder.com/150/ffee99/000000?text=Isabela" alt="Foto da Isabela">
+                    <img src="https://via.placeholder.com/150/ffee99/000000?text=Isabela" alt="Foto da Isabela" loading="lazy">
                     <h3>Isabela Amato</h3>
                 </div>
             </div>
@@ -605,7 +575,7 @@
             <h2>Fotógrafo: Lucas Zampiere</h2>
             
             <div class="cabecalho-aluno">
-                <img src="https://via.placeholder.com/200/99bbff/000000?text=Lucas" alt="Foto de perfil de Lucas" class="foto-perfil-aluno">
+                <img src="https://via.placeholder.com/200/99bbff/000000?text=Lucas" alt="Foto de perfil de Lucas" class="foto-perfil-aluno" loading="lazy">
                 <div class="bio-aluno">
                     <h3>Autobiografia</h3>
                     <p>Meu nome é Lucas Zampiere e eu estudo no 5º Ano B.</p>
@@ -624,7 +594,7 @@
             <div class="galeria">
                 <div class="foto-wrapper">
                     <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
-                        <img src="https://via.placeholder.com/300x200/5577aa/FFFFFF?text=Foto+Lucas+1" alt="Foto 1 do Lucas: A Casca da Árvore">
+                        <img src="https://via.placeholder.com/300x200/5577aa/FFFFFF?text=Foto+Lucas+1" alt="Foto 1 do Lucas: A Casca da Árvore" loading="lazy">
                     </div>
                     <div class="polaroid-controles">
                         <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
@@ -632,7 +602,7 @@
                 </div>
                 <div class="foto-wrapper">
                     <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
-                        <img src="https://via.placeholder.com/300x200/5577aa/FFFFFF?text=Foto+Lucas+2" alt="Foto 2 do Lucas: O Relógio do Sol de Perto">
+                        <img src="https://via.placeholder.com/300x200/5577aa/FFFFFF?text=Foto+Lucas+2" alt="Foto 2 do Lucas: O Relógio do Sol de Perto" loading="lazy">
                     </div>
                     <div class="polaroid-controles">
                         <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
@@ -646,14 +616,14 @@
             <button class="btn-voltar" onclick="mostrarSessao('quinto-b', 'btn-turmas')">← Voltar para Turma 5º B</button>
             <h2>Fotógrafa: Sofia Pereira</h2>
             <div class="cabecalho-aluno">
-                <img src="https://via.placeholder.com/200/ff99bb/000000?text=Sofia" alt="Sofia" class="foto-perfil-aluno">
+                <img src="https://via.placeholder.com/200/ff99bb/000000?text=Sofia" alt="Sofia" class="foto-perfil-aluno" loading="lazy">
                 <div class="bio-aluno"><p>Meu nome é Sofia Pereira e eu estudo no 5º Ano B.</p></div>
             </div>
             <h3>Galeria de Fotos</h3>
             <div class="galeria">
                 <div class="foto-wrapper">
                     <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
-                        <img src="https://via.placeholder.com/300x200/aa5577/FFFFFF?text=Foto+Sofia+1" alt="Foto 1 da Sofia">
+                        <img src="https://via.placeholder.com/300x200/aa5577/FFFFFF?text=Foto+Sofia+1" alt="Foto 1 da Sofia" loading="lazy">
                     </div>
                     <div class="polaroid-controles">
                         <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
@@ -667,14 +637,14 @@
             <button class="btn-voltar" onclick="mostrarSessao('quinto-c', 'btn-turmas')">← Voltar para Turma 5º C</button>
             <h2>Fotógrafo: Pedro Courral</h2>
             <div class="cabecalho-aluno">
-                <img src="https://via.placeholder.com/200/bbff99/000000?text=Pedro" alt="Pedro" class="foto-perfil-aluno">
+                <img src="https://via.placeholder.com/200/bbff99/000000?text=Pedro" alt="Pedro" class="foto-perfil-aluno" loading="lazy">
                 <div class="bio-aluno"><p>Meu nome é Pedro Courral e eu estudo no 5º Ano C.</p></div>
             </div>
             <h3>Galeria de Fotos</h3>
             <div class="galeria">
                 <div class="foto-wrapper">
                     <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
-                        <img src="https://via.placeholder.com/300x200/77aa55/FFFFFF?text=Foto+Pedro+1" alt="Foto 1 do Pedro">
+                        <img src="https://via.placeholder.com/300x200/77aa55/FFFFFF?text=Foto+Pedro+1" alt="Foto 1 do Pedro" loading="lazy">
                     </div>
                     <div class="polaroid-controles">
                         <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
@@ -688,14 +658,14 @@
             <button class="btn-voltar" onclick="mostrarSessao('quinto-c', 'btn-turmas')">← Voltar para Turma 5º C</button>
             <h2>Fotógrafa: Isabela Amato</h2>
             <div class="cabecalho-aluno">
-                <img src="https://via.placeholder.com/200/ffee99/000000?text=Isabela" alt="Isabela" class="foto-perfil-aluno">
+                <img src="https://via.placeholder.com/200/ffee99/000000?text=Isabela" alt="Isabela" class="foto-perfil-aluno" loading="lazy">
                 <div class="bio-aluno"><p>Meu nome é Isabela Amato e eu estudo no 5º Ano C.</p></div>
             </div>
             <h3>Galeria de Fotos</h3>
             <div class="galeria">
                 <div class="foto-wrapper">
                     <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
-                        <img src="https://via.placeholder.com/300x200/aa9955/FFFFFF?text=Foto+Isabela+1" alt="Foto 1 da Isabela">
+                        <img src="https://via.placeholder.com/300x200/aa9955/FFFFFF?text=Foto+Isabela+1" alt="Foto 1 da Isabela" loading="lazy">
                     </div>
                     <div class="polaroid-controles">
                         <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
@@ -712,7 +682,7 @@
                 <p>Você pode ler nosso almanaque navegando no documento abaixo, ou se preferir, baixar o arquivo para ler offline.</p>
                 <a href="almanaque.pdf" class="btn-baixar" download="Almanaque_5AnoA_AguasDeSaoPedro.pdf">↓ Baixar Almanaque (PDF)</a>
             </div>
-            <iframe class="container-pdf" src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" title="Leitor do Almanaque 5º Ano A"></iframe>
+            <iframe class="container-pdf" src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" title="Leitor do Almanaque 5º Ano A" loading="lazy"></iframe>
         </section>
 
         <!-- MAKING OFF -->
@@ -732,9 +702,9 @@
                 <h2>Making Off - Visão Diferente</h2>
                 <p>Confira os bastidores das nossas aulas práticas com o fotógrafo Toni Perecin e os momentos de confecção do nosso Almanaque.</p>
                 <div class="galeria">
-                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+1" alt="Bastidores 1">
-                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+2" alt="Bastidores 2">
-                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+3" alt="Bastidores 3">
+                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+1" alt="Bastidores 1" loading="lazy">
+                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+2" alt="Bastidores 2" loading="lazy">
+                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+3" alt="Bastidores 3" loading="lazy">
                 </div>
             </div>
         </section>
@@ -743,11 +713,11 @@
         <section id="organizadores" class="aba-conteudo">
             <h2>Equipe Organizadora</h2>
             <p>Um projeto desta magnitude só é possível graças à dedicação e ao carinho de uma equipe apaixonada pela educação e pela arte.</p>
-            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/d35400/FFFFFF?text=Foto+Cátia" alt="Cátia Cilene de Oliveira"><div><h3>Cátia Cilene de Oliveira</h3><p>Professora e orientadora, responsável por acompanhar e auxiliar as crianças durante todo o projeto dentro e fora da sala de aula.</p></div></div>
-            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/27ae60/FFFFFF?text=Foto+Cibelle" alt="Cibelle Pereira"><div><h3>Cibelle Pereira</h3><p>Professora e orientadora, responsável por acompanhar e auxiliar as crianças durante todo o projeto dentro e fora da sala de aula.</p></div></div>
-            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/f39c12/FFFFFF?text=Foto+Patricia" alt="Patricia Giani Barbosa"><div><h3>Patricia Giani Barbosa</h3><p>Professora e orientadora (5º Ano A), responsável por guiar os alunos na intensa pesquisa e elaboração do nosso Almanaque oficial.</p></div></div>
-            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/8e44ad/FFFFFF?text=Foto+Isabela" alt="Isabela Durante"><div><h3>Isabela Durante</h3><p>Professora de Arte, também ajuda as crianças durante todo o trabalho e na execução das fotos e projeto visual.</p></div></div>
-            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/2980b9/FFFFFF?text=Foto+Patrik" alt="Patrik da Rocha"><div><h3>Patrik da Rocha</h3><p>Apoio tecnológico e estrutural. Responsável pelo desenvolvimento deste site, suporte aos alunos e auxílio na organização geral.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/d35400/FFFFFF?text=Foto+Cátia" alt="Cátia Cilene de Oliveira" loading="lazy"><div><h3>Cátia Cilene de Oliveira</h3><p>Professora e orientadora, responsável por acompanhar e auxiliar as crianças durante todo o projeto dentro e fora da sala de aula.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/27ae60/FFFFFF?text=Foto+Cibelle" alt="Cibelle Pereira" loading="lazy"><div><h3>Cibelle Pereira</h3><p>Professora e orientadora, responsável por acompanhar e auxiliar as crianças durante todo o projeto dentro e fora da sala de aula.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/f39c12/FFFFFF?text=Foto+Patricia" alt="Patricia Giani Barbosa" loading="lazy"><div><h3>Patricia Giani Barbosa</h3><p>Professora e orientadora (5º Ano A), responsável por guiar os alunos na intensa pesquisa e elaboração do nosso Almanaque oficial.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/8e44ad/FFFFFF?text=Foto+Isabela" alt="Isabela Durante" loading="lazy"><div><h3>Isabela Durante</h3><p>Professora de Arte, também ajuda as crianças durante todo o trabalho e na execução das fotos e projeto visual.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/2980b9/FFFFFF?text=Foto+Patrik" alt="Patrik da Rocha" loading="lazy"><div><h3>Patrik da Rocha</h3><p>Apoio tecnológico e estrutural. Responsável pelo desenvolvimento deste site, suporte aos alunos e auxílio na organização geral.</p></div></div>
         </section>
     </main>
 
@@ -755,7 +725,7 @@
 
     <div id="lightbox" class="lightbox" onclick="fecharLightbox(event)">
         <span class="lightbox-fechar">&times;</span>
-        <img id="lightbox-img" class="lightbox-img" src="">
+        <img id="lightbox-img" class="lightbox-img" src="" loading="lazy">
         <a id="btn-download-lightbox" href="" download class="btn-baixar" style="margin-top: 20px;" onclick="event.stopPropagation()">📥 Baixar para o Celular</a>
         <p style="color: white; margin-top: 15px;">Clique no fundo escuro para fechar</p>
     </div>
@@ -772,7 +742,7 @@
     <!-- MODO TV OVERLAY -->
     <div id="modo-tv-overlay">
         <button class="btn-fechar-tv" onclick="sairModoTV()">✖ Sair da Exposição</button>
-        <img id="tv-imagem" src="" alt="Modo TV">
+        <img id="tv-imagem" src="" alt="Modo TV" loading="lazy">
         <div id="tv-legenda">Preparando Exposição Fotográfica...</div>
     </div>
 
@@ -808,11 +778,9 @@
         // PARALLAX EFFECT 
         window.addEventListener('scroll', function() {
             const logo = document.getElementById("parallax-logo");
-            // Movimentar num ritmo mais lento, criando efeito de profundidade.
             const scrollPos = window.scrollY;
             logo.style.transform = `translate(-50%, -50%) translateY(${scrollPos * 0.4}px)`; 
             
-            // Botão Voltar ao Topo
             const btnTopo = document.getElementById("btn-topo");
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) btnTopo.style.display = "block";
             else btnTopo.style.display = "none";
