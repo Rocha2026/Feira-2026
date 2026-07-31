@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feira Literária - Águas de São Pedro</title>
+
+    <!-- METATAGS OPEN GRAPH (CARTÃO DE VISITA PARA O WHATSAPP E REDES SOCIAIS) -->
+    <meta property="og:title" content="Feira Literária 2026 - Águas de São Pedro">
+    <meta property="og:description" content="Venha conhecer o projeto Visão Diferente desenvolvido pelos alunos da E.M.E.F Maria Luiza Fornasier Franzin!">
+    <!-- Link direto para a imagem do Brasão que será exibida nas prévias -->
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bras%C3%A3o_%C3%81guas_de_S%C3%A3o_Pedro.png">
+    <meta property="og:type" content="website">
+
+    <!-- FAVICON (ÍCONE DA ABA DO NAVEGADOR) -->
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bras%C3%A3o_%C3%81guas_de_S%C3%A3o_Pedro.png">
+
     <style>
         /* --- ESTILOS GERAIS --- */
         :root {
@@ -69,11 +80,14 @@
         }
         
         .header-bg-logo {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            position: absolute; top: 50%; left: 50%; 
             width: 350px; height: 350px;
+            /* Modificado para suportar o Parallax no JS */
+            transform: translate(-50%, -50%) translateY(0px); 
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4b/Bras%C3%A3o_%C3%81guas_de_S%C3%A3o_Pedro.png');
             background-size: contain; background-repeat: no-repeat; background-position: center;
             opacity: 0.15; z-index: -1;
+            transition: transform 0.1s ease-out; /* Suaviza o movimento do parallax */
         }
 
         .escola-nome {
@@ -188,8 +202,11 @@
         .cartao-almanaque img { width: 120px; height: auto; margin-bottom: 15px; filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.3)); }
 
         .container-pdf { width: 100%; height: 70vh; border: 3px solid var(--cor-secundaria); border-radius: 8px; margin-top: 20px; background-color: #f1f5f9; }
-        .btn-baixar { display: inline-block; background-color: var(--cor-primaria); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-size: 1.1rem; font-weight: bold; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn-baixar, .btn-agenda { display: inline-block; background-color: var(--cor-primaria); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-size: 1.1rem; font-weight: bold; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .btn-baixar:hover { background-color: var(--cor-secundaria); }
+        
+        .btn-agenda { background-color: #27ae60; margin-top: 15px; }
+        .btn-agenda:hover { background-color: #219150; }
 
         /* --- ESTILOS DE BLOQUEIO (EM CONSTRUÇÃO) --- */
         .em-construcao { text-align: center; padding: 40px 20px; animation: fadeIn 0.5s; }
@@ -242,6 +259,9 @@
         }
         .btn-fechar-tv:hover { background: rgba(255,255,255,0.4); }
 
+        /* --- MAPA RESPONSIVO --- */
+        .mapa-container { margin: 30px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; border: 2px solid var(--cor-secundaria); }
+
         /* --- RODAPÉ INSTITUCIONAL --- */
         footer { background-color: var(--cor-primaria); color: var(--cor-branco); padding: 40px 20px 20px 20px; margin-top: 40px; }
         .footer-container { display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1000px; margin: 0 auto; text-align: left; gap: 30px; }
@@ -250,6 +270,64 @@
         .footer-col p, .footer-col a { color: #d1d5db; text-decoration: none; font-size: 0.95rem; margin: 8px 0; display: block; }
         .footer-col a:hover { color: white; text-decoration: underline; }
         .footer-bottom { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem; text-align: center; width: 100%; }
+
+        /* ==========================================================================
+           REGRAS DE IMPRESSÃO PROFISSIONAL (Modo Print)
+           ========================================================================== */
+        @media print {
+            body { 
+                background-color: white; 
+                color: black; 
+                font-family: Arial, sans-serif;
+            }
+            
+            /* Removemos itens desnecessários para quem está imprimindo */
+            header, nav, footer, #btn-topo, .btn-voltar, .btn-baixar, .btn-agenda, 
+            .btn-ouvir, #preloader, .relogio-contador, .slider-comparacao {
+                display: none !important;
+            }
+
+            /* Força os blocos ocultos do sistema de abas a aparecerem para impressão,
+               exceto aqueles trancados (eles não serão impressos). */
+            main {
+                box-shadow: none; 
+                margin: 0; padding: 0;
+            }
+            .aba-conteudo { 
+                display: block !important; 
+                page-break-inside: avoid;
+                margin-bottom: 40px;
+                animation: none;
+            }
+            .aba-conteudo:not(.ativo) {
+                /* Você pode comentar a linha abaixo se quiser imprimir o site todo de uma vez.
+                   Mantido assim para evitar impressão acidental de 20 páginas de conteúdo invisível */
+                display: none !important; 
+            }
+
+            /* Adaptações Visuais para Folha A4 */
+            h2 { 
+                color: black; 
+                border-bottom: 1px solid black; 
+            }
+            .caixa-destaque, .parceria-perfil, .cartao-aluno, .cartao-turma {
+                background-color: transparent; 
+                border: 1px solid #ccc;
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            .pilula-literaria {
+                color: #555;
+                border-top: 1px dotted #ccc;
+                border-bottom: 1px dotted #ccc;
+            }
+            .galeria img {
+                border-radius: 0;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            .mapa-container { display: none; } /* O iframe do maps não imprime bem, melhor ocultar */
+        }
     </style>
 </head>
 <body>
@@ -261,7 +339,7 @@
     </div>
 
     <header>
-        <div class="header-bg-logo"></div>
+        <div class="header-bg-logo" id="parallax-logo"></div>
         <div class="escola-nome">E.M.E.F Maria Luiza Fornasier Franzin</div>
         <h1>Feira Literária</h1>
         <p>Projeto "Visão Diferente" - Tema: Águas de São Pedro</p>
@@ -296,6 +374,9 @@
                 <strong>Local:</strong> Pátio Principal e Salas dos 5ºs Anos</p>
                 <p class="relogio-contador" id="contador-principal">Calculando o tempo...</p>
                 <p style="font-size: 0.9rem; color: #555;">Venha prestigiar os trabalhos de fotografia e o nosso almanaque oficial!</p>
+
+                <!-- BOTÃO SALVAR NA AGENDA -->
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Feira+Liter%C3%A1ria+-+E.M.E.F+Maria+Luiza&dates=20261114T110000Z/20261114T150000Z&details=Venha+prestigiar+os+trabalhos+de+fotografia+e+o+nosso+almanaque+oficial!&location=E.M.E.F+Maria+Luiza+Fornasier+Franzin,+%C3%81guas+de+S%C3%A3o+Pedro+-+SP" target="_blank" class="btn-agenda" title="Adicionar lembrete no seu Google Agenda">📅 Adicionar ao meu Calendário</a>
             </div>
 
             <h2>Tema deste ano: Águas de São Pedro</h2>
@@ -323,6 +404,14 @@
             
             <div class="pilula-literaria">
                 "As águas de uma cidade não contam apenas a sua geografia, contam a história da vida que flui através dela."
+            </div>
+
+            <!-- MAPA DA CIDADE -->
+            <h3 style="margin-top: 30px;">Localização e Paisagens</h3>
+            <p>Nossa adorável estância hidromineral está localizada no coração do estado de São Paulo. Navegue pelo mapa para conhecer o formato de nossa cidade.</p>
+            
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14704.811802958212!2d-47.885662706342884!3d-22.598587979603333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c6600c01a182bd%3A0x633d9c3bd0034633!2s%C3%81guas%20de%20S%C3%A3o%20Pedro%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <h3 style="margin-top: 30px; color: var(--cor-secundaria);">Figuras Históricas de Nossa Cidade</h3>
@@ -356,6 +445,18 @@
                 <div>
                     <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+3" alt="Foto da cidade 3">
                     <div class="legenda-foto"><strong>📍 Boulevard de Águas</strong><br>📸 Turma de Fotografia</div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+4" alt="Foto da cidade 4">
+                    <div class="legenda-foto"><strong>📍 Praça dos Rouxinóis</strong><br>📸 Turma de Fotografia</div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+5" alt="Foto da cidade 5">
+                    <div class="legenda-foto"><strong>📍 Spa Thermal</strong><br>📸 Turma de Fotografia</div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+6" alt="Foto da cidade 6">
+                    <div class="legenda-foto"><strong>📍 Capela N. S. Aparecida</strong><br>📸 Turma de Fotografia</div>
                 </div>
             </div>
         </section>
@@ -452,7 +553,7 @@
         <section id="quinto-b" class="aba-conteudo">
             <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">← Voltar para Turmas</button>
             <h2>Projeto "Visão Diferente" - Turma 5º Ano B</h2>
-            <p>Os alunos do 5º B saíram a campo com suas câmeras e celulares para capturar os detalhes escondidos de Águas de São Pedro com um ponto de vista único.</p>
+            <p>Os alunos do 5º B saíram a campo com suas cameras e celulares para capturar os detalhes escondidos de Águas de São Pedro com um ponto de vista único.</p>
             
             <div style="background-color: var(--cor-destaque); padding: 20px; border-radius: 8px; text-align: center; margin-bottom: 30px; color: #333;">
                 <h3 style="margin-top: 0; color: var(--cor-primaria);">Interativo: O Jogo do "Antes e Depois"</h3>
@@ -704,11 +805,19 @@
             verificarDesbloqueio(); 
         });
 
-        window.onscroll = function() {
+        // PARALLAX EFFECT 
+        window.addEventListener('scroll', function() {
+            const logo = document.getElementById("parallax-logo");
+            // Movimentar num ritmo mais lento, criando efeito de profundidade.
+            const scrollPos = window.scrollY;
+            logo.style.transform = `translate(-50%, -50%) translateY(${scrollPos * 0.4}px)`; 
+            
+            // Botão Voltar ao Topo
             const btnTopo = document.getElementById("btn-topo");
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) btnTopo.style.display = "block";
             else btnTopo.style.display = "none";
-        };
+        });
+        
         function voltarAoTopo() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
         function mostrarSessao(idSessao, idBotaoMenu) {
@@ -870,7 +979,7 @@
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') sairModoTV(); });
 
         // CONTADOR REGRESSIVO E SISTEMA DE DESBLOQUEIO
-        const dataEvento = new Date("Nov 14, 2026 08:00:00").getTime();
+        const dataEvento = new Date("2026-11-14T08:00:00-03:00").getTime();
         
         function verificarDesbloqueio() {
             const agora = new Date().getTime();
