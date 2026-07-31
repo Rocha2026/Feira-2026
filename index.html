@@ -126,29 +126,29 @@
         /* --- DESIGN POLAROID E EFEITO LUPA --- */
         .foto-wrapper {
             background-color: #ffffff;
-            padding: 12px 12px 55px 12px; /* Base mais larga estilo polaroid */
+            padding: 12px 12px 55px 12px;
             border-radius: 2px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             display: flex; flex-direction: column; align-items: center; width: 300px;
             position: relative; transition: transform 0.2s, box-shadow 0.2s;
         }
-        body.dark-mode .foto-wrapper { background-color: #e0e0e0; /* Papel no dark mode */ }
+        body.dark-mode .foto-wrapper { background-color: #e0e0e0; }
         .foto-wrapper:hover { transform: translateY(-5px) rotate(-1deg); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
 
         .zoom-img-container {
             width: 100%; height: 200px;
-            overflow: hidden; /* Corta o excesso durante o zoom */
+            overflow: hidden;
             position: relative; cursor: zoom-in;
             border: 1px solid rgba(0,0,0,0.1);
         }
         .zoom-img-container img {
             width: 100%; height: 100%; object-fit: cover;
             border-radius: 0; box-shadow: none;
-            transition: transform 0.15s ease-out; /* Movimento macio */
+            transition: transform 0.15s ease-out;
             transform-origin: center center;
         }
         .zoom-img-container:hover img {
-            transform: scale(2.5); /* Força do zoom da lupa */
+            transform: scale(2.5);
         }
 
         .polaroid-controles {
@@ -162,9 +162,6 @@
             cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s;
         }
         .btn-ouvir:hover { background-color: var(--cor-primaria); color: white; }
-
-        .btn-curtir { cursor: pointer; font-size: 1.2rem; user-select: none; transition: transform 0.2s; color: var(--cor-texto); font-weight: bold; }
-        .btn-curtir:hover { transform: scale(1.1); }
 
         /* --- ESTILOS DO HUB DE TURMAS E PERFIS --- */
         .grade-alunos { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
@@ -194,9 +191,15 @@
         .btn-baixar { display: inline-block; background-color: var(--cor-primaria); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-size: 1.1rem; font-weight: bold; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .btn-baixar:hover { background-color: var(--cor-secundaria); }
 
+        /* --- ESTILOS DE BLOQUEIO (EM CONSTRUÇÃO) --- */
+        .em-construcao { text-align: center; padding: 40px 20px; animation: fadeIn 0.5s; }
+        .icone-cadeado { font-size: 4rem; margin-bottom: 10px; }
+        .em-construcao h2 { border-bottom: none; color: var(--cor-secundaria); font-size: 2rem; margin-bottom: 10px; }
+        .em-construcao p { font-size: 1.1rem; color: var(--cor-texto); max-width: 600px; margin: 0 auto; }
+
         /* --- COMPONENTES ESPECIAIS --- */
         .caixa-destaque { background-color: #fdfbf7; border: 2px dashed var(--cor-secundaria); border-radius: 8px; padding: 20px; margin: 30px 0; text-align: center; color: #333; }
-        #contador-timer { font-size: 1.3rem; color: #d35400; background-color: #faebd7; padding: 10px; border-radius: 5px; display: inline-block; margin: 10px 0; }
+        .relogio-contador { font-size: 1.3rem; color: #d35400; background-color: #faebd7; padding: 10px; border-radius: 5px; display: inline-block; margin: 10px 0; }
 
         .quiz-container { background-color: var(--cor-destaque); padding: 20px; border-radius: 8px; margin-top: 40px; }
         .btn-quiz { display: block; width: 100%; background-color: var(--cor-branco); color: var(--cor-texto); border: 2px solid var(--cor-secundaria); padding: 10px; margin: 10px 0; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background 0.2s; }
@@ -268,7 +271,7 @@
         <button id="btn-inicio" class="tab-btn ativo" onclick="mostrarSessao('inicio', 'btn-inicio')">Apresentação Geral</button>
         <button id="btn-aguas" class="tab-btn" onclick="mostrarSessao('aguas', 'btn-aguas')">Águas de São Pedro</button>
         <button id="btn-turmas" class="tab-btn" onclick="mostrarSessao('turmas', 'btn-turmas')">Turmas 5º Ano</button>
-        <button id="btn-making-off" class="tab-btn" onclick="mostrarSessao('making-off', 'btn-making-off')">Making Off</button>
+        <button id="btn-makingoff" class="tab-btn" onclick="mostrarSessao('makingoff', 'btn-makingoff')">Making Off</button>
         <button id="btn-organizadores" class="tab-btn" onclick="mostrarSessao('organizadores', 'btn-organizadores')">Organizadores</button>
         
         <div style="flex-grow: 1;"></div> 
@@ -291,7 +294,7 @@
                 <p><strong>Data:</strong> 14 de Novembro de 2026<br>
                 <strong>Horário:</strong> Aberto ao público a partir das 08:00<br>
                 <strong>Local:</strong> Pátio Principal e Salas dos 5ºs Anos</p>
-                <p id="contador-timer">Calculando o tempo...</p>
+                <p class="relogio-contador" id="contador-principal">Calculando o tempo...</p>
                 <p style="font-size: 0.9rem; color: #555;">Venha prestigiar os trabalhos de fotografia e o nosso almanaque oficial!</p>
             </div>
 
@@ -359,33 +362,47 @@
 
         <!-- HUB DE TURMAS -->
         <section id="turmas" class="aba-conteudo">
-            <h2>Nossas Turmas - 5ºs Anos</h2>
-            <p>Conheça o trabalho brilhante desenvolvido por cada uma das nossas turmas do 5º Ano. Clique na foto da sala para acessar o projeto!</p>
-
-            <div class="cartao-turma" onclick="mostrarSessao('quinto-a', 'btn-turmas')">
-                <img src="https://via.placeholder.com/400x250/e9c46a/000000?text=Foto+Turma+5+A" alt="Foto da Turma 5º A">
-                <div>
-                    <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano A</h3>
-                    <p><strong>Projeto:</strong> Almanaque de Águas de São Pedro</p>
-                    <p style="font-size: 0.95rem;">Mergulhe nas pesquisas, redações e curiosidades históricas compiladas por esta turma em um incrível almanaque colaborativo.</p>
+            
+            <!-- TELA DE BLOQUEIO (Some no dia do evento) -->
+            <div class="em-construcao" id="bloqueio-turmas">
+                <div class="icone-cadeado">🔒</div>
+                <h2>Trabalhos em Produção!</h2>
+                <p>As pesquisas, fotos e produções das turmas do 5º Ano estão guardadas a sete chaves para não estragar a surpresa.<br>Tudo será revelado aqui no site no dia da nossa Feira Literária.</p>
+                <div class="caixa-destaque" style="margin-top: 20px;">
+                    <p class="relogio-contador">Calculando o tempo...</p>
                 </div>
             </div>
 
-            <div class="cartao-turma" onclick="mostrarSessao('quinto-b', 'btn-turmas')">
-                <img src="https://via.placeholder.com/400x250/2a9d8f/FFFFFF?text=Foto+Turma+5+B" alt="Foto da Turma 5º B">
-                <div>
-                    <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano B</h3>
-                    <p><strong>Projeto:</strong> Fotografia "Visão Diferente"</p>
-                    <p style="font-size: 0.95rem;">Confira a galeria de fotos exclusiva, capturando os detalhes e encantos escondidos de nossa cidade através de um ponto de vista único.</p>
-                </div>
-            </div>
+            <!-- CONTEÚDO REAL (Aparece no dia do evento) -->
+            <div class="conteudo-secreto" id="conteudo-turmas" style="display: none;">
+                <h2>Nossas Turmas - 5ºs Anos</h2>
+                <p>Conheça o trabalho brilhante desenvolvido por cada uma das nossas turmas do 5º Ano. Clique na foto da sala para acessar o projeto!</p>
 
-            <div class="cartao-turma" onclick="mostrarSessao('quinto-c', 'btn-turmas')">
-                <img src="https://via.placeholder.com/400x250/e76f51/FFFFFF?text=Foto+Turma+5+C" alt="Foto da Turma 5º C">
-                <div>
-                    <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano C</h3>
-                    <p><strong>Projeto:</strong> Fotografia "Visão Diferente"</p>
-                    <p style="font-size: 0.95rem;">Explore o ponto de vista único documentado pelos alunos, transformando o cotidiano em arte visual através de novos ângulos fotográficos.</p>
+                <div class="cartao-turma" onclick="mostrarSessao('quinto-a', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/400x250/e9c46a/000000?text=Foto+Turma+5+A" alt="Foto da Turma 5º A">
+                    <div>
+                        <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano A</h3>
+                        <p><strong>Projeto:</strong> Almanaque de Águas de São Pedro</p>
+                        <p style="font-size: 0.95rem;">Mergulhe nas pesquisas, redações e curiosidades históricas compiladas por esta turma em um incrível almanaque colaborativo.</p>
+                    </div>
+                </div>
+
+                <div class="cartao-turma" onclick="mostrarSessao('quinto-b', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/400x250/2a9d8f/FFFFFF?text=Foto+Turma+5+B" alt="Foto da Turma 5º B">
+                    <div>
+                        <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano B</h3>
+                        <p><strong>Projeto:</strong> Fotografia "Visão Diferente"</p>
+                        <p style="font-size: 0.95rem;">Confira a galeria de fotos exclusiva, capturando os detalhes e encantos escondidos de nossa cidade através de um ponto de vista único.</p>
+                    </div>
+                </div>
+
+                <div class="cartao-turma" onclick="mostrarSessao('quinto-c', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/400x250/e76f51/FFFFFF?text=Foto+Turma+5+C" alt="Foto da Turma 5º C">
+                    <div>
+                        <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano C</h3>
+                        <p><strong>Projeto:</strong> Fotografia "Visão Diferente"</p>
+                        <p style="font-size: 0.95rem;">Explore o ponto de vista único documentado pelos alunos, transformando o cotidiano em arte visual através de novos ângulos fotográficos.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -404,7 +421,7 @@
 
             <div class="quiz-container">
                 <h3 style="margin-top: 0;">🤔 Quiz do Almanaque: Teste seus conhecimentos!</h3>
-                <p>Será que você prestou atenção nas nossas aulas e na história da cidade? Prove respondendo abaixo:</p>
+                <p>Será que você prestou atenção nas nossas pesquisas e na história da cidade? Prove respondendo abaixo:</p>
                 
                 <div style="margin-bottom: 25px;">
                     <p><strong>1. Quem foi o pioneiro que construiu o primeiro balneário rústico na região (Fonte da Juventude)?</strong></p>
@@ -423,7 +440,7 @@
                 </div>
 
                 <div style="margin-bottom: 10px;">
-                    <p><strong>3. Como se chama o projeto de fotografia realizado pelos 5ºs Anos B e C?</strong></p>
+                    <p><strong>3. Como se chama o projeto de fotografia realizado pelos 5ºs Anos B e C que complementa este almanaque?</strong></p>
                     <button class="btn-quiz" onclick="verificarResposta(3, 'a')">a) Obras de Arte Clássicas</button>
                     <button class="btn-quiz" onclick="verificarResposta(3, 'b')">b) Visão Diferente</button>
                     <div id="quiz-feedback-3" style="display: none; padding: 10px; margin-top: 10px; border-radius: 5px; font-weight: bold;"></div>
@@ -481,7 +498,7 @@
             </div>
         </section>
 
-        <!-- PERFIL DO LUCAS (COM POLAROIDS E ÁUDIO) -->
+        <!-- PERFIL DO LUCAS -->
         <section id="perfil-lucas-b" class="aba-conteudo">
             <button class="btn-voltar" onclick="mostrarSessao('quinto-b', 'btn-turmas')">← Voltar para Turma 5º B</button>
             <h2>Fotógrafo: Lucas Zampiere</h2>
@@ -491,35 +508,35 @@
                 <div class="bio-aluno">
                     <h3>Autobiografia</h3>
                     <p>Meu nome é Lucas Zampiere e eu estudo no 5º Ano B.</p>
+                    <div class="audio-player">
+                        <p style="margin-bottom: 5px; font-weight: bold; color: var(--cor-primaria);">▶️ Ouça meu depoimento:</p>
+                        <audio controls>
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
                 </div>
             </div>
 
             <h3>Galeria de Fotos (Polaroids Interativas)</h3>
             <p style="font-size: 0.9rem; color: #666; margin-top: -10px; margin-bottom: 20px;">🔍 Passe o mouse sobre as fotos para usar a "Lupa" ou clique para abrir a tela cheia!</p>
             <div class="galeria">
-                <!-- INÍCIO CARTÃO POLAROID 1 -->
                 <div class="foto-wrapper">
                     <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
                         <img src="https://via.placeholder.com/300x200/5577aa/FFFFFF?text=Foto+Lucas+1" alt="Foto 1 do Lucas: A Casca da Árvore">
                     </div>
                     <div class="polaroid-controles">
                         <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
-                        <div class="btn-curtir" onclick="curtirFoto(this, event)">🤍 <span class="contador-curtidas">0</span></div>
                     </div>
                 </div>
-                <!-- FIM CARTÃO POLAROID -->
-
-                <!-- INÍCIO CARTÃO POLAROID 2 -->
                 <div class="foto-wrapper">
                     <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
                         <img src="https://via.placeholder.com/300x200/5577aa/FFFFFF?text=Foto+Lucas+2" alt="Foto 2 do Lucas: O Relógio do Sol de Perto">
                     </div>
                     <div class="polaroid-controles">
                         <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
-                        <div class="btn-curtir" onclick="curtirFoto(this, event)">🤍 <span class="contador-curtidas">3</span></div>
                     </div>
                 </div>
-                <!-- FIM CARTÃO POLAROID -->
             </div>
         </section>
 
@@ -539,7 +556,6 @@
                     </div>
                     <div class="polaroid-controles">
                         <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
-                        <div class="btn-curtir" onclick="curtirFoto(this, event)">🤍 <span class="contador-curtidas">5</span></div>
                     </div>
                 </div>
             </div>
@@ -561,7 +577,6 @@
                     </div>
                     <div class="polaroid-controles">
                         <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
-                        <div class="btn-curtir" onclick="curtirFoto(this, event)">🤍 <span class="contador-curtidas">0</span></div>
                     </div>
                 </div>
             </div>
@@ -583,7 +598,6 @@
                     </div>
                     <div class="polaroid-controles">
                         <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
-                        <div class="btn-curtir" onclick="curtirFoto(this, event)">🤍 <span class="contador-curtidas">4</span></div>
                     </div>
                 </div>
             </div>
@@ -601,14 +615,26 @@
         </section>
 
         <!-- MAKING OFF -->
-        <section id="making-off" class="aba-conteudo">
-            <h2>Making Off: Bastidores da Criação</h2>
-            <p>O projeto "Visão Diferente" e o "Almanaque de Águas de São Pedro" foram meses de muita dedicação, aprendizado, colaboração e diversão!</p>
-            <p>Enquanto os 5ºs B e C saíram a campo manuseando equipamentos fotográficos para capturar a cidade por novos ângulos, os alunos do 5º A mergulharam nas pesquisas históricas, nos desenhos e na redação que deram vida ao nosso almanaque. Confira alguns registros desses momentos inesquecíveis!</p>
-            <div class="galeria">
-                <img src="https://via.placeholder.com/300x200/ffaa44/000000?text=Bastidores+1" alt="Bastidores 1">
-                <img src="https://via.placeholder.com/300x200/ffaa44/000000?text=Bastidores+2" alt="Bastidores 2">
-                <img src="https://via.placeholder.com/300x200/ffaa44/000000?text=Bastidores+3" alt="Bastidores 3">
+        <section id="makingoff" class="aba-conteudo">
+            <!-- TELA DE BLOQUEIO (Some no dia do evento) -->
+            <div class="em-construcao">
+                <div class="icone-cadeado">🎬</div>
+                <h2>Bastidores em Edição!</h2>
+                <p>Ainda estamos preparando os conteúdos que serão disponibilizados por aqui. Volte no dia da feira para visualizar como foi o andamento do projeto.</p>
+                <div class="caixa-destaque" style="margin-top: 20px;">
+                    <p class="relogio-contador">Calculando o tempo...</p>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO REAL (Aparece no dia do evento) -->
+            <div class="conteudo-secreto" style="display: none;">
+                <h2>Making Off - Visão Diferente</h2>
+                <p>Confira os bastidores das nossas aulas práticas com o fotógrafo Toni Perecin e os momentos de confecção do nosso Almanaque.</p>
+                <div class="galeria">
+                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+1" alt="Bastidores 1">
+                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+2" alt="Bastidores 2">
+                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+3" alt="Bastidores 3">
+                </div>
             </div>
         </section>
 
@@ -616,11 +642,11 @@
         <section id="organizadores" class="aba-conteudo">
             <h2>Equipe Organizadora</h2>
             <p>Um projeto desta magnitude só é possível graças à dedicação e ao carinho de uma equipe apaixonada pela educação e pela arte.</p>
-            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/d35400/FFFFFF?text=Foto+Cátia" alt="Cátia"><div><h3>Cátia</h3><p>Professora e orientadora, responsável por acompanhar e auxiliar as crianças durante todo o projeto dentro e fora da sala de aula.</p></div></div>
-            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/27ae60/FFFFFF?text=Foto+Cibelle" alt="Cibelle"><div><h3>Cibelle</h3><p>Professora e orientadora, responsável por acompanhar e auxiliar as crianças durante todo o projeto dentro e fora da sala de aula.</p></div></div>
-            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/f39c12/FFFFFF?text=Foto+Patricia" alt="Patricia"><div><h3>Patricia Barbosa</h3><p>Professora e orientadora (5º Ano A), responsável por guiar os alunos na intensa pesquisa e elaboração do nosso Almanaque oficial.</p></div></div>
-            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/8e44ad/FFFFFF?text=Foto+Isabela" alt="Isabela"><div><h3>Isabela Durante</h3><p>Professora de Arte, também ajuda as crianças durante todo o trabalho e na execução das fotos e projeto visual.</p></div></div>
-            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/2980b9/FFFFFF?text=Foto+Patrik" alt="Patrik"><div><h3>Patrik da Rocha</h3><p>Apoio tecnológico e estrutural. Responsável pelo desenvolvimento deste site, suporte aos alunos e auxílio na organização geral.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/d35400/FFFFFF?text=Foto+Cátia" alt="Cátia Cilene de Oliveira"><div><h3>Cátia Cilene de Oliveira</h3><p>Professora e orientadora, responsável por acompanhar e auxiliar as crianças durante todo o projeto dentro e fora da sala de aula.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/27ae60/FFFFFF?text=Foto+Cibelle" alt="Cibelle Pereira"><div><h3>Cibelle Pereira</h3><p>Professora e orientadora, responsável por acompanhar e auxiliar as crianças durante todo o projeto dentro e fora da sala de aula.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/f39c12/FFFFFF?text=Foto+Patricia" alt="Patricia Giani Barbosa"><div><h3>Patricia Giani Barbosa</h3><p>Professora e orientadora (5º Ano A), responsável por guiar os alunos na intensa pesquisa e elaboração do nosso Almanaque oficial.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/8e44ad/FFFFFF?text=Foto+Isabela" alt="Isabela Durante"><div><h3>Isabela Durante</h3><p>Professora de Arte, também ajuda as crianças durante todo o trabalho e na execução das fotos e projeto visual.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/2980b9/FFFFFF?text=Foto+Patrik" alt="Patrik da Rocha"><div><h3>Patrik da Rocha</h3><p>Apoio tecnológico e estrutural. Responsável pelo desenvolvimento deste site, suporte aos alunos e auxílio na organização geral.</p></div></div>
         </section>
     </main>
 
@@ -631,6 +657,15 @@
         <img id="lightbox-img" class="lightbox-img" src="">
         <a id="btn-download-lightbox" href="" download class="btn-baixar" style="margin-top: 20px;" onclick="event.stopPropagation()">📥 Baixar para o Celular</a>
         <p style="color: white; margin-top: 15px;">Clique no fundo escuro para fechar</p>
+    </div>
+
+    <!-- CAIXA DE MENSAGEM CUSTOMIZADA (Substitui o alert bloqueado) -->
+    <div id="caixa-mensagem" class="lightbox" style="z-index: 10001; flex-direction: column;" onclick="fecharMensagem()">
+        <div style="background: var(--cor-branco); padding: 30px; border-radius: 8px; text-align: center; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" onclick="event.stopPropagation()">
+            <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem; border-bottom: none;">🔒 Acesso Restrito</h3>
+            <p id="texto-mensagem" style="font-size: 1.1rem; margin-bottom: 20px; color: var(--cor-texto);"></p>
+            <button onclick="fecharMensagem()" class="btn-voltar" style="margin-bottom: 0;">Entendi</button>
+        </div>
     </div>
 
     <!-- MODO TV OVERLAY -->
@@ -646,14 +681,14 @@
                 <h3>Institucional</h3>
                 <p><strong>E.M.E.F Maria Luiza Fornasier Franzin</strong></p>
                 <a href="https://maps.app.goo.gl/8qaGBdZfRvENkZSR6" target="_blank">📍 Ver endereço no Google Maps</a>
-                <p>📞 Telefone: (19) 3482-2919</p>
+                <p>📞 Telefone: <a href="tel:+551934822919">(19) 3482-2919</a></p>
                 <a href="mailto:educa.asp@aguasdesaopedro.sp.gov.br">✉️ educa.asp@aguasdesaopedro.sp.gov.br</a>
             </div>
             <div class="footer-col">
                 <h3>Desenvolvimento e Contato</h3>
                 <p>Site idealizado e desenvolvido para a Feira Literária.</p>
                 <p><strong>Propriedade de: Patrik da Rocha</strong></p>
-                <p>📞 WhatsApp/Celular: (19) 99911-8999</p>
+                <p>📞 WhatsApp/Celular: <a href="tel:+5519999118999">(19) 99911-8999</a></p>
                 <a href="mailto:rochaptr01@gmail.com">✉️ rochaptr01@gmail.com</a>
             </div>
         </div>
@@ -666,6 +701,7 @@
         window.addEventListener('load', function() {
             const preloader = document.getElementById('preloader');
             setTimeout(() => { preloader.style.opacity = '0'; setTimeout(() => { preloader.style.display = 'none'; }, 500); }, 500);
+            verificarDesbloqueio(); 
         });
 
         window.onscroll = function() {
@@ -727,7 +763,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Ligar o clique no Lightbox para fotos na galeria solta e dentro da Lupa
             const fotosGaleria = document.querySelectorAll('.galeria > img, .zoom-img-container img');
             fotosGaleria.forEach(foto => {
                 foto.addEventListener('click', function() { abrirLightbox(this.src); });
@@ -747,33 +782,21 @@
             img.style.transformOrigin = 'center center';
         }
 
-        // ÁUDIO DESCRIÇÃO (MOCKUP)
+        // ÁUDIO DESCRIÇÃO
         let audioAtualDesc = null;
         let botaoAudioAtivo = null;
         function tocarAudioDescricao(btn, event) {
             event.stopPropagation();
             if (audioAtualDesc) {
                 audioAtualDesc.pause(); audioAtualDesc.currentTime = 0;
-                if(botaoAudioAtivo) botaoAudioAtivo.innerHTML = '🎧 Ouvir a foto';
+                if(botaoAudioAtivo) botaoAudioAtivo.innerHTML = '🎧 Audio Descrição';
                 if (botaoAudioAtivo === btn) { audioAtualDesc = null; botaoAudioAtivo = null; return; }
             }
             audioAtualDesc = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
             audioAtualDesc.play();
             botaoAudioAtivo = btn;
             btn.innerHTML = '🔊 Tocando...';
-            audioAtualDesc.onended = function() { btn.innerHTML = '🎧 Ouvir a foto'; audioAtualDesc = null; botaoAudioAtivo = null; };
-        }
-
-        // CURTIDAS
-        function curtirFoto(btn, event) {
-            event.stopPropagation(); 
-            const span = btn.querySelector('.contador-curtidas');
-            let curtidas = parseInt(span.innerText);
-            if (btn.classList.contains('curtido')) {
-                btn.classList.remove('curtido'); btn.innerHTML = `🤍 <span class="contador-curtidas">${curtidas - 1}</span>`; btn.style.color = 'var(--cor-texto)';
-            } else {
-                btn.classList.add('curtido'); btn.innerHTML = `❤️ <span class="contador-curtidas">${curtidas + 1}</span>`; btn.style.color = '#e63946';
-            }
+            audioAtualDesc.onended = function() { btn.innerHTML = '🎧 Audio Descrição'; audioAtualDesc = null; botaoAudioAtivo = null; };
         }
 
         // MODO TV / EXPOSIÇÃO
@@ -781,14 +804,30 @@
         let tvIndice = 0;
         let listaImagensTV = [];
 
+        // FUNÇÃO DE MENSAGEM
+        function mostrarMensagem(texto) {
+            document.getElementById('texto-mensagem').innerText = texto;
+            document.getElementById('caixa-mensagem').style.display = 'flex';
+        }
+        
+        function fecharMensagem() {
+            document.getElementById('caixa-mensagem').style.display = 'none';
+        }
+
         function iniciarModoTV() {
+            const agora = new Date().getTime();
+            // CADEADO DE SEGURANÇA DO MODO TV
+            if (agora < dataEvento) {
+                mostrarMensagem("Shhh! O Modo TV contém os trabalhos dos alunos e só será desbloqueado no dia da Feira Literária!");
+                return; 
+            }
+
             const overlay = document.getElementById('modo-tv-overlay');
             overlay.style.display = 'flex';
             
-            // Tratamento de erro: se o navegador bloquear o fullscreen (ex: em iframes), ele ignora e continua
             if (overlay.requestFullscreen) {
                 overlay.requestFullscreen().catch(err => {
-                    console.warn("Modo tela cheia nativo bloqueado. Utilizando fallback de tela inteira em CSS.");
+                    console.warn("Modo tela cheia nativo bloqueado pelo navegador. Utilizando fallback CSS em janela inteira.");
                 });
             }
             
@@ -796,7 +835,7 @@
             listaImagensTV = Array.from(imagensElementos).map(img => ({ src: img.src, legenda: img.alt }));
             
             if (listaImagensTV.length === 0) {
-                alert("Nenhuma foto de aluno encontrada para exposição.");
+                alert("Nenhuma foto de aluno disponível para exposição no momento.");
                 sairModoTV();
                 return;
             }
@@ -809,7 +848,7 @@
             tvIntervalo = setInterval(() => {
                 tvIndice = (tvIndice + 1) % listaImagensTV.length;
                 trocarSlideTV(imgEl, legendaEl);
-            }, 6000); // Troca a foto a cada 6 segundos
+            }, 6000); 
         }
 
         function trocarSlideTV(imgEl, legendaEl) {
@@ -830,18 +869,41 @@
         }
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') sairModoTV(); });
 
-        // CONTADOR REGRESSIVO
+        // CONTADOR REGRESSIVO E SISTEMA DE DESBLOQUEIO
         const dataEvento = new Date("Nov 14, 2026 08:00:00").getTime();
+        
+        function verificarDesbloqueio() {
+            const agora = new Date().getTime();
+            if (agora >= dataEvento) {
+                document.querySelectorAll('.em-construcao').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.conteudo-secreto').forEach(el => el.style.display = 'block');
+            } else {
+                document.querySelectorAll('.em-construcao').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.conteudo-secreto').forEach(el => el.style.display = 'none');
+            }
+        }
+
         const relogioIntervalo = setInterval(function() {
             const agora = new Date().getTime();
             const distancia = dataEvento - agora;
+            
             if (distancia < 0) {
-                clearInterval(relogioIntervalo); document.getElementById("contador-timer").innerHTML = "A Feira Literária já está acontecendo/finalizada!"; return;
+                clearInterval(relogioIntervalo); 
+                document.querySelectorAll(".relogio-contador").forEach(el => {
+                    el.innerHTML = "A Feira Literária já está acontecendo/finalizada!";
+                });
+                verificarDesbloqueio(); 
+                return;
             }
+            
             const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("contador-timer").innerHTML = `⏳ Faltam: <strong>${dias} dias, ${horas} horas e ${minutos} minutos!</strong>`;
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+            
+            document.querySelectorAll(".relogio-contador").forEach(el => {
+                el.innerHTML = `⏳ Faltam: <strong>${dias} dias, ${horas} horas, ${minutos}m e ${segundos}s</strong>`;
+            });
         }, 1000);
     </script>
 </body>
