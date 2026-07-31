@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feira Literária - Águas de São Pedro</title>
-
-    <!-- METATAGS OPEN GRAPH (CARTÃO DE VISITA PARA O WHATSAPP E REDES SOCIAIS) -->
-    <meta property="og:title" content="Feira Literária 2026 - Águas de São Pedro">
-    <meta property="og:description" content="Venha conhecer o projeto Visão Diferente desenvolvido pelos alunos da E.M.E.F Maria Luiza Fornasier Franzin!">
-    <!-- Link direto para a imagem do Brasão que será exibida nas prévias -->
+    
+    <!-- Metatags Open Graph (Para o WhatsApp, Facebook, etc) -->
+    <meta property="og:title" content="Feira Literária - Visão Diferente | Águas de São Pedro">
+    <meta property="og:description" content="Acompanhe os trabalhos e a exposição fotográfica dos alunos dos 5ºs Anos da E.M.E.F Maria Luiza Fornasier Franzin.">
     <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bras%C3%A3o_%C3%81guas_de_S%C3%A3o_Pedro.png">
     <meta property="og:type" content="website">
+    
+    <!-- Ícone do navegador (Favicon) -->
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bras%C3%A3o_%C3%81guas_de_S%C3%A3o_Pedro.png" type="image/png">
 
-    <!-- FAVICON (ÍCONE DA ABA DO NAVEGADOR) -->
-    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bras%C3%A3o_%C3%81guas_de_S%C3%A3o_Pedro.png">
-
+    <title>Feira Literária - Águas de São Pedro</title>
     <style>
         /* --- ESTILOS GERAIS --- */
         :root {
@@ -80,14 +79,12 @@
         }
         
         .header-bg-logo {
-            position: absolute; top: 50%; left: 50%; 
-            width: 350px; height: 350px;
-            /* Modificado para suportar o Parallax no JS */
-            transform: translate(-50%, -50%) translateY(0px); 
+            position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
+            width: 400px; height: 400px;
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4b/Bras%C3%A3o_%C3%81guas_de_S%C3%A3o_Pedro.png');
             background-size: contain; background-repeat: no-repeat; background-position: center;
-            opacity: 0.15; z-index: -1;
-            transition: transform 0.1s ease-out; /* Suaviza o movimento do parallax */
+            opacity: 0.12; z-index: -1;
+            /* A animação do parallax será controlada via JavaScript */
         }
 
         .escola-nome {
@@ -129,7 +126,7 @@
             width: 300px; height: 200px; object-fit: cover; border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: transform 0.3s; cursor: pointer;
         }
-        .galeria > img:hover { transform: scale(1.05); }
+        .galeria > img:hover, .galeria > div > img:hover { transform: scale(1.05); cursor: pointer;}
 
         .legenda-foto {
             margin-top: 10px; font-size: 0.9rem; color: var(--cor-texto); text-align: left;
@@ -202,11 +199,10 @@
         .cartao-almanaque img { width: 120px; height: auto; margin-bottom: 15px; filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.3)); }
 
         .container-pdf { width: 100%; height: 70vh; border: 3px solid var(--cor-secundaria); border-radius: 8px; margin-top: 20px; background-color: #f1f5f9; }
-        .btn-baixar, .btn-agenda { display: inline-block; background-color: var(--cor-primaria); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-size: 1.1rem; font-weight: bold; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .btn-baixar:hover { background-color: var(--cor-secundaria); }
-        
+        .btn-baixar, .btn-agenda { display: inline-block; background-color: var(--cor-primaria); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-size: 1.1rem; font-weight: bold; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: none; cursor: pointer; }
+        .btn-baixar:hover, .btn-agenda:hover { background-color: var(--cor-secundaria); }
         .btn-agenda { background-color: #27ae60; margin-top: 15px; }
-        .btn-agenda:hover { background-color: #219150; }
+        .btn-agenda:hover { background-color: #219653; }
 
         /* --- ESTILOS DE BLOQUEIO (EM CONSTRUÇÃO) --- */
         .em-construcao { text-align: center; padding: 40px 20px; animation: fadeIn 0.5s; }
@@ -259,9 +255,6 @@
         }
         .btn-fechar-tv:hover { background: rgba(255,255,255,0.4); }
 
-        /* --- MAPA RESPONSIVO --- */
-        .mapa-container { margin: 30px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; border: 2px solid var(--cor-secundaria); }
-
         /* --- RODAPÉ INSTITUCIONAL --- */
         footer { background-color: var(--cor-primaria); color: var(--cor-branco); padding: 40px 20px 20px 20px; margin-top: 40px; }
         .footer-container { display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1000px; margin: 0 auto; text-align: left; gap: 30px; }
@@ -271,32 +264,15 @@
         .footer-col a:hover { color: white; text-decoration: underline; }
         .footer-bottom { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem; text-align: center; width: 100%; }
 
-        /* ==========================================================================
-           REGRAS DE IMPRESSÃO PROFISSIONAL (Modo Print)
-           ========================================================================== */
+        /* --- Estilo para Impressão --- */
         @media print {
-            body { 
-                background-color: white; 
-                color: black; 
-                font-family: Arial, sans-serif;
-            }
-            
-            header, nav, footer, #btn-topo, .btn-voltar, .btn-baixar, .btn-agenda, 
-            .btn-ouvir, #preloader, .relogio-contador, .slider-comparacao {
+            header, nav, #btn-topo, footer, .btn-voltar, .quiz-container, .btn-baixar, .btn-agenda, .audio-player, #modo-tv-overlay, .slider-comparacao {
                 display: none !important;
             }
-
-            main { box-shadow: none; margin: 0; padding: 0; }
-            .aba-conteudo { display: block !important; page-break-inside: avoid; margin-bottom: 40px; animation: none; }
-            .aba-conteudo:not(.ativo) { display: none !important; }
-
-            h2 { color: black; border-bottom: 1px solid black; }
-            .caixa-destaque, .parceria-perfil, .cartao-aluno, .cartao-turma {
-                background-color: transparent; border: 1px solid #ccc; box-shadow: none; page-break-inside: avoid;
-            }
-            .pilula-literaria { color: #555; border-top: 1px dotted #ccc; border-bottom: 1px dotted #ccc; }
-            .galeria img { border-radius: 0; box-shadow: none; border: 1px solid #ccc; }
-            .mapa-container { display: none; }
+            body { background-color: white; color: black; }
+            main { box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
+            .aba-conteudo { display: block !important; page-break-after: always; }
+            .em-construcao, .conteudo-secreto { display: block !important; }
         }
     </style>
 </head>
@@ -309,7 +285,7 @@
     </div>
 
     <header>
-        <div class="header-bg-logo" id="parallax-logo"></div>
+        <div class="header-bg-logo" id="bg-logo"></div>
         <div class="escola-nome">E.M.E.F Maria Luiza Fornasier Franzin</div>
         <h1>Feira Literária</h1>
         <p>Projeto "Visão Diferente" - Tema: Águas de São Pedro</p>
@@ -343,10 +319,10 @@
                 <strong>Horário:</strong> Aberto ao público a partir das 08:00<br>
                 <strong>Local:</strong> Pátio Principal e Salas dos 5ºs Anos</p>
                 <p class="relogio-contador" id="contador-principal">Calculando o tempo...</p>
-                <p style="font-size: 0.9rem; color: #555;">Venha prestigiar os trabalhos de fotografia e o nosso almanaque oficial!</p>
-
-                <!-- BOTÃO SALVAR NA AGENDA -->
-                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Feira+Liter%C3%A1ria+-+E.M.E.F+Maria+Luiza&dates=20261114T110000Z/20261114T150000Z&details=Venha+prestigiar+os+trabalhos+de+fotografia+e+o+nosso+almanaque+oficial!&location=E.M.E.F+Maria+Luiza+Fornasier+Franzin,+%C3%81guas+de+S%C3%A3o+Pedro+-+SP" target="_blank" class="btn-agenda" title="Adicionar lembrete no seu Google Agenda">📅 Adicionar ao meu Calendário</a>
+                <br>
+                <!-- Botão de Adicionar à Agenda -->
+                <button class="btn-agenda" onclick="adicionarAoCalendario()">📅 Salvar na Minha Agenda</button>
+                <p style="font-size: 0.9rem; color: #555; margin-top: 15px;">Venha prestigiar os trabalhos de fotografia e o nosso almanaque oficial!</p>
             </div>
 
             <h2>Tema deste ano: Águas de São Pedro</h2>
@@ -372,16 +348,13 @@
             <h2>Nossa Inspiração: Águas de São Pedro</h2>
             <p>Conhecida por sua tranquilidade e suas famosas águas termais, nossa cidade é um verdadeiro museu a céu aberto. Nesta seção, reunimos uma visão geral de como os alunos enxergaram os encantos, a natureza e a arquitetura de <strong>Águas de São Pedro</strong> durante todo o projeto.</p>
             
-            <div class="pilula-literaria">
-                "As águas de uma cidade não contam apenas a sua geografia, contam a história da vida que flui através dela."
+            <!-- Mapa Integrado -->
+            <div style="width: 100%; border-radius: 8px; overflow: hidden; margin: 30px 0; border: 3px solid var(--cor-destaque);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14731.54761063684!2d-47.886300450000004!3d-22.6020588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c666c8882a8db5%3A0xc6bf80d1e3d3dd54!2zw4FndWFzIGRlIFPDo28gUGVkcm8sIFNQ!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
-            <!-- MAPA DA CIDADE -->
-            <h3 style="margin-top: 30px;">Localização e Paisagens</h3>
-            <p>Nossa adorável estância hidromineral está localizada no coração do estado de São Paulo. Navegue pelo mapa para conhecer o formato de nossa cidade.</p>
-            
-            <div class="mapa-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14704.811802958212!2d-47.885662706342884!3d-22.598587979603333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c6600c01a182bd%3A0x633d9c3bd0034633!2s%C3%81guas%20de%20S%C3%A3o%20Pedro%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="pilula-literaria">
+                "As águas de uma cidade não contam apenas a sua geografia, contam a história da vida que flui através dela."
             </div>
 
             <h3 style="margin-top: 30px; color: var(--cor-secundaria);">Figuras Históricas de Nossa Cidade</h3>
@@ -402,31 +375,31 @@
                 </div>
             </div>
 
-            <h3 style="margin-top: 30px;">Visão Geral</h3>
+            <h3 style="margin-top: 30px;">Visão Geral (Galeria Expandida)</h3>
             <div class="galeria">
                 <div>
                     <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+1" alt="Foto da cidade 1" loading="lazy">
-                    <div class="legenda-foto"><strong>📍 Relógio do Sol</strong><br>📸 Turma de Fotografia</div>
+                    <div class="legenda-foto"><strong>📍 Relógio do Sol</strong><br>📸 Acervo do Projeto</div>
                 </div>
                 <div>
                     <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+2" alt="Foto da cidade 2" loading="lazy">
-                    <div class="legenda-foto"><strong>📍 Fonte da Juventude</strong><br>📸 Turma de Fotografia</div>
+                    <div class="legenda-foto"><strong>📍 Fonte da Juventude</strong><br>📸 Acervo do Projeto</div>
                 </div>
                 <div>
                     <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+3" alt="Foto da cidade 3" loading="lazy">
-                    <div class="legenda-foto"><strong>📍 Boulevard de Águas</strong><br>📸 Turma de Fotografia</div>
+                    <div class="legenda-foto"><strong>📍 Boulevard de Águas</strong><br>📸 Acervo do Projeto</div>
                 </div>
                 <div>
                     <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+4" alt="Foto da cidade 4" loading="lazy">
-                    <div class="legenda-foto"><strong>📍 Praça dos Rouxinóis</strong><br>📸 Turma de Fotografia</div>
+                    <div class="legenda-foto"><strong>📍 Portal da Cidade</strong><br>📸 Acervo do Projeto</div>
                 </div>
                 <div>
                     <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+5" alt="Foto da cidade 5" loading="lazy">
-                    <div class="legenda-foto"><strong>📍 Spa Thermal</strong><br>📸 Turma de Fotografia</div>
+                    <div class="legenda-foto"><strong>📍 Parque das Águas</strong><br>📸 Acervo do Projeto</div>
                 </div>
                 <div>
                     <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+6" alt="Foto da cidade 6" loading="lazy">
-                    <div class="legenda-foto"><strong>📍 Capela N. S. Aparecida</strong><br>📸 Turma de Fotografia</div>
+                    <div class="legenda-foto"><strong>📍 Mini Horto</strong><br>📸 Acervo do Projeto</div>
                 </div>
             </div>
         </section>
@@ -581,7 +554,7 @@
                     <p>Meu nome é Lucas Zampiere e eu estudo no 5º Ano B.</p>
                     <div class="audio-player">
                         <p style="margin-bottom: 5px; font-weight: bold; color: var(--cor-primaria);">▶️ Ouça meu depoimento:</p>
-                        <audio controls>
+                        <audio controls preload="none">
                             <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                             Seu navegador não suporta o elemento de áudio.
                         </audio>
@@ -730,7 +703,7 @@
         <p style="color: white; margin-top: 15px;">Clique no fundo escuro para fechar</p>
     </div>
 
-    <!-- CAIXA DE MENSAGEM CUSTOMIZADA (Substitui o alert bloqueado) -->
+    <!-- CAIXA DE MENSAGEM CUSTOMIZADA -->
     <div id="caixa-mensagem" class="lightbox" style="z-index: 10001; flex-direction: column;" onclick="fecharMensagem()">
         <div style="background: var(--cor-branco); padding: 30px; border-radius: 8px; text-align: center; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" onclick="event.stopPropagation()">
             <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem; border-bottom: none;">🔒 Acesso Restrito</h3>
@@ -751,7 +724,8 @@
             <div class="footer-col">
                 <h3>Institucional</h3>
                 <p><strong>E.M.E.F Maria Luiza Fornasier Franzin</strong></p>
-                <a href="https://maps.app.goo.gl/8qaGBdZfRvENkZSR6" target="_blank">📍 Ver endereço no Google Maps</a>
+                <!-- LINK DO GOOGLE MAPS ATUALIZADO AQUI -->
+                <a href="https://maps.app.goo.gl/zKCcNMqfNjxDqL6G8?g_st=aw" target="_blank" rel="noopener noreferrer">📍 Ver endereço no Google Maps</a>
                 <p>📞 Telefone: <a href="tel:+551934822919">(19) 3482-2919</a></p>
                 <a href="mailto:educa.asp@aguasdesaopedro.sp.gov.br">✉️ educa.asp@aguasdesaopedro.sp.gov.br</a>
             </div>
@@ -769,22 +743,23 @@
     </footer>
 
     <script>
+        // PRELOADER
         window.addEventListener('load', function() {
             const preloader = document.getElementById('preloader');
             setTimeout(() => { preloader.style.opacity = '0'; setTimeout(() => { preloader.style.display = 'none'; }, 500); }, 500);
             verificarDesbloqueio(); 
         });
 
-        // PARALLAX EFFECT 
-        window.addEventListener('scroll', function() {
-            const logo = document.getElementById("parallax-logo");
-            const scrollPos = window.scrollY;
-            logo.style.transform = `translate(-50%, -50%) translateY(${scrollPos * 0.4}px)`; 
-            
+        // PARALLAX SUAVE DO CABEÇALHO E BOTÃO TOPO
+        window.onscroll = function() {
             const btnTopo = document.getElementById("btn-topo");
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) btnTopo.style.display = "block";
             else btnTopo.style.display = "none";
-        });
+
+            const scrolled = window.scrollY;
+            const bgLogo = document.getElementById('bg-logo');
+            if(bgLogo) bgLogo.style.transform = `translateX(-50%) translateY(${scrolled * 0.3}px)`;
+        };
         
         function voltarAoTopo() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
@@ -802,6 +777,17 @@
             document.body.classList.toggle('dark-mode');
             const btn = document.getElementById('btn-tema');
             btn.innerText = document.body.classList.contains('dark-mode') ? '☀️ Claro' : '🌙 Escuro';
+        }
+
+        // ADICIONAR AO CALENDÁRIO
+        function adicionarAoCalendario() {
+            const titulo = encodeURIComponent('Feira Literária - Visão Diferente (E.M.E.F Maria Luiza)');
+            const detalhes = encodeURIComponent('Venha prestigiar os trabalhos fotográficos e o Almanaque dos alunos do 5º Ano da nossa escola!');
+            const local = encodeURIComponent('E.M.E.F Maria Luiza Fornasier Franzin, Águas de São Pedro - SP');
+            const dataInicio = '20261114T110000Z'; // 08h00 BRT
+            const dataFim = '20261114T150000Z'; // 12h00 BRT
+            const urlGoogleAgenda = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=${dataInicio}/${dataFim}&details=${detalhes}&location=${local}`;
+            window.open(urlGoogleAgenda, '_blank');
         }
 
         // QUIZ
@@ -840,7 +826,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const fotosGaleria = document.querySelectorAll('.galeria > img, .zoom-img-container img');
+            const fotosGaleria = document.querySelectorAll('.galeria > img, .galeria > div > img, .zoom-img-container img');
             fotosGaleria.forEach(foto => {
                 foto.addEventListener('click', function() { abrirLightbox(this.src); });
             });
@@ -876,11 +862,6 @@
             audioAtualDesc.onended = function() { btn.innerHTML = '🎧 Audio Descrição'; audioAtualDesc = null; botaoAudioAtivo = null; };
         }
 
-        // MODO TV / EXPOSIÇÃO
-        let tvIntervalo;
-        let tvIndice = 0;
-        let listaImagensTV = [];
-
         // FUNÇÃO DE MENSAGEM
         function mostrarMensagem(texto) {
             document.getElementById('texto-mensagem').innerText = texto;
@@ -891,9 +872,13 @@
             document.getElementById('caixa-mensagem').style.display = 'none';
         }
 
+        // MODO TV / EXPOSIÇÃO
+        let tvIntervalo;
+        let tvIndice = 0;
+        let listaImagensTV = [];
+
         function iniciarModoTV() {
             const agora = new Date().getTime();
-            // CADEADO DE SEGURANÇA DO MODO TV
             if (agora < dataEvento) {
                 mostrarMensagem("Shhh! O Modo TV contém os trabalhos dos alunos e só será desbloqueado no dia da Feira Literária!");
                 return; 
@@ -904,7 +889,7 @@
             
             if (overlay.requestFullscreen) {
                 overlay.requestFullscreen().catch(err => {
-                    console.warn("Modo tela cheia nativo bloqueado pelo navegador. Utilizando fallback CSS em janela inteira.");
+                    console.warn("Modo tela cheia nativo bloqueado pelo navegador.");
                 });
             }
             
@@ -912,7 +897,7 @@
             listaImagensTV = Array.from(imagensElementos).map(img => ({ src: img.src, legenda: img.alt }));
             
             if (listaImagensTV.length === 0) {
-                alert("Nenhuma foto de aluno disponível para exposição no momento.");
+                mostrarMensagem("Nenhuma foto de aluno disponível para exposição no momento.");
                 sairModoTV();
                 return;
             }
