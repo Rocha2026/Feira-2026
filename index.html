@@ -7,11 +7,11 @@
     <!-- Metatags Open Graph (Para o WhatsApp, Facebook, etc) -->
     <meta property="og:title" content="Feira Literária - Visão Diferente | Águas de São Pedro">
     <meta property="og:description" content="Acompanhe os trabalhos e a exposição fotográfica dos alunos dos 5ºs Anos da E.M.E.F Maria Luiza Fornasier Franzin.">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bras%C3%A3o_%C3%81guas_de_S%C3%A3o_Pedro.png">
+    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=15n9u0XYAGvCADFs9gi2b1ZZCA2-ENpIr">
     <meta property="og:type" content="website">
     
     <!-- Ícone do navegador (Favicon) -->
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bras%C3%A3o_%C3%81guas_de_S%C3%A3o_Pedro.png" type="image/png">
+    <link rel="icon" href="https://drive.google.com/uc?export=view&id=15n9u0XYAGvCADFs9gi2b1ZZCA2-ENpIr" type="image/png">
 
     <title>Feira Literária - Águas de São Pedro</title>
     <style>
@@ -81,7 +81,7 @@
         .header-bg-logo {
             position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
             width: 400px; height: 400px;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4b/Bras%C3%A3o_%C3%81guas_de_S%C3%A3o_Pedro.png');
+            background-image: url('https://drive.google.com/uc?export=view&id=15n9u0XYAGvCADFs9gi2b1ZZCA2-ENpIr');
             background-size: contain; background-repeat: no-repeat; background-position: center;
             opacity: 0.12; z-index: -1;
             /* A animação do parallax será controlada via JavaScript */
@@ -767,14 +767,13 @@
     </footer>
 
     <script>
-        // PRELOADER
         window.addEventListener('load', function() {
             const preloader = document.getElementById('preloader');
             setTimeout(() => { preloader.style.opacity = '0'; setTimeout(() => { preloader.style.display = 'none'; }, 500); }, 500);
             verificarDesbloqueio(); 
+            verificarRotaQR(); // Verifica se o usuário veio por um QR Code
         });
 
-        // PARALLAX SUAVE DO CABEÇALHO E BOTÃO TOPO
         window.onscroll = function() {
             const btnTopo = document.getElementById("btn-topo");
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) btnTopo.style.display = "block";
@@ -791,10 +790,34 @@
             document.querySelectorAll('.aba-conteudo').forEach(s => s.classList.remove('ativo'));
             if(idBotaoMenu) {
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('ativo'));
-                document.getElementById(idBotaoMenu).classList.add('ativo');
+                // Nem todas as abas têm botão no menu principal
+                const btn = document.getElementById(idBotaoMenu);
+                if(btn) btn.classList.add('ativo');
             }
-            document.getElementById(idSessao).classList.add('ativo');
-            window.scrollTo({ top: document.querySelector('main').offsetTop - 20, behavior: 'smooth' });
+            const sessaoDestino = document.getElementById(idSessao);
+            if (sessaoDestino) {
+                sessaoDestino.classList.add('ativo');
+                window.scrollTo({ top: document.querySelector('main').offsetTop - 20, behavior: 'smooth' });
+                
+                // Atualiza a URL para facilitar o compartilhamento/QR Code sem recarregar a página
+                history.pushState(null, null, '?aluno=' + idSessao);
+            }
+        }
+        
+        function verificarRotaQR() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const alunoId = urlParams.get('aluno');
+            
+            if (alunoId && document.getElementById(alunoId)) {
+                // Se for um ID de aluno válido, navega direto para lá
+                // Usamos um timeout pequeno para garantir que o preloader sumiu
+                setTimeout(() => {
+                    mostrarSessao(alunoId, null); // null porque abas de alunos não têm botão no menu principal
+                    
+                    // Opcional: Adicionar um pequeno aviso de boas-vindas ao guia virtual
+                    mostrarMensagem("Bem-vindo ao Guia Virtual! Você está vendo o perfil selecionado via QR Code.");
+                }, 600);
+            }
         }
 
         function alternarTema() {
