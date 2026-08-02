@@ -255,6 +255,17 @@
         }
         .btn-fechar-tv:hover { background: rgba(255,255,255,0.4); }
 
+        /* --- ESTILOS ABA EDIÇÃO ANTERIOR --- */
+        .cartao-edicao-anterior {
+            background-color: var(--cor-destaque); border-radius: 8px; padding: 30px; margin-top: 20px;
+            text-align: center; border: 2px dashed var(--cor-secundaria); transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cartao-edicao-anterior:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-edicao-anterior {
+            display: inline-block; background-color: var(--cor-primaria); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; margin-top: 15px; font-size: 1.2rem; font-weight: bold; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: none; cursor: pointer;
+        }
+        .btn-edicao-anterior:hover { background-color: var(--cor-secundaria); }
+
         /* --- RODAPÉ INSTITUCIONAL --- */
         footer { background-color: var(--cor-primaria); color: var(--cor-branco); padding: 40px 20px 20px 20px; margin-top: 40px; }
         .footer-container { display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1000px; margin: 0 auto; text-align: left; gap: 30px; }
@@ -266,7 +277,7 @@
 
         /* --- Estilo para Impressão --- */
         @media print {
-            header, nav, #btn-topo, footer, .btn-voltar, .quiz-container, .btn-baixar, .btn-agenda, .audio-player, #modo-tv-overlay, .slider-comparacao {
+            header, nav, #btn-topo, footer, .btn-voltar, .quiz-container, .btn-baixar, .btn-agenda, .audio-player, #modo-tv-overlay, .slider-comparacao, .btn-edicao-anterior {
                 display: none !important;
             }
             body { background-color: white; color: black; }
@@ -296,6 +307,7 @@
         <button id="btn-aguas" class="tab-btn" onclick="mostrarSessao('aguas', 'btn-aguas')">Águas de São Pedro</button>
         <button id="btn-turmas" class="tab-btn" onclick="mostrarSessao('turmas', 'btn-turmas')">Turmas 5º Ano</button>
         <button id="btn-makingoff" class="tab-btn" onclick="mostrarSessao('makingoff', 'btn-makingoff')">Making Off</button>
+        <button id="btn-edicao-2025" class="tab-btn" onclick="mostrarSessao('edicao-2025', 'btn-edicao-2025')">Edição 2025</button>
         <button id="btn-organizadores" class="tab-btn" onclick="mostrarSessao('organizadores', 'btn-organizadores')">Organizadores</button>
         
         <div style="flex-grow: 1;"></div> 
@@ -496,7 +508,7 @@
         <section id="quinto-b" class="aba-conteudo">
             <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">← Voltar para Turmas</button>
             <h2>Projeto "Visão Diferente" - Turma 5º Ano B</h2>
-            <p>Os alunos do 5º B saíram a campo com suas cameras e celulares para capturar os detalhes escondidos de Águas de São Pedro com um ponto de vista único.</p>
+            <p>Os alunos do 5º B saíram a campo com suas câmeras e celulares para capturar os detalhes escondidos de Águas de São Pedro com um ponto de vista único.</p>
             
             <div style="background-color: var(--cor-destaque); padding: 20px; border-radius: 8px; text-align: center; margin-bottom: 30px; color: #333;">
                 <h3 style="margin-top: 0; color: var(--cor-primaria);">Interativo: O Jogo do "Antes e Depois"</h3>
@@ -682,6 +694,19 @@
             </div>
         </section>
 
+        <!-- EDIÇÃO 2025 -->
+        <section id="edicao-2025" class="aba-conteudo">
+            <h2>Feira Literária - Edição 2025</h2>
+            <p>O sucesso do nosso projeto "Visão Diferente" deste ano foi construído com base na criatividade, leitura e dedicação que os alunos demonstraram na edição anterior da nossa Feira Literária.</p>
+            <p>A E.M.E.F Maria Luiza Fornasier Franzin tem muito orgulho de manter um acervo digital dos trabalhos produzidos por nossos estudantes, eternizando o talento de cada turma.</p>
+            
+            <div class="cartao-edicao-anterior">
+                <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">Reviva os Momentos de 2025!</h3>
+                <p style="font-size: 1.1rem; color: var(--cor-texto);">Clique no botão abaixo para visitar o site oficial da Feira Literária do ano passado e explorar todos os trabalhos desenvolvidos naquela edição.</p>
+                <a href="https://rocha2026.github.io/feiraliteraria/" target="_blank" rel="noopener noreferrer" class="btn-edicao-anterior">📖 Acessar Acervo 2025</a>
+            </div>
+        </section>
+
         <!-- ORGANIZADORES -->
         <section id="organizadores" class="aba-conteudo">
             <h2>Equipe Organizadora</h2>
@@ -724,8 +749,7 @@
             <div class="footer-col">
                 <h3>Institucional</h3>
                 <p><strong>E.M.E.F Maria Luiza Fornasier Franzin</strong></p>
-                <!-- LINK DO GOOGLE MAPS ATUALIZADO AQUI -->
-                <a href="https://maps.google.com/?cid=11439280884158655745" target="_blank" rel="noopener noreferrer">📍 Ver endereço no Google Maps</a>
+                <a href="https://maps.app.goo.gl/zKCcNMqfNjxDqL6G8?g_st=aw" target="_blank" rel="noopener noreferrer">📍 Ver endereço no Google Maps</a>
                 <p>📞 Telefone: <a href="tel:+551934822919">(19) 3482-2919</a></p>
                 <a href="mailto:educa.asp@aguasdesaopedro.sp.gov.br">✉️ educa.asp@aguasdesaopedro.sp.gov.br</a>
             </div>
