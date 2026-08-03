@@ -486,6 +486,14 @@
 
     <button id="btn-topo" onclick="voltarAoTopo()" title="Voltar ao topo">⬆️</button>
 
+    <!-- LIGHTBOX (TELA CHEIA PARA FOTOS) -->
+    <div id="lightbox" class="lightbox" onclick="fecharLightbox(event)">
+        <span class="lightbox-fechar" onclick="fecharLightbox(event)">&times;</span>
+        <img id="lightbox-img" class="lightbox-img" src="" loading="lazy">
+        <a id="btn-download-lightbox" href="" download class="btn-baixar" style="margin-top: 20px;" onclick="event.stopPropagation()">📥 Baixar para o Celular</a>
+        <p style="color: white; margin-top: 15px;">Clique no fundo escuro para fechar</p>
+    </div>
+
     <!-- MODO TV OVERLAY -->
     <div id="modo-tv-overlay">
         <button class="btn-fechar-tv" onclick="sairModoTV()">✖ Sair da Exposição</button>
@@ -560,6 +568,28 @@
             const btn = document.getElementById('btn-tema');
             btn.innerText = document.body.classList.contains('dark-mode') ? '☀️ Claro' : '🌙 Escuro';
         }
+
+        // SISTEMA DE LIGHTBOX E DOWNLOAD
+        function abrirLightbox(caminhoImagem) {
+            document.getElementById('lightbox-img').src = caminhoImagem;
+            document.getElementById('btn-download-lightbox').href = caminhoImagem;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function fecharLightbox(event) {
+            if(event && (event.target.id === 'lightbox-img' || event.target.id === 'btn-download-lightbox')) return;
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Adiciona a função de clique em todas as fotos quando a página carrega
+        window.addEventListener('DOMContentLoaded', function() {
+            const fotosGaleria = document.querySelectorAll('.galeria > img, .galeria > div > img');
+            fotosGaleria.forEach(foto => {
+                foto.addEventListener('click', function() { 
+                    abrirLightbox(this.src); 
+                });
+            });
+        });
 
         function adicionarAoCalendario() {
             const titulo = encodeURIComponent('Feira Literária - Visão Diferente (E.M.E.F Maria Luiza)');
