@@ -570,12 +570,66 @@
 
         // MODO TV
         let tvIntervalo;
+        let tvIndice = 0;
+        let listaImagensTV = [];
+
         function iniciarModoTV() {
+            const agora = new Date().getTime();
             const overlay = document.getElementById('modo-tv-overlay');
+            const imgEl = document.getElementById('tv-imagem');
+            const legendaEl = document.getElementById('tv-legenda');
+
             overlay.style.display = 'flex';
+
+            // BLOQUEADOR AQUI: Verifica se a data atual é menor que a do evento
+            if (agora < dataEvento) {
+                imgEl.style.display = 'none'; // Esconde a imagem
+                legendaEl.innerHTML = "🔒 <strong>Acesso Restrito!</strong><br><br>O Modo TV contém os trabalhos dos alunos e só será desbloqueado no dia da Feira Literária.";
+                legendaEl.style.opacity = 1;
+                legendaEl.style.textAlign = 'center';
+                return; // Para a função aqui para não rodar as fotos
+            }
+
+            // SE ESTIVER DESBLOQUEADO, INICIA O SLIDESHOW
+            imgEl.style.display = 'block';
+            legendaEl.style.textAlign = 'center';
+            
+            // Tenta colocar em tela cheia
+            if (overlay.requestFullscreen) {
+                overlay.requestFullscreen().catch(err => console.warn(err));
+            }
+            
+            // Pega todas as fotos da galeria para passar na TV
+            const imagensElementos = document.querySelectorAll('.galeria img:not(.img-fundo):not(.img-sobreposicao)');
+            listaImagensTV = Array.from(imagensElementos).map(img => ({ src: img.src, legenda: img.alt || "Exposição Visão Diferente" }));
+            
+            if (listaImagensTV.length === 0) return;
+
+            tvIndice = 0;
+            trocarSlideTV(imgEl, legendaEl);
+            
+            // Troca de foto a cada 6 segundos
+            tvIntervalo = setInterval(() => {
+                tvIndice = (tvIndice + 1) % listaImagensTV.length;
+                trocarSlideTV(imgEl, legendaEl);
+            }, 6000); 
         }
+
+        function trocarSlideTV(imgEl, legendaEl) {
+            imgEl.style.opacity = 0; legendaEl.style.opacity = 0;
+            setTimeout(() => {
+                imgEl.src = listaImagensTV[tvIndice].src;
+                legendaEl.innerText = listaImagensTV[tvIndice].legenda;
+                imgEl.style.opacity = 1; legendaEl.style.opacity = 1;
+            }, 1000); // Efeito de transição suave
+        }
+
         function sairModoTV() {
+            clearInterval(tvIntervalo); // Para o slideshow
             document.getElementById('modo-tv-overlay').style.display = 'none';
+            if (document.fullscreenElement && document.exitFullscreen) {
+                document.exitFullscreen().catch(err => console.warn(err));
+            }
         }
 
         // CONTADOR REGRESSIVO E SISTEMA DE DESBLOQUEIO
