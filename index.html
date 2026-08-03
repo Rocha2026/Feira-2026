@@ -250,27 +250,6 @@
         .relogio-contador { font-size: 1.3rem; color: #d35400; background-color: #faebd7; padding: 10px; border-radius: 5px; display: inline-block; margin: 10px 0; }
         body.dark-mode .relogio-contador { background-color: #4a3b2c; color: #ffa07a; }
 
-        .quiz-container { background-color: var(--cor-destaque); padding: 20px; border-radius: 8px; margin-top: 40px; }
-        .btn-quiz { display: block; width: 100%; background-color: var(--cor-branco); color: var(--cor-texto); border: 2px solid var(--cor-secundaria); padding: 10px; margin: 10px 0; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background 0.2s; }
-        .btn-quiz:hover { background-color: var(--cor-secundaria); color: white; }
-
-        .audio-player { margin-top: 15px; } .audio-player audio { width: 100%; max-width: 400px; outline: none; }
-
-        .lightbox { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; flex-direction: column; }
-        .lightbox-img { max-width: 90%; max-height: 80%; border-radius: 5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
-        .lightbox-fechar { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
-
-        .pilula-literaria { text-align: center; font-style: italic; font-size: 1.3rem; color: var(--cor-secundaria); margin: 40px auto; padding: 20px; border-top: 1px dashed var(--cor-secundaria); border-bottom: 1px dashed var(--cor-secundaria); max-width: 80%; }
-
-        .slider-comparacao { position: relative; width: 100%; max-width: 500px; height: 330px; margin: 30px auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2); background-color: var(--cor-destaque); }
-        .img-fundo, .img-sobreposicao { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .img-sobreposicao { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
-        .slider-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 10; }
-        .slider-linha { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; pointer-events: none; transform: translateX(-50%); box-shadow: 0 0 5px rgba(0,0,0,0.5); z-index: 5; }
-        .slider-setas { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--cor-primaria); pointer-events: none; box-shadow: 0 2px 5px rgba(0,0,0,0.3); z-index: 6; }
-        .slider-label { position: absolute; bottom: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; z-index: 2; }
-        .label-antes { right: 10px; } .label-depois { left: 10px; }
-
         /* --- MODO TV --- */
         #modo-tv-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
@@ -291,36 +270,6 @@
         }
         .btn-fechar-tv:hover { background: rgba(255,255,255,0.4); }
 
-        /* --- ESTILOS ABA EDIÇÃO ANTERIOR --- */
-        .cartao-edicao-anterior {
-            background-color: var(--cor-destaque); border-radius: 8px; padding: 30px; margin-top: 20px;
-            text-align: center; border: 2px dashed var(--cor-secundaria); transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .cartao-edicao-anterior:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .btn-edicao-anterior {
-            display: inline-block; background-color: var(--cor-primaria); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; margin-top: 15px; font-size: 1.2rem; font-weight: bold; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: none; cursor: pointer;
-        }
-        .btn-edicao-anterior:hover { background-color: var(--cor-secundaria); }
-
-        /* --- RODAPÉ INSTITUCIONAL --- */
-        footer { background-color: var(--cor-primaria); color: var(--cor-branco); padding: 40px 20px 20px 20px; margin-top: 40px; }
-        .footer-container { display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1000px; margin: 0 auto; text-align: left; gap: 30px; }
-        .footer-col { flex: 1; min-width: 250px; }
-        .footer-col h3 { border-bottom: 2px solid var(--cor-secundaria); padding-bottom: 5px; margin-bottom: 15px; color: var(--cor-branco); margin-top: 0; }
-        .footer-col p, .footer-col a { color: #d1d5db; text-decoration: none; font-size: 0.95rem; margin: 8px 0; display: block; }
-        .footer-col a:hover { color: white; text-decoration: underline; }
-        .footer-bottom { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem; text-align: center; width: 100%; }
-
-        /* --- Estilo para Impressão --- */
-        @media print {
-            header, nav, #btn-topo, footer, .btn-voltar, .quiz-container, .btn-baixar, .btn-agenda, .audio-player, #modo-tv-overlay, .slider-comparacao, .btn-edicao-anterior {
-                display: none !important;
-            }
-            body { background-color: white; color: black; filter: none !important; }
-            main { box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
-            .aba-conteudo { display: block !important; page-break-after: always; }
-            .em-construcao, .conteudo-secreto { display: block !important; }
-        }
     </style>
 </head>
 <body>
@@ -343,8 +292,6 @@
         <button id="btn-aguas" class="tab-btn" onclick="mostrarSessao('aguas', 'btn-aguas')">Águas de São Pedro</button>
         <button id="btn-turmas" class="tab-btn" onclick="mostrarSessao('turmas', 'btn-turmas')">Turmas 5º Ano</button>
         <button id="btn-makingoff" class="tab-btn" onclick="mostrarSessao('makingoff', 'btn-makingoff')">Making Off</button>
-        <button id="btn-edicao-2025" class="tab-btn" onclick="mostrarSessao('edicao-2025', 'btn-edicao-2025')">Edição 2025</button>
-        <button id="btn-organizadores" class="tab-btn" onclick="mostrarSessao('organizadores', 'btn-organizadores')">Organizadores</button>
         
         <div style="flex-grow: 1;"></div> 
         <button onclick="iniciarModoTV()" style="border: 1px dashed white; background: rgba(0,0,0,0.1);">📺 Modo TV</button>
@@ -357,10 +304,6 @@
         <section id="inicio" class="aba-conteudo ativo">
             <h2>Sobre a Feira Literária</h2>
             <p>Nossa Feira Literária anual é um evento dedicado a estimular a imaginação, a leitura e a expressão artística dos nossos alunos. É um momento de compartilhar descobertas e celebrar a cultura dentro do ambiente escolar.</p>
-            
-            <div class="pilula-literaria">
-                "A fotografia é a poesia da imobilidade. É eternizar um momento, um olhar, um detalhe escondido."
-            </div>
 
             <div class="caixa-destaque">
                 <h3 style="color: var(--cor-primaria); margin-top: 0;">📅 Agende-se: Exposição Presencial</h3>
@@ -369,7 +312,6 @@
                 
                 <p class="relogio-contador" id="contador-principal">Calculando o tempo...</p>
                 <br>
-                <!-- Botão de Adicionar à Agenda -->
                 <button class="btn-agenda" onclick="adicionarAoCalendario()">📅 Salvar na Minha Agenda</button>
                 
                 <h3 style="margin-top: 30px; color: var(--cor-secundaria);">📍 Cronograma Oficial do Dia</h3>
@@ -382,14 +324,6 @@
                         <h4>09:30 - Lançamento do Almanaque</h4>
                         <p>Apresentação oficial do Almanaque impresso produzido pelos alunos do 5º Ano A.</p>
                     </div>
-                    <div class="item-tempo">
-                        <h4>10:30 - Roda de Fotógrafos</h4>
-                        <p>Bate-papo com as turmas B e C sobre os desafios de buscar uma "Visão Diferente".</p>
-                    </div>
-                    <div class="item-tempo">
-                        <h4>12:00 - Encerramento</h4>
-                        <p>Fechamento das galerias, agradecimentos aos parceiros e despedida.</p>
-                    </div>
                 </div>
             </div>
 
@@ -398,11 +332,9 @@
                 <h3>📸 Mostre que você vai participar!</h3>
                 <p>Baixe o nosso selo oficial e poste no seu Status do WhatsApp ou no Instagram para apoiar os alunos da E.M.E.F Maria Luiza!</p>
                 <div style="display: flex; gap: 20px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-                    <!-- AQUI VAI A IMAGEM DO SELO -->
                     <img src="https://via.placeholder.com/300x300/005f73/FFFFFF?text=Selo+Eu+Vou!" alt="Selo Eu Vou na Feira Literária" style="border-radius: 10px; width: 150px; height: 150px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
                     <div style="text-align: left;">
                         <p style="margin: 0 0 10px 0; font-weight: bold; font-size: 1.1rem;">Selo Oficial - Visão Diferente</p>
-                        <!-- O MESMO LINK DA IMAGEM VAI NO HREF DO BOTÃO -->
                         <a href="https://via.placeholder.com/1080x1080/005f73/FFFFFF?text=Selo+Eu+Vou!" download="Selo_Feira_Literaria_Eu_Vou.png" class="btn-baixar" style="background-color: var(--cor-primaria); margin: 0;">⬇️ Baixar Imagem</a>
                     </div>
                 </div>
@@ -410,17 +342,32 @@
 
             <h2>Tema deste ano: Águas de São Pedro</h2>
             <p>Este ano, voltamos nossos olhares para a nossa própria casa: <strong>Águas de São Pedro</strong>. Considerada uma das menores e mais charmosas cidades do Brasil, suas paisagens, suas águas termais e sua história rica servem de inspiração para os trabalhos de todas as turmas.</p>
+        </section>
 
-            <div class="parceria-perfil">
-                <img src="Toni Perecin.jpg" alt="Retrato do Fotógrafo Toni Perecin" loading="lazy">
-                <div>
-                    <h3>Parceria Especial: Toni Perecin</h3>
-                    <p>Para enriquecer ainda mais nosso projeto, contamos com a ilustre parceria do renomado fotógrafo <strong>Toni Perecin</strong>. Conhecido por seu olhar sensível e sua capacidade de capturar a essência da vida urbana e da natureza, Toni compartilhou suas técnicas e inspirações com nossos alunos para o projeto <em>"Visão Diferente"</em>. <br><br>Conheça mais de seu trabalho em sua <a href="https://www.facebook.com/toniperecin" target="_blank" style="color: var(--cor-primaria); font-weight: bold;">página do Facebook</a>.</p>
-                </div>
-            </div>
+        <!-- Criando as outras abas vazias apenas para os botões funcionarem sem erro -->
+        <section id="aguas" class="aba-conteudo">
+            <h2>Águas de São Pedro</h2>
+            <p>Conteúdo da cidade entrará aqui.</p>
+        </section>
+        
+        <section id="turmas" class="aba-conteudo">
+            <h2>Turmas do 5º Ano</h2>
+            <p>Conteúdo das turmas entrará aqui.</p>
+        </section>
+
+        <section id="makingoff" class="aba-conteudo">
+            <h2>Making Off</h2>
+            <p>Conteúdo dos bastidores entrará aqui.</p>
         </section>
 
     </main>
+
+    <!-- Estrutura do Modo TV -->
+    <div id="modo-tv-overlay">
+        <button class="btn-fechar-tv" onclick="fecharModoTV()">✖ Fechar</button>
+        <img id="tv-imagem" src="" alt="Imagem TV">
+        <div id="tv-legenda">Exposição de Fotografia...</div>
+    </div>
 
     <!-- Estrutura e Script do VLibras (Acessibilidade) -->
     <div vw class="enabled">
@@ -429,6 +376,97 @@
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
+    
+    <!-- CÓDIGOS DE INTERAÇÃO (JAVASCRIPT) - ADICIONADOS AGORA -->
+    <script>
+        // 1. FAZER A TELA DE CARREGAMENTO SUMIR
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if(preloader) {
+                // Esmaece a tela
+                preloader.style.opacity = '0';
+                // Remove ela do caminho depois de meio segundo
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        });
+
+        // 2. FAZER O MENU NAVEGAR ENTRE AS ABAS
+        function mostrarSessao(idSessao, idBotao) {
+            // Esconde todas as sessões
+            const conteudos = document.querySelectorAll('.aba-conteudo');
+            conteudos.forEach(c => c.classList.remove('ativo'));
+            
+            // Tira a marcação de todos os botões do menu
+            const botoes = document.querySelectorAll('.tab-btn');
+            botoes.forEach(b => b.classList.remove('ativo'));
+            
+            // Mostra só a sessão clicada e marca o botão
+            const sessao = document.getElementById(idSessao);
+            if (sessao) sessao.classList.add('ativo');
+            
+            const botao = document.getElementById(idBotao);
+            if (botao) botao.classList.add('ativo');
+        }
+
+        // 3. ATIVAR MODO ESCURO E MODO PRETO E BRANCO
+        function alternarTema() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function alternarFiltroPB() {
+            document.body.classList.toggle('modo-pb');
+        }
+
+        // 4. MODO TV E BOTÃO DE AGENDA
+        function iniciarModoTV() {
+            const tvOverlay = document.getElementById('modo-tv-overlay');
+            if(tvOverlay) {
+                tvOverlay.style.display = 'flex';
+                document.getElementById('tv-imagem').src = "https://via.placeholder.com/800x600/000/FFF?text=Galeria+em+Breve";
+                document.getElementById('tv-imagem').style.opacity = 1;
+                document.getElementById('tv-legenda').style.opacity = 1;
+            }
+        }
+
+        function fecharModoTV() {
+            const tvOverlay = document.getElementById('modo-tv-overlay');
+            if(tvOverlay) tvOverlay.style.display = 'none';
+        }
+
+        function adicionarAoCalendario() {
+            alert("Não se esqueça: A feira acontecerá no dia 14 de Novembro de 2026, às 08:00h!");
+        }
+
+        // 5. ATIVAR O CONTADOR REGRESSIVO
+        function atualizarContador() {
+            const dataEvento = new Date("Nov 14, 2026 08:00:00").getTime();
+            const agora = new Date().getTime();
+            const distancia = dataEvento - agora;
+
+            const contadorElem = document.getElementById("contador-principal");
+            
+            if (distancia < 0) {
+                if(contadorElem) contadorElem.innerHTML = "A Exposição já começou!";
+                return;
+            }
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+
+            if (contadorElem) {
+                contadorElem.innerHTML = `Faltam ${dias} dias, ${horas}h e ${minutos}m para a exposição!`;
+            }
+        }
+        
+        // Roda o relógio agora e atualiza a cada minuto
+        setTimeout(atualizarContador, 1000); 
+        setInterval(atualizarContador, 60000); 
+
+    </script>
+
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
