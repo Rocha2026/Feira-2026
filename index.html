@@ -34,11 +34,6 @@
             --cor-primaria: #20b2aa; 
         }
 
-        /* Efeito Fotografia Clássica (Preto e Branco) */
-        body.modo-pb img {
-            filter: grayscale(100%) contrast(1.1);
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -46,7 +41,6 @@
             background-color: var(--cor-fundo);
             color: var(--cor-texto);
             line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
         }
 
         /* --- BARRA DE ROLAGEM PERSONALIZADA --- */
@@ -88,9 +82,11 @@
         .header-bg-logo {
             position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
             width: 400px; height: 400px;
+            /* LINK ATUALIZADO AQUI COM O SEU ARQUIVO LOCAL */
             background-image: url('Brasão_Águas_de_São_Pedro.png');
             background-size: contain; background-repeat: no-repeat; background-position: center;
             opacity: 0.12; z-index: -1;
+            /* A animação do parallax será controlada via JavaScript */
         }
 
         .escola-nome {
@@ -210,28 +206,6 @@
         .btn-agenda { background-color: #27ae60; margin-top: 15px; }
         .btn-agenda:hover { background-color: #219653; }
 
-        /* --- LINHA DO TEMPO (CRONOGRAMA VISUAL) --- */
-        .linha-do-tempo {
-            position: relative; max-width: 700px; margin: 30px auto; padding: 20px 0;
-        }
-        .linha-do-tempo::after {
-            content: ''; position: absolute; width: 4px; background-color: var(--cor-secundaria);
-            top: 0; bottom: 0; left: 24px; border-radius: 2px;
-        }
-        .item-tempo {
-            padding: 15px 20px 15px 60px; position: relative; border-radius: 8px; margin-bottom: 15px;
-            background: var(--cor-branco); box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid var(--cor-destaque);
-            z-index: 2; transition: transform 0.2s;
-        }
-        .item-tempo:hover { transform: translateX(5px); }
-        .item-tempo::after {
-            content: ''; position: absolute; width: 20px; height: 20px; background-color: var(--cor-branco);
-            border: 4px solid var(--cor-primaria); border-radius: 50%; top: 20px; left: 12px; z-index: 1;
-            box-shadow: 0 0 0 2px var(--cor-secundaria);
-        }
-        .item-tempo h4 { margin: 0 0 5px 0; color: var(--cor-primaria); font-size: 1.2rem; }
-        .item-tempo p { margin: 0; font-size: 0.95rem; color: var(--cor-texto); }
-
         /* --- ESTILOS DE BLOQUEIO (EM CONSTRUÇÃO) --- */
         .em-construcao { text-align: center; padding: 40px 20px; animation: fadeIn 0.5s; }
         .icone-cadeado { font-size: 4rem; margin-bottom: 10px; }
@@ -240,15 +214,28 @@
 
         /* --- COMPONENTES ESPECIAIS --- */
         .caixa-destaque { background-color: #fdfbf7; border: 2px dashed var(--cor-secundaria); border-radius: 8px; padding: 20px; margin: 30px 0; text-align: center; color: #333; }
-        body.dark-mode .caixa-destaque { background-color: #2a2a2a; color: #e0e0e0; }
-        
-        /* Estilo do Selo Eu Vou */
-        .selo-compartilhamento { background-color: var(--cor-secundaria); color: white; border: none; margin-top: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        body.dark-mode .selo-compartilhamento { background-color: #1a5f61; }
-        .selo-compartilhamento h3 { color: white !important; border-bottom: 1px solid rgba(255,255,255,0.3) !important; padding-bottom: 10px; }
-
         .relogio-contador { font-size: 1.3rem; color: #d35400; background-color: #faebd7; padding: 10px; border-radius: 5px; display: inline-block; margin: 10px 0; }
-        body.dark-mode .relogio-contador { background-color: #4a3b2c; color: #ffa07a; }
+
+        .quiz-container { background-color: var(--cor-destaque); padding: 20px; border-radius: 8px; margin-top: 40px; }
+        .btn-quiz { display: block; width: 100%; background-color: var(--cor-branco); color: var(--cor-texto); border: 2px solid var(--cor-secundaria); padding: 10px; margin: 10px 0; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background 0.2s; }
+        .btn-quiz:hover { background-color: var(--cor-secundaria); color: white; }
+
+        .audio-player { margin-top: 15px; } .audio-player audio { width: 100%; max-width: 400px; outline: none; }
+
+        .lightbox { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; flex-direction: column; }
+        .lightbox-img { max-width: 90%; max-height: 80%; border-radius: 5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        .lightbox-fechar { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
+
+        .pilula-literaria { text-align: center; font-style: italic; font-size: 1.3rem; color: var(--cor-secundaria); margin: 40px auto; padding: 20px; border-top: 1px dashed var(--cor-secundaria); border-bottom: 1px dashed var(--cor-secundaria); max-width: 80%; }
+
+        .slider-comparacao { position: relative; width: 100%; max-width: 500px; height: 330px; margin: 30px auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2); background-color: var(--cor-destaque); }
+        .img-fundo, .img-sobreposicao { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .img-sobreposicao { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
+        .slider-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 10; }
+        .slider-linha { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; pointer-events: none; transform: translateX(-50%); box-shadow: 0 0 5px rgba(0,0,0,0.5); z-index: 5; }
+        .slider-setas { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--cor-primaria); pointer-events: none; box-shadow: 0 2px 5px rgba(0,0,0,0.3); z-index: 6; }
+        .slider-label { position: absolute; bottom: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; z-index: 2; }
+        .label-antes { right: 10px; } .label-depois { left: 10px; }
 
         /* --- MODO TV --- */
         #modo-tv-overlay {
@@ -270,6 +257,36 @@
         }
         .btn-fechar-tv:hover { background: rgba(255,255,255,0.4); }
 
+        /* --- ESTILOS ABA EDIÇÃO ANTERIOR --- */
+        .cartao-edicao-anterior {
+            background-color: var(--cor-destaque); border-radius: 8px; padding: 30px; margin-top: 20px;
+            text-align: center; border: 2px dashed var(--cor-secundaria); transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cartao-edicao-anterior:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-edicao-anterior {
+            display: inline-block; background-color: var(--cor-primaria); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; margin-top: 15px; font-size: 1.2rem; font-weight: bold; transition: background 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: none; cursor: pointer;
+        }
+        .btn-edicao-anterior:hover { background-color: var(--cor-secundaria); }
+
+        /* --- RODAPÉ INSTITUCIONAL --- */
+        footer { background-color: var(--cor-primaria); color: var(--cor-branco); padding: 40px 20px 20px 20px; margin-top: 40px; }
+        .footer-container { display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1000px; margin: 0 auto; text-align: left; gap: 30px; }
+        .footer-col { flex: 1; min-width: 250px; }
+        .footer-col h3 { border-bottom: 2px solid var(--cor-secundaria); padding-bottom: 5px; margin-bottom: 15px; color: var(--cor-branco); margin-top: 0; }
+        .footer-col p, .footer-col a { color: #d1d5db; text-decoration: none; font-size: 0.95rem; margin: 8px 0; display: block; }
+        .footer-col a:hover { color: white; text-decoration: underline; }
+        .footer-bottom { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem; text-align: center; width: 100%; }
+
+        /* --- Estilo para Impressão --- */
+        @media print {
+            header, nav, #btn-topo, footer, .btn-voltar, .quiz-container, .btn-baixar, .btn-agenda, .audio-player, #modo-tv-overlay, .slider-comparacao, .btn-edicao-anterior {
+                display: none !important;
+            }
+            body { background-color: white; color: black; }
+            main { box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
+            .aba-conteudo { display: block !important; page-break-after: always; }
+            .em-construcao, .conteudo-secreto { display: block !important; }
+        }
     </style>
 </head>
 <body>
@@ -292,10 +309,11 @@
         <button id="btn-aguas" class="tab-btn" onclick="mostrarSessao('aguas', 'btn-aguas')">Águas de São Pedro</button>
         <button id="btn-turmas" class="tab-btn" onclick="mostrarSessao('turmas', 'btn-turmas')">Turmas 5º Ano</button>
         <button id="btn-makingoff" class="tab-btn" onclick="mostrarSessao('makingoff', 'btn-makingoff')">Making Off</button>
+        <button id="btn-edicao-2025" class="tab-btn" onclick="mostrarSessao('edicao-2025', 'btn-edicao-2025')">Edição 2025</button>
+        <button id="btn-organizadores" class="tab-btn" onclick="mostrarSessao('organizadores', 'btn-organizadores')">Organizadores</button>
         
         <div style="flex-grow: 1;"></div> 
         <button onclick="iniciarModoTV()" style="border: 1px dashed white; background: rgba(0,0,0,0.1);">📺 Modo TV</button>
-        <button id="btn-pb" onclick="alternarFiltroPB()" style="border: 1px solid white; margin-right: 5px;">📷 P&B</button>
         <button id="btn-tema" onclick="alternarTema()" style="border: 1px solid white;">🌙 Escuro</button>
     </nav>
 
@@ -304,172 +322,703 @@
         <section id="inicio" class="aba-conteudo ativo">
             <h2>Sobre a Feira Literária</h2>
             <p>Nossa Feira Literária anual é um evento dedicado a estimular a imaginação, a leitura e a expressão artística dos nossos alunos. É um momento de compartilhar descobertas e celebrar a cultura dentro do ambiente escolar.</p>
+            
+            <div class="pilula-literaria">
+                "A fotografia é a poesia da imobilidade. É eternizar um momento, um olhar, um detalhe escondido."
+            </div>
 
             <div class="caixa-destaque">
                 <h3 style="color: var(--cor-primaria); margin-top: 0;">📅 Agende-se: Exposição Presencial</h3>
                 <p><strong>Data:</strong> 14 de Novembro de 2026<br>
-                <strong>Local:</strong> Pátio Principal e Salas dos 5ºs Anos da Escola</p>
-                
+                <strong>Horário:</strong> Aberto ao público a partir das 08:00<br>
+                <strong>Local:</strong> Pátio Principal e Salas dos 5ºs Anos</p>
                 <p class="relogio-contador" id="contador-principal">Calculando o tempo...</p>
                 <br>
+                <!-- Botão de Adicionar à Agenda -->
                 <button class="btn-agenda" onclick="adicionarAoCalendario()">📅 Salvar na Minha Agenda</button>
-                
-                <h3 style="margin-top: 30px; color: var(--cor-secundaria);">📍 Cronograma Oficial do Dia</h3>
-                <div class="linha-do-tempo">
-                    <div class="item-tempo">
-                        <h4>08:00 - Abertura dos Portões</h4>
-                        <p>Recepção das famílias e início da exposição fotográfica livre e interativa pelo pátio.</p>
-                    </div>
-                    <div class="item-tempo">
-                        <h4>09:30 - Lançamento do Almanaque</h4>
-                        <p>Apresentação oficial do Almanaque impresso produzido pelos alunos do 5º Ano A.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- NOVA CAIXA: Selo Eu Vou -->
-            <div class="caixa-destaque selo-compartilhamento">
-                <h3>📸 Mostre que você vai participar!</h3>
-                <p>Baixe o nosso selo oficial e poste no seu Status do WhatsApp ou no Instagram para apoiar os alunos da E.M.E.F Maria Luiza!</p>
-                <div style="display: flex; gap: 20px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-                    <img src="https://via.placeholder.com/300x300/005f73/FFFFFF?text=Selo+Eu+Vou!" alt="Selo Eu Vou na Feira Literária" style="border-radius: 10px; width: 150px; height: 150px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                    <div style="text-align: left;">
-                        <p style="margin: 0 0 10px 0; font-weight: bold; font-size: 1.1rem;">Selo Oficial - Visão Diferente</p>
-                        <a href="https://via.placeholder.com/1080x1080/005f73/FFFFFF?text=Selo+Eu+Vou!" download="Selo_Feira_Literaria_Eu_Vou.png" class="btn-baixar" style="background-color: var(--cor-primaria); margin: 0;">⬇️ Baixar Imagem</a>
-                    </div>
-                </div>
+                <p style="font-size: 0.9rem; color: #555; margin-top: 15px;">Venha prestigiar os trabalhos de fotografia e o nosso almanaque oficial!</p>
             </div>
 
             <h2>Tema deste ano: Águas de São Pedro</h2>
             <p>Este ano, voltamos nossos olhares para a nossa própria casa: <strong>Águas de São Pedro</strong>. Considerada uma das menores e mais charmosas cidades do Brasil, suas paisagens, suas águas termais e sua história rica servem de inspiração para os trabalhos de todas as turmas.</p>
+
+            <div class="parceria-perfil">
+                <!-- LINK ATUALIZADO AQUI COM O SEU ARQUIVO LOCAL -->
+                <img src="Toni Perecin.jpg" alt="Retrato do Fotógrafo Toni Perecin" loading="lazy">
+                <div>
+                    <h3>Parceria Especial: Toni Perecin</h3>
+                    <p>Para enriquecer ainda mais nosso projeto, contamos com a ilustre parceria do renomado fotógrafo <strong>Toni Perecin</strong>. Conhecido por seu olhar sensível e sua capacidade de capturar a essência da vida urbana e da natureza, Toni compartilhou suas técnicas e inspirações com nossos alunos para o projeto <em>"Visão Diferente"</em>. <br><br>Conheça mais de seu trabalho em sua <a href="https://www.facebook.com/toniperecinfotografia/" target="_blank" style="color: var(--cor-primaria); font-weight: bold; text-decoration: underline;">página no Facebook</a> ou acompanhe pelo <a href="https://www.instagram.com/toniperecin/" target="_blank" style="color: var(--cor-primaria); font-weight: bold; text-decoration: underline;">Instagram</a>.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;">Obras de Inspiração (Toni Perecin)</h3>
+            <div class="galeria">
+                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Obra+Toni+1" alt="Foto 1 de Toni Perecin" loading="lazy">
+                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Obra+Toni+2" alt="Foto 2 de Toni Perecin" loading="lazy">
+                <img src="https://via.placeholder.com/300x200/cccccc/000000?text=Obra+Toni+3" alt="Foto 3 de Toni Perecin" loading="lazy">
+            </div>
         </section>
 
-        <!-- Criando as outras abas vazias apenas para os botões funcionarem sem erro -->
         <section id="aguas" class="aba-conteudo">
-            <h2>Águas de São Pedro</h2>
-            <p>Conteúdo da cidade entrará aqui.</p>
+            <h2>Nossa Inspiração: Águas de São Pedro</h2>
+            <p>Conhecida por sua tranquilidade e suas famosas águas termais, nossa cidade é um verdadeiro museu a céu aberto. Nesta seção, reunimos uma visão geral de como os alunos enxergaram os encantos, a natureza e a arquitetura de <strong>Águas de São Pedro</strong> durante todo o projeto.</p>
+            
+            <!-- Mapa Integrado -->
+            <div style="width: 100%; border-radius: 8px; overflow: hidden; margin: 30px 0; border: 3px solid var(--cor-destaque);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14731.54761063684!2d-47.886300450000004!3d-22.6020588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c666c8882a8db5%3A0xc6bf80d1e3d3dd54!2zw4FndWFzIGRlIFPDo28gUGVkcm8sIFNQ!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="pilula-literaria">
+                "As águas de uma cidade não contam apenas a sua geografia, contam a história da vida que flui através dela."
+            </div>
+
+            <h3 style="margin-top: 30px; color: var(--cor-secundaria);">Figuras Históricas de Nossa Cidade</h3>
+            
+            <div class="parceria-perfil">
+                <!-- LINK ATUALIZADO AQUI COM O SEU ARQUIVO LOCAL -->
+                <img src="Dr. Otavio Moura Andrade.jpg" alt="Octávio Moura Andrade" loading="lazy">
+                <div>
+                    <h3>Octávio Moura Andrade</h3>
+                    <p>O grande fundador e idealizador de Águas de São Pedro. Na década de 1920, poços de prospecção de petróleo foram perfurados na região pelo Governo do Estado. Em vez de petróleo, encontrou-se água mineral. Em 1940, reconhecendo o valor e as propriedades terapêuticas e medicinais dessas águas, o Dr. Octávio Moura Andrade inaugurou o Grande Hotel São Pedro e fundou a estância.</p>
+                </div>
+            </div>
+
+            <div class="parceria-perfil">
+                <!-- LINK ATUALIZADO AQUI COM O SEU ARQUIVO LOCAL -->
+                <img src="Busto_Angelo_Franzin.JPG" alt="Ângelo Franzin" loading="lazy">
+                <div>
+                    <h3>Ângelo Franzin</h3>
+                    <p>Pioneiro essencial para a história da cidade, Ângelo Franzin era o proprietário das terras onde as águas sulfurosas jorravam. Observador, notou que seus animais melhoravam de saúde após beberem daquela água. Em 1934, ele mesmo construiu o primeiro balneário rústico da região. A família Franzin possui um enorme legado histórico e cultural em nosso município.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;">Visão Geral (Galeria Expandida)</h3>
+            <div class="galeria">
+                <div>
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+1" alt="Foto da cidade 1" loading="lazy">
+                    <div class="legenda-foto"><strong>📍 Relógio do Sol</strong><br>📸 Acervo do Projeto</div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+2" alt="Foto da cidade 2" loading="lazy">
+                    <div class="legenda-foto"><strong>📍 Fonte da Juventude</strong><br>📸 Acervo do Projeto</div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+3" alt="Foto da cidade 3" loading="lazy">
+                    <div class="legenda-foto"><strong>📍 Boulevard de Águas</strong><br>📸 Acervo do Projeto</div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+4" alt="Foto da cidade 4" loading="lazy">
+                    <div class="legenda-foto"><strong>📍 Portal da Cidade</strong><br>📸 Acervo do Projeto</div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+5" alt="Foto da cidade 5" loading="lazy">
+                    <div class="legenda-foto"><strong>📍 Parque das Águas</strong><br>📸 Acervo do Projeto</div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200/4488cc/FFFFFF?text=Foto+Cidade+6" alt="Foto da cidade 6" loading="lazy">
+                    <div class="legenda-foto"><strong>📍 Mini Horto</strong><br>📸 Acervo do Projeto</div>
+                </div>
+            </div>
         </section>
-        
+
+        <!-- HUB DE TURMAS -->
         <section id="turmas" class="aba-conteudo">
-            <h2>Turmas do 5º Ano</h2>
-            <p>Conteúdo das turmas entrará aqui.</p>
+            
+            <!-- TELA DE BLOQUEIO (Some no dia do evento) -->
+            <div class="em-construcao" id="bloqueio-turmas">
+                <div class="icone-cadeado">🔒</div>
+                <h2>Trabalhos em Produção!</h2>
+                <p>As pesquisas, fotos e produções das turmas do 5º Ano estão guardadas a sete chaves para não estragar a surpresa.<br>Tudo será revelado aqui no site no dia da nossa Feira Literária.</p>
+                <div class="caixa-destaque" style="margin-top: 20px;">
+                    <p class="relogio-contador">Calculando o tempo...</p>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO REAL (Aparece no dia do evento) -->
+            <div class="conteudo-secreto" id="conteudo-turmas" style="display: none;">
+                <h2>Nossas Turmas - 5ºs Anos</h2>
+                <p>Conheça o trabalho brilhante desenvolvido por cada uma das nossas turmas do 5º Ano. Clique na foto da sala para acessar o projeto!</p>
+
+                <div class="cartao-turma" onclick="mostrarSessao('quinto-a', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/400x250/e9c46a/000000?text=Foto+Turma+5+A" alt="Foto da Turma 5º A" loading="lazy">
+                    <div>
+                        <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano A</h3>
+                        <p><strong>Projeto:</strong> Almanaque de Águas de São Pedro</p>
+                        <p style="font-size: 0.95rem;">Mergulhe nas pesquisas, redações e curiosidades históricas compiladas por esta turma em um incrível almanaque colaborativo.</p>
+                    </div>
+                </div>
+
+                <div class="cartao-turma" onclick="mostrarSessao('quinto-b', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/400x250/2a9d8f/FFFFFF?text=Foto+Turma+5+B" alt="Foto da Turma 5º B" loading="lazy">
+                    <div>
+                        <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano B</h3>
+                        <p><strong>Projeto:</strong> Fotografia "Visão Diferente"</p>
+                        <p style="font-size: 0.95rem;">Confira a galeria de fotos exclusiva, capturando os detalhes e encantos escondidos de nossa cidade através de um ponto de vista único.</p>
+                    </div>
+                </div>
+
+                <div class="cartao-turma" onclick="mostrarSessao('quinto-c', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/400x250/e76f51/FFFFFF?text=Foto+Turma+5+C" alt="Foto da Turma 5º C" loading="lazy">
+                    <div>
+                        <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano C</h3>
+                        <p><strong>Projeto:</strong> Fotografia "Visão Diferente"</p>
+                        <p style="font-size: 0.95rem;">Explore o ponto de vista único documentado pelos alunos, transformando o cotidiano em arte visual através de novos ângulos fotográficos.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <!-- TURMA 5A -->
+        <section id="quinto-a" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">← Voltar para Turmas</button>
+            <h2>Projeto - Turma 5º Ano A</h2>
+            <p>Os alunos do 5º A focaram na pesquisa, redação e ilustração para confeccionar um rico e detalhado <strong>Almanaque sobre Águas de São Pedro</strong>. Clique no Almanaque abaixo para ler a versão digitalizada completa!</p>
+            
+            <div class="cartao-almanaque" onclick="mostrarSessao('leitura-almanaque', 'btn-turmas')">
+                <img src="https://cdn-icons-png.flaticon.com/512/3145/3145765.png" alt="Capa do Almanaque" loading="lazy">
+                <h3>Almanaque 5º Ano A</h3>
+                <p>Nossa Cidade em Fatos, Histórias e Desenhos</p>
+            </div>
+
+            <div class="quiz-container">
+                <h3 style="margin-top: 0;">🤔 Quiz do Almanaque: Teste seus conhecimentos!</h3>
+                <p>Será que você prestou atenção nas nossas pesquisas e na história da cidade? Prove respondendo abaixo:</p>
+                
+                <div style="margin-bottom: 25px;">
+                    <p><strong>1. Quem foi o pioneiro que construiu o primeiro balneário rústico na região (Fonte da Juventude)?</strong></p>
+                    <button class="btn-quiz" onclick="verificarResposta(1, 'a')">a) Octávio Moura Andrade</button>
+                    <button class="btn-quiz" onclick="verificarResposta(1, 'b')">b) Ângelo Franzin</button>
+                    <button class="btn-quiz" onclick="verificarResposta(1, 'c')">c) Toni Perecin</button>
+                    <div id="quiz-feedback-1" style="display: none; padding: 10px; margin-top: 10px; border-radius: 5px; font-weight: bold;"></div>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <p><strong>2. Na década de 1920, o que o Governo do Estado estava procurando quando encontrou a água mineral em nossa região?</strong></p>
+                    <button class="btn-quiz" onclick="verificarResposta(2, 'a')">a) Petróleo</button>
+                    <button class="btn-quiz" onclick="verificarResposta(2, 'b')">b) Ouro e Pedras Preciosas</button>
+                    <button class="btn-quiz" onclick="verificarResposta(2, 'c')">c) Mais Água Potável</button>
+                    <div id="quiz-feedback-2" style="display: none; padding: 10px; margin-top: 10px; border-radius: 5px; font-weight: bold;"></div>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <p><strong>3. Como se chama o projeto de fotografia realizado pelos 5ºs Anos B e C que complementa este almanaque?</strong></p>
+                    <button class="btn-quiz" onclick="verificarResposta(3, 'a')">a) Obras de Arte Clássicas</button>
+                    <button class="btn-quiz" onclick="verificarResposta(3, 'b')">b) Visão Diferente</button>
+                    <div id="quiz-feedback-3" style="display: none; padding: 10px; margin-top: 10px; border-radius: 5px; font-weight: bold;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TURMA 5B -->
+        <section id="quinto-b" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">← Voltar para Turmas</button>
+            <h2>Projeto "Visão Diferente" - Turma 5º Ano B</h2>
+            <p>Os alunos do 5º B saíram a campo com suas câmeras e celulares para capturar os detalhes escondidos de Águas de São Pedro com um ponto de vista único.</p>
+            
+            <div style="background-color: var(--cor-destaque); padding: 20px; border-radius: 8px; text-align: center; margin-bottom: 30px; color: #333;">
+                <h3 style="margin-top: 0; color: var(--cor-primaria);">Interativo: O Jogo do "Antes e Depois"</h3>
+                <p>Arraste a barra para o lado e veja como o nosso projeto de fotografia funciona na prática! Do lado direito temos a <strong>Visão Normal</strong>, e do lado esquerdo a <strong>Visão Diferente</strong> focada em um detalhe inusitado.</p>
+                <div class="slider-comparacao">
+                    <img src="https://placehold.co/500x330/555555/FFFFFF?text=Visão+Normal" class="img-fundo" alt="Visão Normal" loading="lazy">
+                    <img src="https://placehold.co/500x330/0a9396/FFFFFF?text=Visão+Diferente" class="img-sobreposicao" id="img-sobreposicao" alt="Visão Diferente" loading="lazy">
+                    <div class="slider-linha" id="slider-linha"></div>
+                    <div class="slider-setas" id="slider-setas">◂▸</div>
+                    <input type="range" min="0" max="100" value="50" class="slider-input" oninput="ajustarSlider(this.value)">
+                    <div class="slider-label label-depois">Detalhe</div>
+                    <div class="slider-label label-antes">Normal</div>
+                </div>
+            </div>
+
+            <div class="grade-alunos">
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-lucas-b', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/150/99bbff/000000?text=Lucas" alt="Foto do Lucas" loading="lazy">
+                    <h3>Lucas Zampiere</h3>
+                </div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-sofia-b', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/150/ff99bb/000000?text=Sofia" alt="Foto da Sofia" loading="lazy">
+                    <h3>Sofia Pereira</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- TURMA 5C -->
+        <section id="quinto-c" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">← Voltar para Turmas</button>
+            <h2>Projeto "Visão Diferente" - Turma 5º Ano C</h2>
+            <p>A turma do 5º C focou em buscar um ponto de vista único de Águas de São Pedro. Selecione um aluno abaixo para conhecer sua perspectiva fotográfica.</p>
+            
+            <div class="grade-alunos">
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-pedro-c', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/150/bbff99/000000?text=Pedro" alt="Foto do Pedro" loading="lazy">
+                    <h3>Pedro Courral</h3>
+                </div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-isabela-c', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/150/ffee99/000000?text=Isabela" alt="Foto da Isabela" loading="lazy">
+                    <h3>Isabela Amato</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERFIL DO LUCAS -->
+        <section id="perfil-lucas-b" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('quinto-b', 'btn-turmas')">← Voltar para Turma 5º B</button>
+            <h2>Fotógrafo: Lucas Zampiere</h2>
+            
+            <div class="cabecalho-aluno">
+                <img src="https://via.placeholder.com/200/99bbff/000000?text=Lucas" alt="Foto de perfil de Lucas" class="foto-perfil-aluno" loading="lazy">
+                <div class="bio-aluno">
+                    <h3>Autobiografia</h3>
+                    <p>Meu nome é Lucas Zampiere e eu estudo no 5º Ano B.</p>
+                    <div class="audio-player">
+                        <p style="margin-bottom: 5px; font-weight: bold; color: var(--cor-primaria);">▶️ Ouça meu depoimento:</p>
+                        <audio controls preload="none">
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Galeria de Fotos (Polaroids Interativas)</h3>
+            <p style="font-size: 0.9rem; color: #666; margin-top: -10px; margin-bottom: 20px;">🔍 Passe o mouse sobre as fotos para usar a "Lupa" ou clique para abrir a tela cheia!</p>
+            <div class="galeria">
+                <div class="foto-wrapper">
+                    <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
+                        <img src="https://via.placeholder.com/300x200/5577aa/FFFFFF?text=Foto+Lucas+1" alt="Foto 1 do Lucas: A Casca da Árvore" loading="lazy">
+                    </div>
+                    <div class="polaroid-controles">
+                        <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
+                    </div>
+                </div>
+                <div class="foto-wrapper">
+                    <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
+                        <img src="https://via.placeholder.com/300x200/5577aa/FFFFFF?text=Foto+Lucas+2" alt="Foto 2 do Lucas: O Relógio do Sol de Perto" loading="lazy">
+                    </div>
+                    <div class="polaroid-controles">
+                        <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERFIL DA SOFIA -->
+        <section id="perfil-sofia-b" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('quinto-b', 'btn-turmas')">← Voltar para Turma 5º B</button>
+            <h2>Fotógrafa: Sofia Pereira</h2>
+            <div class="cabecalho-aluno">
+                <img src="https://via.placeholder.com/200/ff99bb/000000?text=Sofia" alt="Sofia" class="foto-perfil-aluno" loading="lazy">
+                <div class="bio-aluno"><p>Meu nome é Sofia Pereira e eu estudo no 5º Ano B.</p></div>
+            </div>
+            <h3>Galeria de Fotos</h3>
+            <div class="galeria">
+                <div class="foto-wrapper">
+                    <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
+                        <img src="https://via.placeholder.com/300x200/aa5577/FFFFFF?text=Foto+Sofia+1" alt="Foto 1 da Sofia" loading="lazy">
+                    </div>
+                    <div class="polaroid-controles">
+                        <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERFIL DO PEDRO -->
+        <section id="perfil-pedro-c" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('quinto-c', 'btn-turmas')">← Voltar para Turma 5º C</button>
+            <h2>Fotógrafo: Pedro Courral</h2>
+            <div class="cabecalho-aluno">
+                <img src="https://via.placeholder.com/200/bbff99/000000?text=Pedro" alt="Pedro" class="foto-perfil-aluno" loading="lazy">
+                <div class="bio-aluno"><p>Meu nome é Pedro Courral e eu estudo no 5º Ano C.</p></div>
+            </div>
+            <h3>Galeria de Fotos</h3>
+            <div class="galeria">
+                <div class="foto-wrapper">
+                    <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
+                        <img src="https://via.placeholder.com/300x200/77aa55/FFFFFF?text=Foto+Pedro+1" alt="Foto 1 do Pedro" loading="lazy">
+                    </div>
+                    <div class="polaroid-controles">
+                        <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PERFIL DA ISABELA -->
+        <section id="perfil-isabela-c" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('quinto-c', 'btn-turmas')">← Voltar para Turma 5º C</button>
+            <h2>Fotógrafa: Isabela Amato</h2>
+            <div class="cabecalho-aluno">
+                <img src="https://via.placeholder.com/200/ffee99/000000?text=Isabela" alt="Isabela" class="foto-perfil-aluno" loading="lazy">
+                <div class="bio-aluno"><p>Meu nome é Isabela Amato e eu estudo no 5º Ano C.</p></div>
+            </div>
+            <h3>Galeria de Fotos</h3>
+            <div class="galeria">
+                <div class="foto-wrapper">
+                    <div class="zoom-img-container" onmousemove="efeitoLupa(event, this)" onmouseleave="resetarLupa(this)">
+                        <img src="https://via.placeholder.com/300x200/aa9955/FFFFFF?text=Foto+Isabela+1" alt="Foto 1 da Isabela" loading="lazy">
+                    </div>
+                    <div class="polaroid-controles">
+                        <button class="btn-ouvir" onclick="tocarAudioDescricao(this, event)">🎧 Ouvir a foto</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÁREA DE LEITURA DO ALMANAQUE (5º A) -->
+        <section id="leitura-almanaque" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('quinto-a', 'btn-turmas')">← Voltar para Turma 5º A</button>
+            <h2>Leitura: Almanaque de Águas de São Pedro</h2>
+            <div style="text-align: center;">
+                <p>Você pode ler nosso almanaque navegando no documento abaixo, ou se preferir, baixar o arquivo para ler offline.</p>
+                <a href="almanaque.pdf" class="btn-baixar" download="Almanaque_5AnoA_AguasDeSaoPedro.pdf">↓ Baixar Almanaque (PDF)</a>
+            </div>
+            <iframe class="container-pdf" src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" title="Leitor do Almanaque 5º Ano A" loading="lazy"></iframe>
+        </section>
+
+        <!-- MAKING OFF -->
         <section id="makingoff" class="aba-conteudo">
-            <h2>Making Off</h2>
-            <p>Conteúdo dos bastidores entrará aqui.</p>
+            <!-- TELA DE BLOQUEIO (Some no dia do evento) -->
+            <div class="em-construcao">
+                <div class="icone-cadeado">🎬</div>
+                <h2>Bastidores em Edição!</h2>
+                <p>Ainda estamos preparando os conteúdos que serão disponibilizados por aqui. Volte no dia da feira para visualizar como foi o andamento do projeto.</p>
+                <div class="caixa-destaque" style="margin-top: 20px;">
+                    <p class="relogio-contador">Calculando o tempo...</p>
+                </div>
+            </div>
+
+            <!-- CONTEÚDO REAL (Aparece no dia do evento) -->
+            <div class="conteudo-secreto" style="display: none;">
+                <h2>Making Off - Visão Diferente</h2>
+                <p>Confira os bastidores das nossas aulas práticas com o fotógrafo Toni Perecin e os momentos de confecção do nosso Almanaque.</p>
+                <div class="galeria">
+                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+1" alt="Bastidores 1" loading="lazy">
+                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+2" alt="Bastidores 2" loading="lazy">
+                    <img src="https://via.placeholder.com/300x200/999999/FFFFFF?text=Bastidores+3" alt="Bastidores 3" loading="lazy">
+                </div>
+            </div>
         </section>
 
+        <!-- EDIÇÃO 2025 -->
+        <section id="edicao-2025" class="aba-conteudo">
+            <h2>Feira Literária - Edição 2025</h2>
+            <p>O sucesso do nosso projeto "Visão Diferente" deste ano foi construído com base na criatividade, leitura e dedicação que os alunos demonstraram na edição anterior da nossa Feira Literária.</p>
+            <p>A E.M.E.F Maria Luiza Fornasier Franzin tem muito orgulho de manter um acervo digital dos trabalhos produzidos por nossos estudantes, eternizando o talento de cada turma.</p>
+            
+            <div class="cartao-edicao-anterior">
+                <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">Reviva os Momentos de 2025!</h3>
+                <p style="font-size: 1.1rem; color: var(--cor-texto);">Clique no botão abaixo para visitar o site oficial da Feira Literária do ano passado e explorar todos os trabalhos desenvolvidos naquela edição.</p>
+                <a href="https://rocha2026.github.io/feiraliteraria/" target="_blank" rel="noopener noreferrer" class="btn-edicao-anterior">📖 Acessar Acervo 2025</a>
+            </div>
+        </section>
+
+        <!-- ORGANIZADORES -->
+        <section id="organizadores" class="aba-conteudo">
+            <h2>Equipe Organizadora</h2>
+            <p>Um projeto desta magnitude só é possível graças à dedicação e ao carinho de uma equipe apaixonada pela educação e pela arte.</p>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/d35400/FFFFFF?text=Foto+Cátia" alt="Cátia Cilene de Oliveira" loading="lazy"><div><h3>Cátia Cilene de Oliveira</h3><p>Professora e orientadora, responsável por acompanhar e auxiliar as crianças durante todo o projeto dentro e fora da sala de aula.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/27ae60/FFFFFF?text=Foto+Cibelle" alt="Cibelle Pereira" loading="lazy"><div><h3>Cibelle Pereira</h3><p>Professora e orientadora, responsável por acompanhar e auxiliar as crianças durante todo o projeto dentro e fora da sala de aula.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/f39c12/FFFFFF?text=Foto+Patricia" alt="Patricia Giani Barbosa" loading="lazy"><div><h3>Patricia Giani Barbosa</h3><p>Professora e orientadora (5º Ano A), responsável por guiar os alunos na intensa pesquisa e elaboração do nosso Almanaque oficial.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/8e44ad/FFFFFF?text=Foto+Isabela" alt="Isabela Durante" loading="lazy"><div><h3>Isabela Durante</h3><p>Professora de Arte, também ajuda as crianças durante todo o trabalho e na execução das fotos e projeto visual.</p></div></div>
+            <div class="parceria-perfil"><img src="https://via.placeholder.com/150/2980b9/FFFFFF?text=Foto+Patrik" alt="Patrik da Rocha" loading="lazy"><div><h3>Patrik da Rocha</h3><p>Apoio tecnológico e estrutural. Responsável pelo desenvolvimento deste site, suporte aos alunos e auxílio na organização geral.</p></div></div>
+        </section>
     </main>
 
-    <!-- Estrutura do Modo TV -->
-    <div id="modo-tv-overlay">
-        <button class="btn-fechar-tv" onclick="fecharModoTV()">✖ Fechar</button>
-        <img id="tv-imagem" src="" alt="Imagem TV">
-        <div id="tv-legenda">Exposição de Fotografia...</div>
+    <button id="btn-topo" onclick="voltarAoTopo()" title="Voltar ao topo">⬆️</button>
+
+    <div id="lightbox" class="lightbox" onclick="fecharLightbox(event)">
+        <span class="lightbox-fechar">&times;</span>
+        <img id="lightbox-img" class="lightbox-img" src="" loading="lazy">
+        <a id="btn-download-lightbox" href="" download class="btn-baixar" style="margin-top: 20px;" onclick="event.stopPropagation()">📥 Baixar para o Celular</a>
+        <p style="color: white; margin-top: 15px;">Clique no fundo escuro para fechar</p>
     </div>
 
-    <!-- Estrutura e Script do VLibras (Acessibilidade) -->
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
+    <!-- CAIXA DE MENSAGEM CUSTOMIZADA -->
+    <div id="caixa-mensagem" class="lightbox" style="z-index: 10001; flex-direction: column;" onclick="fecharMensagem()">
+        <div style="background: var(--cor-branco); padding: 30px; border-radius: 8px; text-align: center; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);" onclick="event.stopPropagation()">
+            <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem; border-bottom: none;">🔒 Acesso Restrito</h3>
+            <p id="texto-mensagem" style="font-size: 1.1rem; margin-bottom: 20px; color: var(--cor-texto);"></p>
+            <button onclick="fecharMensagem()" class="btn-voltar" style="margin-bottom: 0;">Entendi</button>
         </div>
     </div>
-    
-    <!-- CÓDIGOS DE INTERAÇÃO (JAVASCRIPT) - ADICIONADOS AGORA -->
+
+    <!-- MODO TV OVERLAY -->
+    <div id="modo-tv-overlay">
+        <button class="btn-fechar-tv" onclick="sairModoTV()">✖ Sair da Exposição</button>
+        <img id="tv-imagem" src="" alt="Modo TV" loading="lazy">
+        <div id="tv-legenda">Preparando Exposição Fotográfica...</div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Institucional</h3>
+                <p><strong>E.M.E.F Maria Luiza Fornasier Franzin</strong></p>
+                <a href="https://maps.app.goo.gl/zKCcNMqfNjxDqL6G8?g_st=aw" target="_blank" rel="noopener noreferrer">📍 Ver endereço no Google Maps</a>
+                <p>📞 Telefone: <a href="tel:+551934822919">(19) 3482-2919</a></p>
+                <a href="mailto:educa.asp@aguasdesaopedro.sp.gov.br">✉️ educa.asp@aguasdesaopedro.sp.gov.br</a>
+            </div>
+            <div class="footer-col">
+                <h3>Desenvolvimento e Contato</h3>
+                <p>Site idealizado e desenvolvido para a Feira Literária.</p>
+                <p><strong>Propriedade de: Patrik da Rocha</strong></p>
+                <p>📞 WhatsApp/Celular: <a href="tel:+5519999118999">(19) 99911-8999</a></p>
+                <a href="mailto:rochaptr01@gmail.com">✉️ rochaptr01@gmail.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 E.M.E.F Maria Luiza Fornasier Franzin - Projeto "Visão Diferente". Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <script>
-        // 1. FAZER A TELA DE CARREGAMENTO SUMIR
         window.addEventListener('load', function() {
             const preloader = document.getElementById('preloader');
-            if(preloader) {
-                // Esmaece a tela
-                preloader.style.opacity = '0';
-                // Remove ela do caminho depois de meio segundo
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 500);
-            }
+            setTimeout(() => { preloader.style.opacity = '0'; setTimeout(() => { preloader.style.display = 'none'; }, 500); }, 500);
+            verificarDesbloqueio(); 
+            verificarRotaQR(); // Verifica se o usuário veio por um QR Code
         });
 
-        // 2. FAZER O MENU NAVEGAR ENTRE AS ABAS
-        function mostrarSessao(idSessao, idBotao) {
-            // Esconde todas as sessões
-            const conteudos = document.querySelectorAll('.aba-conteudo');
-            conteudos.forEach(c => c.classList.remove('ativo'));
-            
-            // Tira a marcação de todos os botões do menu
-            const botoes = document.querySelectorAll('.tab-btn');
-            botoes.forEach(b => b.classList.remove('ativo'));
-            
-            // Mostra só a sessão clicada e marca o botão
-            const sessao = document.getElementById(idSessao);
-            if (sessao) sessao.classList.add('ativo');
-            
-            const botao = document.getElementById(idBotao);
-            if (botao) botao.classList.add('ativo');
-        }
+        window.onscroll = function() {
+            const btnTopo = document.getElementById("btn-topo");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) btnTopo.style.display = "block";
+            else btnTopo.style.display = "none";
 
-        // 3. ATIVAR MODO ESCURO E MODO PRETO E BRANCO
-        function alternarTema() {
-            document.body.classList.toggle('dark-mode');
-        }
+            const scrolled = window.scrollY;
+            const bgLogo = document.getElementById('bg-logo');
+            if(bgLogo) bgLogo.style.transform = `translateX(-50%) translateY(${scrolled * 0.3}px)`;
+        };
+        
+        function voltarAoTopo() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-        function alternarFiltroPB() {
-            document.body.classList.toggle('modo-pb');
+        function mostrarSessao(idSessao, idBotaoMenu) {
+            document.querySelectorAll('.aba-conteudo').forEach(s => s.classList.remove('ativo'));
+            if(idBotaoMenu) {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('ativo'));
+                // Nem todas as abas têm botão no menu principal
+                const btn = document.getElementById(idBotaoMenu);
+                if(btn) btn.classList.add('ativo');
+            }
+            const sessaoDestino = document.getElementById(idSessao);
+            if (sessaoDestino) {
+                sessaoDestino.classList.add('ativo');
+                window.scrollTo({ top: document.querySelector('main').offsetTop - 20, behavior: 'smooth' });
+                
+                // Atualiza a URL para facilitar o compartilhamento/QR Code sem recarregar a página
+                history.pushState(null, null, '?aluno=' + idSessao);
+            }
         }
-
-        // 4. MODO TV E BOTÃO DE AGENDA
-        function iniciarModoTV() {
-            const tvOverlay = document.getElementById('modo-tv-overlay');
-            if(tvOverlay) {
-                tvOverlay.style.display = 'flex';
-                document.getElementById('tv-imagem').src = "https://via.placeholder.com/800x600/000/FFF?text=Galeria+em+Breve";
-                document.getElementById('tv-imagem').style.opacity = 1;
-                document.getElementById('tv-legenda').style.opacity = 1;
+        
+        function verificarRotaQR() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const alunoId = urlParams.get('aluno');
+            
+            if (alunoId && document.getElementById(alunoId)) {
+                // Se for um ID de aluno válido, navega direto para lá
+                // Usamos um timeout pequeno para garantir que o preloader sumiu
+                setTimeout(() => {
+                    mostrarSessao(alunoId, null); // null porque abas de alunos não têm botão no menu principal
+                    
+                    // Opcional: Adicionar um pequeno aviso de boas-vindas ao guia virtual
+                    mostrarMensagem("Bem-vindo ao Guia Virtual! Você está vendo o perfil selecionado via QR Code.");
+                }, 600);
             }
         }
 
-        function fecharModoTV() {
-            const tvOverlay = document.getElementById('modo-tv-overlay');
-            if(tvOverlay) tvOverlay.style.display = 'none';
+        function alternarTema() {
+            document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('btn-tema');
+            btn.innerText = document.body.classList.contains('dark-mode') ? '☀️ Claro' : '🌙 Escuro';
         }
 
+        // ADICIONAR AO CALENDÁRIO
         function adicionarAoCalendario() {
-            alert("Não se esqueça: A feira acontecerá no dia 14 de Novembro de 2026, às 08:00h!");
+            const titulo = encodeURIComponent('Feira Literária - Visão Diferente (E.M.E.F Maria Luiza)');
+            const detalhes = encodeURIComponent('Venha prestigiar os trabalhos fotográficos e o Almanaque dos alunos do 5º Ano da nossa escola!');
+            const local = encodeURIComponent('Rua Dr. Odair Branco Poletti, Águas de São Pedro - SP');
+            const dataInicio = '20261114T110000Z'; // 08h00 BRT
+            const dataFim = '20261114T150000Z'; // 12h00 BRT
+            const urlGoogleAgenda = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=${dataInicio}/${dataFim}&details=${detalhes}&location=${local}`;
+            window.open(urlGoogleAgenda, '_blank');
         }
 
-        // 5. ATIVAR O CONTADOR REGRESSIVO
-        function atualizarContador() {
-            const dataEvento = new Date("Nov 14, 2026 08:00:00").getTime();
-            const agora = new Date().getTime();
-            const distancia = dataEvento - agora;
+        // QUIZ
+        function verificarResposta(pergunta, opcao) {
+            const feedback = document.getElementById('quiz-feedback-' + pergunta);
+            feedback.style.display = 'block';
+            if (pergunta === 1) {
+                if (opcao === 'a') { feedback.style.backgroundColor = '#f8d7da'; feedback.style.color = '#721c24'; feedback.innerText = "Ops! O Dr. Octávio Moura Andrade fundou a cidade inteira. Tente novamente!"; } 
+                else if (opcao === 'b') { feedback.style.backgroundColor = '#d4edda'; feedback.style.color = '#155724'; feedback.innerText = "🎉 Parabéns, você acertou! Ângelo Franzin construiu o primeiro balneário."; } 
+                else if (opcao === 'c') { feedback.style.backgroundColor = '#f8d7da'; feedback.style.color = '#721c24'; feedback.innerText = "Haha, Toni Perecin é o nosso fotógrafo parceiro deste ano, não uma figura histórica! Tente de novo!"; }
+            } else if (pergunta === 2) {
+                if (opcao === 'a') { feedback.style.backgroundColor = '#d4edda'; feedback.style.color = '#155724'; feedback.innerText = "🎉 Exato! Eles procuravam petróleo, mas encontraram nossas valiosas águas!"; } 
+                else { feedback.style.backgroundColor = '#f8d7da'; feedback.style.color = '#721c24'; feedback.innerText = "Ops! Resposta errada. Tente novamente!"; }
+            } else if (pergunta === 3) {
+                if (opcao === 'b') { feedback.style.backgroundColor = '#d4edda'; feedback.style.color = '#155724'; feedback.innerText = "🎉 Acertou! O projeto ensinou as crianças a olharem a cidade por novos ângulos."; } 
+                else { feedback.style.backgroundColor = '#f8d7da'; feedback.style.color = '#721c24'; feedback.innerText = "Não foi dessa vez!"; }
+            }
+        }
 
-            const contadorElem = document.getElementById("contador-principal");
+        // SLIDER COMPARAÇÃO
+        function ajustarSlider(valor) {
+            document.getElementById('img-sobreposicao').style.clipPath = `polygon(0 0, ${valor}% 0, ${valor}% 100%, 0 100%)`;
+            document.getElementById('slider-linha').style.left = `${valor}%`;
+            document.getElementById('slider-setas').style.left = `${valor}%`;
+        }
+
+        // LIGHTBOX
+        function abrirLightbox(caminhoImagem) {
+            document.getElementById('lightbox-img').src = caminhoImagem;
+            document.getElementById('btn-download-lightbox').href = caminhoImagem; 
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+        function fecharLightbox(event) {
+            if(event && (event.target.id === 'lightbox-img' || event.target.id === 'btn-download-lightbox')) return;
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const fotosGaleria = document.querySelectorAll('.galeria > img, .galeria > div > img, .zoom-img-container img');
+            fotosGaleria.forEach(foto => {
+                foto.addEventListener('click', function() { abrirLightbox(this.src); });
+            });
+        });
+
+        // EFEITO LUPA DE DETALHES
+        function efeitoLupa(e, container) {
+            const img = container.querySelector('img');
+            const rect = container.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            img.style.transformOrigin = `${x}% ${y}%`;
+        }
+        function resetarLupa(container) {
+            const img = container.querySelector('img');
+            img.style.transformOrigin = 'center center';
+        }
+
+        // ÁUDIO DESCRIÇÃO
+        let audioAtualDesc = null;
+        let botaoAudioAtivo = null;
+        function tocarAudioDescricao(btn, event) {
+            event.stopPropagation();
+            if (audioAtualDesc) {
+                audioAtualDesc.pause(); audioAtualDesc.currentTime = 0;
+                if(botaoAudioAtivo) botaoAudioAtivo.innerHTML = '🎧 Audio Descrição';
+                if (botaoAudioAtivo === btn) { audioAtualDesc = null; botaoAudioAtivo = null; return; }
+            }
+            audioAtualDesc = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+            audioAtualDesc.play();
+            botaoAudioAtivo = btn;
+            btn.innerHTML = '🔊 Tocando...';
+            audioAtualDesc.onended = function() { btn.innerHTML = '🎧 Audio Descrição'; audioAtualDesc = null; botaoAudioAtivo = null; };
+        }
+
+        // FUNÇÃO DE MENSAGEM
+        function mostrarMensagem(texto) {
+            document.getElementById('texto-mensagem').innerText = texto;
+            document.getElementById('caixa-mensagem').style.display = 'flex';
+        }
+        
+        function fecharMensagem() {
+            document.getElementById('caixa-mensagem').style.display = 'none';
+        }
+
+        // MODO TV / EXPOSIÇÃO
+        let tvIntervalo;
+        let tvIndice = 0;
+        let listaImagensTV = [];
+
+        function iniciarModoTV() {
+            const agora = new Date().getTime();
+            if (agora < dataEvento) {
+                mostrarMensagem("Shhh! O Modo TV contém os trabalhos dos alunos e só será desbloqueado no dia da Feira Literária!");
+                return; 
+            }
+
+            const overlay = document.getElementById('modo-tv-overlay');
+            overlay.style.display = 'flex';
             
-            if (distancia < 0) {
-                if(contadorElem) contadorElem.innerHTML = "A Exposição já começou!";
+            if (overlay.requestFullscreen) {
+                overlay.requestFullscreen().catch(err => {
+                    console.warn("Modo tela cheia nativo bloqueado pelo navegador.");
+                });
+            }
+            
+            const imagensElementos = document.querySelectorAll('.foto-wrapper .zoom-img-container img');
+            listaImagensTV = Array.from(imagensElementos).map(img => ({ src: img.src, legenda: img.alt }));
+            
+            if (listaImagensTV.length === 0) {
+                mostrarMensagem("Nenhuma foto de aluno disponível para exposição no momento.");
+                sairModoTV();
                 return;
             }
 
+            tvIndice = 0;
+            const imgEl = document.getElementById('tv-imagem');
+            const legendaEl = document.getElementById('tv-legenda');
+            
+            trocarSlideTV(imgEl, legendaEl);
+            tvIntervalo = setInterval(() => {
+                tvIndice = (tvIndice + 1) % listaImagensTV.length;
+                trocarSlideTV(imgEl, legendaEl);
+            }, 6000); 
+        }
+
+        function trocarSlideTV(imgEl, legendaEl) {
+            imgEl.style.opacity = 0; legendaEl.style.opacity = 0;
+            setTimeout(() => {
+                imgEl.src = listaImagensTV[tvIndice].src;
+                legendaEl.innerText = listaImagensTV[tvIndice].legenda;
+                imgEl.style.opacity = 1; legendaEl.style.opacity = 1;
+            }, 1000);
+        }
+
+        function sairModoTV() {
+            clearInterval(tvIntervalo);
+            document.getElementById('modo-tv-overlay').style.display = 'none';
+            if (document.fullscreenElement && document.exitFullscreen) {
+                document.exitFullscreen().catch(err => console.warn(err));
+            }
+        }
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') sairModoTV(); });
+
+        // CONTADOR REGRESSIVO E SISTEMA DE DESBLOQUEIO
+        const dataEvento = new Date("2026-11-14T08:00:00-03:00").getTime();
+        
+        function verificarDesbloqueio() {
+            const agora = new Date().getTime();
+            if (agora >= dataEvento) {
+                document.querySelectorAll('.em-construcao').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.conteudo-secreto').forEach(el => el.style.display = 'block');
+            } else {
+                document.querySelectorAll('.em-construcao').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.conteudo-secreto').forEach(el => el.style.display = 'none');
+            }
+        }
+
+        const relogioIntervalo = setInterval(function() {
+            const agora = new Date().getTime();
+            const distancia = dataEvento - agora;
+            
+            if (distancia < 0) {
+                clearInterval(relogioIntervalo); 
+                document.querySelectorAll(".relogio-contador").forEach(el => {
+                    el.innerHTML = "A Feira Literária já está acontecendo/finalizada!";
+                });
+                verificarDesbloqueio(); 
+                return;
+            }
+            
             const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-
-            if (contadorElem) {
-                contadorElem.innerHTML = `Faltam ${dias} dias, ${horas}h e ${minutos}m para a exposição!`;
-            }
-        }
-        
-        // Roda o relógio agora e atualiza a cada minuto
-        setTimeout(atualizarContador, 1000); 
-        setInterval(atualizarContador, 60000); 
-
-    </script>
-
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+            
+            document.querySelectorAll(".relogio-contador").forEach(el => {
+                el.innerHTML = `⏳ Faltam: <strong>${dias} dias, ${horas} horas, ${minutos}m e ${segundos}s</strong>`;
+            });
+        }, 1000);
     </script>
 </body>
 </html>
