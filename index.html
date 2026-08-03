@@ -269,7 +269,7 @@
         .btn-edicao-anterior:hover { background-color: var(--cor-secundaria); }
 
         /* --- RODAPÉ INSTITUCIONAL --- */
-        <footer> { background-color: var(--cor-primaria); color: var(--cor-branco); padding: 40px 20px 20px 20px; margin-top: 40px; }
+        footer { background-color: var(--cor-primaria); color: var(--cor-branco); padding: 40px 20px 20px 20px; margin-top: 40px; }
         .footer-container { display: flex; flex-wrap: wrap; justify-content: space-around; max-width: 1000px; margin: 0 auto; text-align: left; gap: 30px; }
         .footer-col { flex: 1; min-width: 250px; }
         .footer-col h3 { border-bottom: 2px solid var(--cor-secundaria); padding-bottom: 5px; margin-bottom: 15px; color: var(--cor-branco); margin-top: 0; }
@@ -676,51 +676,37 @@
         </section>
 
         <!-- MAKING OFF -->
-        
- <section id="makingoff" class="aba-conteudo">
-            <!-- TELA DE BLOQUEIO (Some no dia do evento) -->
-            <div class="em-construcao">
-                <div class="icone-cadeado">🎬</div>
-                <h2>Bastidores em Edição!</h2>
-                <p>Ainda estamos preparando os conteúdos que serão disponibilizados por aqui. Volte no dia da feira para visualizar como foi o andamento do projeto.</p>
-                <div class="caixa-destaque" style="margin-top: 20px;">
-                    <p class="relogio-contador">Calculando o tempo...</p>
+        <section id="makingoff" class="aba-conteudo">
+            <h2>Making Off - Visão Diferente</h2>
+            <p>Confira os bastidores das nossas aulas práticas com o fotógrafo Toni Perecin e os momentos de confecção do nosso Almanaque.</p>
+            <div class="galeria">
+                <div>
+                    <img src="Making Off 5°A.jpg" alt="Pesquisas para o Almanaque" loading="lazy">
+                    <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
                 </div>
-            </div>
-
-            <!-- CONTEÚDO REAL (Aparece no dia do evento) -->
-            <div class="conteudo-secreto" style="display: none;">
-                <h2>Making Off - Visão Diferente</h2>
-                <p>Confira os bastidores das nossas aulas práticas com o fotógrafo Toni Perecin e os momentos de confecção do nosso Almanaque.</p>
-                <div class="galeria">
-                    <div>
-                        <img src="Making Off 5°A.jpg" alt="Pesquisas para o Almanaque" loading="lazy">
-                        <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
-                    </div>
-                    <div>
-                        <img src="Making Off 5°A (1).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
-                        <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
-                    </div>
-                    <div>
-                        <img src="Making Off 5°A (2).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
-                        <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
-                    </div>
-                    <div>
-                        <img src="Making Off 5°A (3).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
-                        <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
-                    </div>
-                    <div>
-                        <img src="Making Off 5°A (4).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
-                        <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
-                    </div>
-                    <div>
-                        <img src="Making Off 5°A (5).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
-                        <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
-                    </div>
-                    <div>
-                        <img src="Making Off 5°A (6).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
-                        <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
-                    </div>
+                <div>
+                    <img src="Making Off 5°A (1).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
+                    <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
+                </div>
+                <div>
+                    <img src="Making Off 5°A (2).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
+                    <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
+                </div>
+                <div>
+                    <img src="Making Off 5°A (3).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
+                    <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
+                </div>
+                <div>
+                    <img src="Making Off 5°A (4).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
+                    <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
+                </div>
+                <div>
+                    <img src="Making Off 5°A (5).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
+                    <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
+                </div>
+                <div>
+                    <img src="Making Off 5°A (6).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
+                    <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
                 </div>
             </div>
         </section>
@@ -1023,7 +1009,8 @@
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') sairModoTV(); });
 
         // CONTADOR REGRESSIVO E SISTEMA DE DESBLOQUEIO
-        const dataEvento = new Date("2026-11-14T08:00:00-03:00").getTime();
+        // Changed const to let so it can be reassigned in the console
+        let dataEvento = new Date("2026-11-14T08:00:00-03:00").getTime();
         
         function verificarDesbloqueio() {
             const agora = new Date().getTime();
