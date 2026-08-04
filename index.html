@@ -404,7 +404,13 @@
 
         <!-- HUB DE TURMAS -->
         <section id="turmas" class="aba-conteudo">
-            
+            <div class="em-construcao" id="bloqueio-turmas">
+                <div class="icone-cadeado">🔒</div>
+                <h2>Trabalhos em Produção!</h2>
+                <p>As pesquisas, fotos e produções das turmas do 5º Ano estão guardadas a sete chaves para não estragar a surpresa.<br>Tudo será revelado aqui no site no dia da nossa Feira Literária.</p>
+                <div class="caixa-destaque" style="margin-top: 20px;">
+                    <p class="relogio-contador">Calculando o tempo...</p>
+                </div>
             </div>
 
             <div class="conteudo-secreto" id="conteudo-turmas" style="display: none;">
@@ -657,7 +663,7 @@
         }
 
         // CONTADOR REGRESSIVO E SISTEMA DE DESBLOQUEIO
-        let dataEvento = new Date("2026-11-14T08:00:00-03:00").getTime();
+        let dataEvento = new Date("2025-11-14T08:00:00-03:00").getTime();
         
         function verificarDesbloqueio() {
             const agora = new Date().getTime();
