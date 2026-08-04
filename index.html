@@ -495,32 +495,232 @@
 
         <!-- PERFIS INDIVIDUAIS 5º ANO B (22 alunos) -->
         <script>
-            // Função rápida para injetar todos os perfis HTML de uma vez e não pesar o site
+            // LISTA DE ALUNOS DO 5º ANO B
+            // Para editar a biografia, basta alterar o texto entre as aspas na linha 'bio' de cada aluno.
             const perfis5B = [
-                {id: 'b-acaua', nome: 'Acauã Munaro De Medeiros'}, {id: 'b-ana-clara', nome: 'Ana Clara De Lima da Silva'},
-                {id: 'b-anna-catharina', nome: 'Anna Catharina Puga Frighetto'}, {id: 'b-eduarda', nome: 'Eduarda Rafaelly Da Silva'},
-                {id: 'b-eike', nome: 'Eike Pazzine Alonso'}, {id: 'b-julia', nome: 'Julia Capobianco Cardoso'},
-                {id: 'b-lara', nome: 'Lara Laurinda Da Silva'}, {id: 'b-larissa', nome: 'Larissa Dib Miranda'},
-                {id: 'b-leonardo', nome: 'Leonardo Carvalho Sgorlon'}, {id: 'b-lucas-z', nome: 'Lucas Zampieri Rodrigues Gimenes'},
-                {id: 'b-luigi', nome: 'Luigi Santos Da Silva'}, {id: 'b-marcela', nome: 'Marcela Weksler Mourão'},
-                {id: 'b-maria-valentina', nome: 'Maria Valentina Campos De Lima'}, {id: 'b-melissa', nome: 'Melissa Mel Alves Pereira'},
-                {id: 'b-pedro-vieira', nome: 'Pedro Vieira Moreira Dos Santos'}, {id: 'b-rafaella', nome: 'Rafaella Munhoz Ambrósio'},
-                {id: 'b-renan', nome: 'Renan Lucas Alves'}, {id: 'b-ricardo', nome: 'Ricardo Augusto Sepe'},
-                {id: 'b-ronaldo', nome: 'Ronaldo Bertato Valente'}, {id: 'b-sophia', nome: 'Sophia Santos Pereira'},
-                {id: 'b-vinicius-e', nome: 'Vinicius Eiji Alves Haguiara'}, {id: 'b-vinicius-p', nome: 'Vinicius Pereira Genguini'}
+                {
+                    id: 'b-acaua', 
+                    nome: 'Acauã Munaro De Medeiros',
+                    bio: 'Escreva a biografia do Acauã aqui...'
+                },
+                {
+                    id: 'b-ana-clara', 
+                    nome: 'Ana Clara De Lima da Silva',
+                    bio: 'Escreva a biografia da Ana Clara aqui...'
+                },
+                {
+                    id: 'b-anna-catharina', 
+                    nome: 'Anna Catharina Puga Frighetto',
+                    bio: 'Escreva a biografia da Anna Catharina aqui...'
+                },
+                {
+                    id: 'b-eduarda', 
+                    nome: 'Eduarda Rafaelly Da Silva',
+                    bio: 'Escreva a biografia da Eduarda aqui...'
+                },
+                {
+                    id: 'b-eike', 
+                    nome: 'Eike Pazzine Alonso',
+                    bio: 'Escreva a biografia do Eike aqui...'
+                },
+                {
+                    id: 'b-julia', 
+                    nome: 'Julia Capobianco Cardoso',
+                    bio: 'Escreva a biografia da Julia aqui...'
+                },
+                {
+                    id: 'b-lara', 
+                    nome: 'Lara Laurinda Da Silva',
+                    bio: 'Escreva a biografia da Lara aqui...'
+                },
+                {
+                    id: 'b-larissa', 
+                    nome: 'Larissa Dib Miranda',
+                    bio: 'Escreva a biografia da Larissa aqui...'
+                },
+                {
+                    id: 'b-leonardo', 
+                    nome: 'Leonardo Carvalho Sgorlon',
+                    bio: 'Escreva a biografia do Leonardo aqui...'
+                },
+                {
+                    id: 'b-lucas-z', 
+                    nome: 'Lucas Zampieri Rodrigues Gimenes',
+                    bio: 'Escreva a biografia do Lucas aqui...'
+                },
+                {
+                    id: 'b-luigi', 
+                    nome: 'Luigi Santos Da Silva',
+                    bio: 'Escreva a biografia do Luigi aqui...'
+                },
+                {
+                    id: 'b-marcela', 
+                    nome: 'Marcela Weksler Mourão',
+                    bio: 'Escreva a biografia da Marcela aqui...'
+                },
+                {
+                    id: 'b-maria-valentina', 
+                    nome: 'Maria Valentina Campos De Lima',
+                    bio: 'Escreva a biografia da Maria Valentina aqui...'
+                },
+                {
+                    id: 'b-melissa', 
+                    nome: 'Melissa Mel Alves Pereira',
+                    bio: 'Escreva a biografia da Melissa aqui...'
+                },
+                {
+                    id: 'b-pedro-vieira', 
+                    nome: 'Pedro Vieira Moreira Dos Santos',
+                    bio: 'Escreva a biografia do Pedro Vieira aqui...'
+                },
+                {
+                    id: 'b-rafaella', 
+                    nome: 'Rafaella Munhoz Ambrósio',
+                    bio: 'Escreva a biografia da Rafaella aqui...'
+                },
+                {
+                    id: 'b-renan', 
+                    nome: 'Renan Lucas Alves',
+                    bio: 'Escreva a biografia do Renan Lucas aqui...'
+                },
+                {
+                    id: 'b-ricardo', 
+                    nome: 'Ricardo Augusto Sepe',
+                    bio: 'Escreva a biografia do Ricardo aqui...'
+                },
+                {
+                    id: 'b-ronaldo', 
+                    nome: 'Ronaldo Bertato Valente',
+                    bio: 'Escreva a biografia do Ronaldo aqui...'
+                },
+                {
+                    id: 'b-sophia', 
+                    nome: 'Sophia Santos Pereira',
+                    bio: 'Escreva a biografia da Sophia aqui...'
+                },
+                {
+                    id: 'b-vinicius-e', 
+                    nome: 'Vinicius Eiji Alves Haguiara',
+                    bio: 'Escreva a biografia do Vinicius Eiji aqui...'
+                },
+                {
+                    id: 'b-vinicius-p', 
+                    nome: 'Vinicius Pereira Genguini',
+                    bio: 'Escreva a biografia do Vinicius Pereira aqui...'
+                }
             ];
+
             const perfis5C = [
-                {id: 'c-alice-l', nome: 'Alice Lopes Daniel'}, {id: 'c-alice-s', nome: 'Alice Santiago Campos'},
-                {id: 'c-alicia', nome: 'Alicia Marques Fernandes'}, {id: 'c-ana-laura', nome: 'Ana Laura Tuchapiscki da Silva'},
-                {id: 'c-caio', nome: 'Caio Lima De Mello'}, {id: 'c-catarina', nome: 'Catarina Varela Simões'},
-                {id: 'c-gabriel', nome: 'Gabriel Soares Martins'}, {id: 'c-gabriela', nome: 'Gabriela Camargo Lorenzo'},
-                {id: 'c-gael', nome: 'Gael De Araujo Gomes'}, {id: 'c-heitor', nome: 'Heitor Cardoso De Lima'},
-                {id: 'c-helena', nome: 'Helena Ye Jin Park'}, {id: 'c-heloisa', nome: 'Heloisa Barboza Braz'},
-                {id: 'c-isabella', nome: 'Isabella Amato Garcia'}, {id: 'c-joao-lucas', nome: 'João Lucas Soares Gouveia'},
-                {id: 'c-lorenzo', nome: 'Lorenzo Ryu Shigueno Fernandes'}, {id: 'c-maria-julia', nome: 'Maria Julia De Lima Pimenta'},
-                {id: 'c-melissa', nome: 'Melissa Ferrari Prado'}, {id: 'c-pedro-custodio', nome: 'Pedro Custodio'},
-                {id: 'c-pedro-henrique', nome: 'Pedro Henrique De Castro Corral'}, {id: 'c-pedro-lucas', nome: 'Pedro Lucas Vaz Souza'},
-                {id: 'c-vinicius', nome: 'Vinicius Pescara Marques'}, {id: 'c-manuela', nome: 'Manuela'} // Adição solicitada
+                {
+                    id: 'c-alice-l', 
+                    nome: 'Alice Lopes Daniel',
+                    bio: 'Escreva a biografia da Alice Lopes aqui...'
+                },
+                {
+                    id: 'c-alice-s', 
+                    nome: 'Alice Santiago Campos',
+                    bio: 'Escreva a biografia da Alice Santiago aqui...'
+                },
+                {
+                    id: 'c-alicia', 
+                    nome: 'Alicia Marques Fernandes',
+                    bio: 'Escreva a biografia da Alicia Marques aqui...'
+                },
+                {
+                    id: 'c-ana-laura', 
+                    nome: 'Ana Laura Tuchapiscki da Silva',
+                    bio: 'Escreva a biografia da Ana Laura aqui...'
+                },
+                {
+                    id: 'c-caio', 
+                    nome: 'Caio Lima De Mello',
+                    bio: 'Escreva a biografia do Caio aqui...'
+                },
+                {
+                    id: 'c-catarina', 
+                    nome: 'Catarina Varela Simões',
+                    bio: 'Escreva a biografia da Catarina aqui...'
+                },
+                {
+                    id: 'c-gabriel', 
+                    nome: 'Gabriel Soares Martins',
+                    bio: 'Escreva a biografia do Gabriel aqui...'
+                },
+                {
+                    id: 'c-gabriela', 
+                    nome: 'Gabriela Camargo Lorenzo',
+                    bio: 'Escreva a biografia da Gabriela aqui...'
+                },
+                {
+                    id: 'c-gael', 
+                    nome: 'Gael De Araujo Gomes',
+                    bio: 'Escreva a biografia do Gael aqui...'
+                },
+                {
+                    id: 'c-heitor', 
+                    nome: 'Heitor Cardoso De Lima',
+                    bio: 'Escreva a biografia do Heitor aqui...'
+                },
+                {
+                    id: 'c-helena', 
+                    nome: 'Helena Ye Jin Park',
+                    bio: 'Escreva a biografia da Helena aqui...'
+                },
+                {
+                    id: 'c-heloisa', 
+                    nome: 'Heloisa Barboza Braz',
+                    bio: 'Escreva a biografia da Heloisa aqui...'
+                },
+                {
+                    id: 'c-isabella', 
+                    nome: 'Isabella Amato Garcia',
+                    bio: 'Escreva a biografia da Isabella aqui...'
+                },
+                {
+                    id: 'c-joao-lucas', 
+                    nome: 'João Lucas Soares Gouveia',
+                    bio: 'Escreva a biografia do João Lucas aqui...'
+                },
+                {
+                    id: 'c-lorenzo', 
+                    nome: 'Lorenzo Ryu Shigueno Fernandes',
+                    bio: 'Escreva a biografia do Lorenzo aqui...'
+                },
+                {
+                    id: 'c-maria-julia', 
+                    nome: 'Maria Julia De Lima Pimenta',
+                    bio: 'Escreva a biografia da Maria Julia aqui...'
+                },
+                {
+                    id: 'c-melissa', 
+                    nome: 'Melissa Ferrari Prado',
+                    bio: 'Escreva a biografia da Melissa aqui...'
+                },
+                {
+                    id: 'c-pedro-custodio', 
+                    nome: 'Pedro Custodio',
+                    bio: 'Escreva a biografia do Pedro Custodio aqui...'
+                },
+                {
+                    id: 'c-pedro-henrique', 
+                    nome: 'Pedro Henrique De Castro Corral',
+                    bio: 'Escreva a biografia do Pedro Henrique aqui...'
+                },
+                {
+                    id: 'c-pedro-lucas', 
+                    nome: 'Pedro Lucas Vaz Souza',
+                    bio: 'Escreva a biografia do Pedro Lucas aqui...'
+                },
+                {
+                    id: 'c-vinicius', 
+                    nome: 'Vinicius Pescara Marques',
+                    bio: 'Escreva a biografia do Vinicius Pescara aqui...'
+                },
+                {
+                    id: 'c-manuela', 
+                    nome: 'Manuela',
+                    bio: 'Escreva a biografia da Manuela aqui...'
+                }
             ];
 
             function gerarEstruturaPerfil(aluno, turmaOrigem) {
@@ -531,7 +731,7 @@
                         <img src="https://via.placeholder.com/200/cccccc/333333?text=Foto+${aluno.nome.split(' ')[0]}" alt="${aluno.nome}" class="foto-perfil-aluno" loading="lazy">
                         <div class="bio-aluno">
                             <h3>${aluno.nome}</h3>
-                            <p><strong>Minha História:</strong> (Escreva a biografia deste aluno aqui. Ex: Olá! Sou o ${aluno.nome.split(' ')[0]} e eu adorei tirar fotos do relógio do sol.)</p>
+                            <p><strong>Minha História:</strong> ${aluno.bio}</p>
                             <div class="audio-player">
                                 <p><strong>Ouça minha biografia:</strong></p>
                                 <audio controls>
@@ -559,7 +759,7 @@
                 </section>`;
             }
 
-            // Injeta o HTML dos 44 alunos automaticamente abaixo na página (antes do fechamento do main)
+            // Injeta o HTML dos alunos do 5ºB automaticamente abaixo na página
             document.write(perfis5B.map(a => gerarEstruturaPerfil(a, 'quinto-b')).join(''));
         </script>
 
