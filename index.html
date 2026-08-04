@@ -82,7 +82,6 @@
         .header-bg-logo {
             position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
             width: 400px; height: 400px;
-            /* LINK ATUALIZADO COM O RQUIVO LOCAL */
             background-image: url('Brasão_Águas_de_São_Pedro.png');
             background-size: contain; background-repeat: no-repeat; background-position: center;
             opacity: 0.12; z-index: -1;
@@ -163,18 +162,6 @@
             transform: scale(2.5);
         }
 
-        .polaroid-controles {
-            position: absolute; bottom: 12px; left: 15px; right: 15px;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        
-        .btn-ouvir {
-            background-color: transparent; border: 1px solid var(--cor-primaria); color: var(--cor-primaria);
-            padding: 4px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: bold;
-            cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.2s;
-        }
-        .btn-ouvir:hover { background-color: var(--cor-primaria); color: white; }
-
         /* --- ESTILOS DO HUB DE TURMAS E PERFIS --- */
         .grade-alunos { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
         .cartao-aluno { background-color: var(--cor-destaque); border-radius: 8px; padding: 15px; text-align: center; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
@@ -215,10 +202,6 @@
         .caixa-destaque { background-color: #fdfbf7; border: 2px dashed var(--cor-secundaria); border-radius: 8px; padding: 20px; margin: 30px 0; text-align: center; color: #333; }
         .relogio-contador { font-size: 1.3rem; color: #d35400; background-color: #faebd7; padding: 10px; border-radius: 5px; display: inline-block; margin: 10px 0; }
 
-        .quiz-container { background-color: var(--cor-destaque); padding: 20px; border-radius: 8px; margin-top: 40px; }
-        .btn-quiz { display: block; width: 100%; background-color: var(--cor-branco); color: var(--cor-texto); border: 2px solid var(--cor-secundaria); padding: 10px; margin: 10px 0; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background 0.2s; }
-        .btn-quiz:hover { background-color: var(--cor-secundaria); color: white; }
-
         .audio-player { margin-top: 15px; } .audio-player audio { width: 100%; max-width: 400px; outline: none; }
 
         .lightbox { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; flex-direction: column; }
@@ -226,15 +209,6 @@
         .lightbox-fechar { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
 
         .pilula-literaria { text-align: center; font-style: italic; font-size: 1.3rem; color: var(--cor-secundaria); margin: 40px auto; padding: 20px; border-top: 1px dashed var(--cor-secundaria); border-bottom: 1px dashed var(--cor-secundaria); max-width: 80%; }
-
-        .slider-comparacao { position: relative; width: 100%; max-width: 500px; height: 330px; margin: 30px auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.2); background-color: var(--cor-destaque); }
-        .img-fundo, .img-sobreposicao { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .img-sobreposicao { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
-        .slider-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 10; }
-        .slider-linha { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: white; pointer-events: none; transform: translateX(-50%); box-shadow: 0 0 5px rgba(0,0,0,0.5); z-index: 5; }
-        .slider-setas { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--cor-primaria); pointer-events: none; box-shadow: 0 2px 5px rgba(0,0,0,0.3); z-index: 6; }
-        .slider-label { position: absolute; bottom: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; z-index: 2; }
-        .label-antes { right: 10px; } .label-depois { left: 10px; }
 
         /* --- MODO TV --- */
         #modo-tv-overlay {
@@ -278,7 +252,7 @@
 
         /* --- Estilo para Impressão --- */
         @media print {
-            header, nav, #btn-topo, footer, .btn-voltar, .quiz-container, .btn-baixar, .btn-agenda, .audio-player, #modo-tv-overlay, .slider-comparacao, .btn-edicao-anterior {
+            header, nav, #btn-topo, footer, .btn-voltar, .btn-baixar, .btn-agenda, .audio-player, #modo-tv-overlay, .btn-edicao-anterior {
                 display: none !important;
             }
             body { background-color: white; color: black; }
@@ -318,6 +292,7 @@
 
     <main>
         
+        <!-- INÍCIO -->
         <section id="inicio" class="aba-conteudo ativo">
             <h2>Sobre a Feira Literária</h2>
             <p>Nossa Feira Literária anual é um evento dedicado a estimular a imaginação, a leitura e a expressão artística dos nossos alunos. É um momento de compartilhar descobertas e celebrar a cultura dentro do ambiente escolar.</p>
@@ -355,6 +330,7 @@
             </div>
         </section>
 
+        <!-- ÁGUAS DE SÃO PEDRO -->
         <section id="aguas" class="aba-conteudo">
             <h2>Nossa Inspiração: Águas de São Pedro</h2>
             <p>Conhecida por sua tranquilidade e suas famosas águas termais, nossa cidade é um verdadeiro museu a céu aberto. Nesta seção, reunimos uma visão geral de como os alunos enxergaram os encantos, a natureza e a arquitetura de <strong>Águas de São Pedro</strong> durante todo o projeto.</p>
@@ -402,7 +378,7 @@
             </div>
         </section>
 
-        <!-- HUB DE TURMAS -->
+        <!-- HUB DE TURMAS GERAIS -->
         <section id="turmas" class="aba-conteudo">
             <div class="em-construcao" id="bloqueio-turmas">
                 <div class="icone-cadeado">🔒</div>
@@ -415,17 +391,215 @@
 
             <div class="conteudo-secreto" id="conteudo-turmas" style="display: none;">
                 <h2>Nossas Turmas - 5ºs Anos</h2>
-                <p>Conheça o trabalho brilhante desenvolvido por cada uma das nossas turmas do 5º Ano. Clique na foto da sala para acessar o projeto!</p>
+                <p>Conheça o trabalho brilhante desenvolvido por cada uma das nossas turmas do 5º Ano. Clique na sala para acessar o projeto!</p>
 
                 <div class="cartao-turma" onclick="mostrarSessao('quinto-a', 'btn-turmas')">
-                    <img src="https://via.placeholder.com/400x250/e9c46a/000000?text=Foto+Turma+5+A" alt="Foto da Turma 5º A" loading="lazy">
+                    <img src="https://via.placeholder.com/400x250/e9c46a/000000?text=Turma+5+A" alt="Turma 5º A" loading="lazy">
                     <div>
-                        <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano A</h3>
+                        <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano A - Profa. Patrícia</h3>
                         <p><strong>Projeto:</strong> Almanaque de Águas de São Pedro</p>
+                    </div>
+                </div>
+
+                <div class="cartao-turma" onclick="mostrarSessao('quinto-b', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/400x250/2a9d8f/ffffff?text=Turma+5+B" alt="Turma 5º B" loading="lazy">
+                    <div>
+                        <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano B - Profa. Cátia</h3>
+                        <p><strong>Projeto:</strong> Exposição Visão Diferente</p>
+                    </div>
+                </div>
+
+                <div class="cartao-turma" onclick="mostrarSessao('quinto-c', 'btn-turmas')">
+                    <img src="https://via.placeholder.com/400x250/e76f51/ffffff?text=Turma+5+C" alt="Turma 5º C" loading="lazy">
+                    <div>
+                        <h3 style="color: var(--cor-primaria); margin-top: 0; font-size: 1.5rem;">5º Ano C - Profa. Cibelle</h3>
+                        <p><strong>Projeto:</strong> Exposição Visão Diferente</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- ================= PÁGINA 5º ANO A ================= -->
+        <section id="quinto-a" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">⬅ Voltar para Turmas</button>
+            <h2>5º Ano A - Profa. Patrícia</h2>
+            <p>O 5º Ano A mergulhou na história e geografia de Águas de São Pedro para criar um material riquíssimo: o <strong>Almanaque Oficial</strong> da cidade. Neste documento, você encontrará lendas, dados históricos, mapas afetivos e curiosidades pesquisadas pelos próprios alunos.</p>
+            
+            <div class="cartao-almanaque">
+                <img src="https://via.placeholder.com/150/ffffff/000000?text=Capa+Livro" alt="Capa do Almanaque">
+                <h3 style="margin: 0; font-size: 1.5rem;">Almanaque Águas de São Pedro</h3>
+                <p>Produzido pelo 5º Ano A</p>
+                <a href="seu_arquivo_almanaque.pdf" download class="btn-baixar" style="background-color: white; color: var(--cor-primaria); border: 2px solid white; display: block; width: 80%; margin: 15px auto;">📥 Baixar PDF Completo</a>
+            </div>
+
+            <!-- Colaboradores 5A (Listagem sem clique/perfil) -->
+            <h3 style="margin-top: 40px; color: var(--cor-secundaria);">Nossos Colaboradores (Autores)</h3>
+            <div class="grade-alunos">
+                <!-- 22 Alunos -->
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Alhena Fessel Gomes"><h3>Alhena Fessel Gomes</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Beatris Vitoria Da Costa Guitierrez"><h3>Beatris Vitoria Da Costa</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Carlos Wesley Francisco"><h3>Carlos Wesley Francisco</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Charles Henrique Castro Guimarães"><h3>Charles Henrique</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Enrico Amorim Dos Reis"><h3>Enrico Amorim Dos Reis</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Gabriel Ferreira Chiosini"><h3>Gabriel Ferreira Chiosini</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Gabriel Nogueira Barboza Cassemiro"><h3>Gabriel Nogueira</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Heitor Rosa Ferreira"><h3>Heitor Rosa Ferreira</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Helena Mendonça Canais"><h3>Helena Mendonça Canais</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="José Henrique De Barros Alves"><h3>José Henrique</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Lucas Henrique Muniz Jorge"><h3>Lucas Henrique Muniz</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Luna Hope Pereira dos Santos"><h3>Luna Hope Pereira</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Marina Ferreira De Almeida"><h3>Marina Ferreira</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Miguel Ragazzi Pelluso"><h3>Miguel Ragazzi Pelluso</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Paloma Ayla Dantas Alonso"><h3>Paloma Ayla Dantas</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Pedro Henrique Lira Ribeiro"><h3>Pedro Henrique Lira</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Piettro Lang Pereira"><h3>Piettro Lang Pereira</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Renan Jardim Maciel"><h3>Renan Jardim Maciel</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Sophia Giglioti Guidotti"><h3>Sophia Giglioti</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Vinícius Itipão Barboza"><h3>Vinícius Itipão</h3></div>
+                <!-- Adições solicitadas -->
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Ana Luiza"><h3>Ana Luiza</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Alicia"><h3>Alicia</h3></div>
+            </div>
+        </section>
+
+        <!-- ================= HUB DO 5º ANO B ================= -->
+        <section id="quinto-b" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">⬅ Voltar para Turmas</button>
+            <h2>5º Ano B - Profa. Cátia</h2>
+            <p>Clique no perfil do aluno para ver sua história, ouvir sua biografia e conferir as fotos capturadas durante as expedições.</p>
+            <div class="grade-alunos">
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-acaua', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Acauã"><h3>Acauã Munaro</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-ana-clara', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Ana Clara"><h3>Ana Clara</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-anna-catharina', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Anna Catharina"><h3>Anna Catharina</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-eduarda', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Eduarda Rafaelly"><h3>Eduarda Rafaelly</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-eike', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Eike Pazzine"><h3>Eike Pazzine</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-julia', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Julia Capobianco"><h3>Julia Capobianco</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-lara', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Lara Laurinda"><h3>Lara Laurinda</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-larissa', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Larissa Dib"><h3>Larissa Dib</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-leonardo', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Leonardo Carvalho"><h3>Leonardo Carvalho</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-lucas-z', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Lucas Zampieri"><h3>Lucas Zampieri</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-luigi', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Luigi Santos"><h3>Luigi Santos</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-marcela', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Marcela Weksler"><h3>Marcela Weksler</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-maria-valentina', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Maria Valentina"><h3>Maria Valentina</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-melissa', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Melissa Mel"><h3>Melissa Mel</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-pedro-vieira', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Pedro Vieira"><h3>Pedro Vieira</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-rafaella', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Rafaella Munhoz"><h3>Rafaella Munhoz</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-renan', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Renan Lucas"><h3>Renan Lucas</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-ricardo', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Ricardo Augusto"><h3>Ricardo Augusto</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-ronaldo', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Ronaldo Bertato"><h3>Ronaldo Bertato</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-sophia', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Sophia Santos"><h3>Sophia Santos</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-vinicius-e', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Vinicius Eiji"><h3>Vinicius Eiji</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-vinicius-p', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Vinicius Pereira"><h3>Vinicius Pereira</h3></div>
+            </div>
+        </section>
+
+        <!-- PERFIS INDIVIDUAIS 5º ANO B (22 alunos) -->
+        <script>
+            // Função rápida para injetar todos os perfis HTML de uma vez e não pesar o site
+            const perfis5B = [
+                {id: 'b-acaua', nome: 'Acauã Munaro De Medeiros'}, {id: 'b-ana-clara', nome: 'Ana Clara De Lima da Silva'},
+                {id: 'b-anna-catharina', nome: 'Anna Catharina Puga Frighetto'}, {id: 'b-eduarda', nome: 'Eduarda Rafaelly Da Silva'},
+                {id: 'b-eike', nome: 'Eike Pazzine Alonso'}, {id: 'b-julia', nome: 'Julia Capobianco Cardoso'},
+                {id: 'b-lara', nome: 'Lara Laurinda Da Silva'}, {id: 'b-larissa', nome: 'Larissa Dib Miranda'},
+                {id: 'b-leonardo', nome: 'Leonardo Carvalho Sgorlon'}, {id: 'b-lucas-z', nome: 'Lucas Zampieri Rodrigues Gimenes'},
+                {id: 'b-luigi', nome: 'Luigi Santos Da Silva'}, {id: 'b-marcela', nome: 'Marcela Weksler Mourão'},
+                {id: 'b-maria-valentina', nome: 'Maria Valentina Campos De Lima'}, {id: 'b-melissa', nome: 'Melissa Mel Alves Pereira'},
+                {id: 'b-pedro-vieira', nome: 'Pedro Vieira Moreira Dos Santos'}, {id: 'b-rafaella', nome: 'Rafaella Munhoz Ambrósio'},
+                {id: 'b-renan', nome: 'Renan Lucas Alves'}, {id: 'b-ricardo', nome: 'Ricardo Augusto Sepe'},
+                {id: 'b-ronaldo', nome: 'Ronaldo Bertato Valente'}, {id: 'b-sophia', nome: 'Sophia Santos Pereira'},
+                {id: 'b-vinicius-e', nome: 'Vinicius Eiji Alves Haguiara'}, {id: 'b-vinicius-p', nome: 'Vinicius Pereira Genguini'}
+            ];
+            const perfis5C = [
+                {id: 'c-alice-l', nome: 'Alice Lopes Daniel'}, {id: 'c-alice-s', nome: 'Alice Santiago Campos'},
+                {id: 'c-alicia', nome: 'Alicia Marques Fernandes'}, {id: 'c-ana-laura', nome: 'Ana Laura Tuchapiscki da Silva'},
+                {id: 'c-caio', nome: 'Caio Lima De Mello'}, {id: 'c-catarina', nome: 'Catarina Varela Simões'},
+                {id: 'c-gabriel', nome: 'Gabriel Soares Martins'}, {id: 'c-gabriela', nome: 'Gabriela Camargo Lorenzo'},
+                {id: 'c-gael', nome: 'Gael De Araujo Gomes'}, {id: 'c-heitor', nome: 'Heitor Cardoso De Lima'},
+                {id: 'c-helena', nome: 'Helena Ye Jin Park'}, {id: 'c-heloisa', nome: 'Heloisa Barboza Braz'},
+                {id: 'c-isabella', nome: 'Isabella Amato Garcia'}, {id: 'c-joao-lucas', nome: 'João Lucas Soares Gouveia'},
+                {id: 'c-lorenzo', nome: 'Lorenzo Ryu Shigueno Fernandes'}, {id: 'c-maria-julia', nome: 'Maria Julia De Lima Pimenta'},
+                {id: 'c-melissa', nome: 'Melissa Ferrari Prado'}, {id: 'c-pedro-custodio', nome: 'Pedro Custodio'},
+                {id: 'c-pedro-henrique', nome: 'Pedro Henrique De Castro Corral'}, {id: 'c-pedro-lucas', nome: 'Pedro Lucas Vaz Souza'},
+                {id: 'c-vinicius', nome: 'Vinicius Pescara Marques'}, {id: 'c-manuela', nome: 'Manuela'} // Adição solicitada
+            ];
+
+            function gerarEstruturaPerfil(aluno, turmaOrigem) {
+                return `
+                <section id="perfil-${aluno.id}" class="aba-conteudo">
+                    <button class="btn-voltar" onclick="mostrarSessao('${turmaOrigem}', 'btn-turmas')">⬅ Voltar para a Turma</button>
+                    <div class="cabecalho-aluno">
+                        <img src="https://via.placeholder.com/200/cccccc/333333?text=Foto+${aluno.nome.split(' ')[0]}" alt="${aluno.nome}" class="foto-perfil-aluno" loading="lazy">
+                        <div class="bio-aluno">
+                            <h3>${aluno.nome}</h3>
+                            <p><strong>Minha História:</strong> (Escreva a biografia deste aluno aqui. Ex: Olá! Sou o ${aluno.nome.split(' ')[0]} e eu adorei tirar fotos do relógio do sol.)</p>
+                            <div class="audio-player">
+                                <p><strong>Ouça minha biografia:</strong></p>
+                                <audio controls>
+                                    <source src="audio_${aluno.id}.mp3" type="audio/mpeg">
+                                    Seu navegador não suporta áudio.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Minhas Fotografias e Visões</h3>
+                    <div class="galeria">
+                        <div class="foto-wrapper">
+                            <div class="zoom-img-container"><img src="https://via.placeholder.com/300x200/cccccc/333333?text=Foto+1" alt="Foto" loading="lazy" onclick="abrirLightbox(this.src)"></div>
+                            <div class="legenda-foto">📍 Local<br>📸 Título</div>
+                        </div>
+                        <div class="foto-wrapper">
+                            <div class="zoom-img-container"><img src="https://via.placeholder.com/300x200/cccccc/333333?text=Foto+2" alt="Foto" loading="lazy" onclick="abrirLightbox(this.src)"></div>
+                            <div class="legenda-foto">📍 Local<br>📸 Título</div>
+                        </div>
+                        <div class="foto-wrapper">
+                            <div class="zoom-img-container"><img src="https://via.placeholder.com/300x200/cccccc/333333?text=Foto+3" alt="Foto" loading="lazy" onclick="abrirLightbox(this.src)"></div>
+                            <div class="legenda-foto">📍 Local<br>📸 Título</div>
+                        </div>
+                    </div>
+                </section>`;
+            }
+
+            // Injeta o HTML dos 44 alunos automaticamente abaixo na página (antes do fechamento do main)
+            document.write(perfis5B.map(a => gerarEstruturaPerfil(a, 'quinto-b')).join(''));
+        </script>
+
+
+        <!-- ================= HUB DO 5º ANO C ================= -->
+        <section id="quinto-c" class="aba-conteudo">
+            <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">⬅ Voltar para Turmas</button>
+            <h2>5º Ano C - Profa. Cibelle</h2>
+            <p>Clique no perfil do aluno para ver sua história, ouvir sua biografia e conferir as fotos capturadas durante as expedições.</p>
+            <div class="grade-alunos">
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-alice-l', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Alice Lopes"><h3>Alice Lopes</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-alice-s', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Alice Santiago"><h3>Alice Santiago</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-alicia', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Alicia Marques"><h3>Alicia Marques</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-ana-laura', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Ana Laura"><h3>Ana Laura</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-caio', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Caio Lima"><h3>Caio Lima</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-catarina', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Catarina Varela"><h3>Catarina Varela</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-gabriel', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Gabriel Soares"><h3>Gabriel Soares</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-gabriela', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Gabriela Camargo"><h3>Gabriela Camargo</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-gael', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Gael De Araujo"><h3>Gael De Araujo</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-heitor', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Heitor Cardoso"><h3>Heitor Cardoso</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-helena', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Helena Ye"><h3>Helena Ye</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-heloisa', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Heloisa Barboza"><h3>Heloisa Barboza</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-isabella', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Isabella Amato"><h3>Isabella Amato</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-joao-lucas', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="João Lucas"><h3>João Lucas</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-lorenzo', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Lorenzo Ryu"><h3>Lorenzo Ryu</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-maria-julia', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Maria Julia"><h3>Maria Julia</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-melissa', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Melissa Ferrari"><h3>Melissa Ferrari</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-pedro-custodio', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Pedro Custodio"><h3>Pedro Custodio</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-pedro-henrique', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Pedro Henrique"><h3>Pedro Henrique</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-pedro-lucas', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Pedro Lucas"><h3>Pedro Lucas</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-vinicius', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Vinicius Pescara"><h3>Vinicius Pescara</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-manuela', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Manuela"><h3>Manuela</h3></div>
+            </div>
+        </section>
+
+        <!-- PERFIS INDIVIDUAIS 5º ANO C (22 alunos) -->
+        <script>
+            // Injeta o HTML dos alunos do 5ºC gerados dinamicamente
+            document.write(perfis5C.map(a => gerarEstruturaPerfil(a, 'quinto-c')).join(''));
+        </script>
 
         <!-- MAKING OFF -->
         <section id="makingoff" class="aba-conteudo">
