@@ -307,7 +307,7 @@
                 <h3 style="color: var(--cor-primaria); margin-top: 0;">📅 Agende-se: Exposição Presencial</h3>
                 <p><strong>Data:</strong> 28 de Novembro de 2026<br>
                 <strong>Horário:</strong> Aberto ao público a partir das 09:00<br>
-                <strong>Local:</strong> Pátio e Sala do 5° Ano C</p>
+                <strong>Local:</strong> Pátio e Sala dos 5° Anos</p>
                 <p class="relogio-contador" id="contador-principal">Calculando o tempo...</p>
                 <br>
                 <button class="btn-agenda" onclick="adicionarAoCalendario()">📅 Salvar na Minha Agenda</button>
@@ -957,8 +957,8 @@
 
         function adicionarAoCalendario() {
             const titulo = encodeURIComponent('Feira Literária - Olhares que contam histórias (E.M.E.F Maria Luiza)');
-            const dataInicio = '20261114T110000Z'; 
-            const dataFim = '20261114T150000Z';
+            const dataInicio = '20261128T110000Z'; 
+            const dataFim = '20261128T150000Z';
             window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=${dataInicio}/${dataFim}`, '_blank');
         }
 
