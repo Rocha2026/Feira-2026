@@ -808,6 +808,22 @@
                     <img src="Making Off 5°A (6).jpg" alt="Pesquisas para o Almanaque" loading="lazy">
                     <div class="legenda-foto">📸 Pesquisas para o Almanaque</div>
                 </div>
+                <div>
+                    <img src="Atividade Autobiografia.jpg" alt="Atividade Autobiografia" loading="lazy">
+                    <div class="legenda-foto">📸 Atividade Autobiografia 5°B</div>
+                </div>
+                <div>
+                    <img src="Atividade Autobiografia (1).jpg" alt="Atividade Autobiografia" loading="lazy">
+                    <div class="legenda-foto">📸 Atividade Autobiografia 5°B</div>
+                </div>
+                <div>
+                    <img src="Atividade Autobiografia (2).jpg" alt="Atividade Autobiografia" loading="lazy">
+                    <div class="legenda-foto">📸 Atividade Autobiografia 5°B</div>
+                </div>
+                <div>
+                    <img src="Palestra sobre a cidade.jpg" alt="Palestra sobre a cidade" loading="lazy">
+                    <div class="legenda-foto">📸 Palestra sobre a cidade</div>
+                </div>
             </div>
         </section>
 
@@ -979,7 +995,7 @@
             
             // Pega todas as fotos da galeria para passar na TV
             const imagensElementos = document.querySelectorAll('.galeria img:not(.img-fundo):not(.img-sobreposicao)');
-            listaImagensTV = Array.from(imagensElementos).map(img => ({ src: img.src, legenda: img.alt || "Exposição Visão Diferente" }));
+            listaImagensTV = Array.from(imagensElementos).map(img => ({ src: img.src, legenda: img.alt || "Exposição Olhares que contam histórias" }));
             
             if (listaImagensTV.length === 0) return;
 
@@ -1011,7 +1027,7 @@
         }
 
         // CONTADOR REGRESSIVO E SISTEMA DE DESBLOQUEIO
-        let dataEvento = new Date("2026-11-14T08:00:00-03:00").getTime();
+        let dataEvento = new Date("2026-11-28T08:00:00-03:00").getTime();
         
         function verificarDesbloqueio() {
             const agora = new Date().getTime();
