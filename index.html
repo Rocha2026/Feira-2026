@@ -204,8 +204,6 @@
         .caixa-destaque { background-color: #fdfbf7; border: 2px dashed var(--cor-secundaria); border-radius: 8px; padding: 20px; margin: 30px 0; text-align: center; color: #333; }
         .relogio-contador { font-size: 1.3rem; color: #d35400; background-color: #faebd7; padding: 10px; border-radius: 5px; display: inline-block; margin: 10px 0; }
 
-        .audio-player { margin-top: 15px; } .audio-player audio { width: 100%; max-width: 400px; outline: none; }
-
         .lightbox { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; flex-direction: column; }
         .lightbox-img { max-width: 90%; max-height: 80%; border-radius: 5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
         .lightbox-fechar { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
@@ -254,7 +252,7 @@
 
         /* --- Estilo para Impressão --- */
         @media print {
-            header, nav, #btn-topo, footer, .btn-voltar, .btn-baixar, .btn-agenda, .audio-player, #modo-tv-overlay, .btn-edicao-anterior {
+            header, nav, #btn-topo, footer, .btn-voltar, .btn-baixar, .btn-agenda, #modo-tv-overlay, .btn-edicao-anterior {
                 display: none !important;
             }
             body { background-color: white; color: black; }
@@ -322,10 +320,15 @@
                     <h3>Parceria Especial: Toni Perecin</h3>
                     <p>Para enriquecer ainda mais nosso projeto, contamos com a ilustre parceria do renomado fotógrafo <strong>Toni Perecin</strong>. Conhecido por seu olhar sensível e sua capacidade de capturar a essência da vida urbana e da natureza, Toni compartilhou suas técnicas e inspirações com nossos alunos para o projeto <em>"Olhares que contam histórias"</em>. <br><br>Conheça mais de seu trabalho em sua <a href="https://www.facebook.com/toniperecinfotografia/" target="_blank" style="color: var(--cor-primaria); font-weight: bold; text-decoration: underline;">página no Facebook</a> ou acompanhe pelo <a href="https://www.instagram.com/toniperecin/" target="_blank" style="color: var(--cor-primaria); font-weight: bold; text-decoration: underline;">Instagram</a>.</p>
                 </div>
-                
-                
             </div>
-        </div>
+            
+            <div class="parceria-perfil">
+                <img src="https://via.placeholder.com/150/d35400/FFFFFF?text=Foto+Sonia" alt="Retrato da Professora Sonia" loading="lazy">
+                <div>
+                    <h3> Palestrante: Profa. Sonia Neves</h3>
+                    <p>Nascida na região e moradora apaixonada de Águas de São Pedro desde seu nascimento, a professora Sonia é uma figura essencial e muito querida na nossa comunidade. Formada em Geografia pela UNESP, ela atua ativamente como chefe escoteira, voluntária do Greenpeace e um grande apoio para a cidade. Para o projeto <em>"Olhares que contam histórias"</em>, Sonia compartilhou sua bagagem histórica e memórias inestimáveis, enriquecendo a pesquisa dos alunos com uma palestra inspiradora sobre as raízes do nosso município.</p>
+                </div>
+            </div>
 
         </section>
 
@@ -449,7 +452,7 @@
         <section id="quinto-b" class="aba-conteudo">
             <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">⬅ Voltar para Turmas</button>
             <h2>5º Ano B - Profa. Cátia</h2>
-            <p>Clique no perfil do aluno para ver sua história, ouvir sua biografia e conferir as fotos capturadas durante as expedições.</p>
+            <p>Clique no perfil do aluno para ler sua história e conferir as fotos capturadas durante as expedições.</p>
             <div class="grade-alunos">
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-acaua', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Acauã"><h3>Acauã Munaro</h3></div>
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-b-ana-clara', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Ana Clara"><h3>Ana Clara</h3></div>
@@ -698,6 +701,11 @@
                     id: 'c-vinicius', 
                     nome: 'Vinicius Pescara Marques',
                     bio: 'Escreva a biografia do Vinicius Pescara aqui...'
+                },
+                {
+                    id: 'c-manuela', 
+                    nome: 'Manuela',
+                    bio: 'Escreva a biografia da Manuela aqui...'
                 }
             ];
 
@@ -710,13 +718,6 @@
                         <div class="bio-aluno">
                             <h3>${aluno.nome}</h3>
                             <p><strong>Minha História:</strong> ${aluno.bio}</p>
-                            <div class="audio-player">
-                                <p><strong>Ouça minha biografia:</strong></p>
-                                <audio controls>
-                                    <source src="audio_${aluno.id}.mp3" type="audio/mpeg">
-                                    Seu navegador não suporta áudio.
-                                </audio>
-                            </div>
                         </div>
                     </div>
                     <h3>Minhas Fotografias e Visões</h3>
@@ -746,7 +747,7 @@
         <section id="quinto-c" class="aba-conteudo">
             <button class="btn-voltar" onclick="mostrarSessao('turmas', 'btn-turmas')">⬅ Voltar para Turmas</button>
             <h2>5º Ano C - Profa. Cibelle</h2>
-            <p>Clique no perfil do aluno para ver sua história, ouvir sua biografia e conferir as fotos capturadas durante as expedições.</p>
+            <p>Clique no perfil do aluno para ler sua história e conferir as fotos capturadas durante as expedições.</p>
             <div class="grade-alunos">
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-alice-l', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Alice Lopes"><h3>Alice Lopes</h3></div>
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-alice-s', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Alice Santiago"><h3>Alice Santiago</h3></div>
@@ -769,6 +770,7 @@
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-pedro-henrique', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Pedro Henrique"><h3>Pedro Henrique</h3></div>
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-pedro-lucas', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Pedro Lucas"><h3>Pedro Lucas</h3></div>
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-vinicius', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Vinicius Pescara"><h3>Vinicius Pescara</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-manuela', 'btn-turmas')"><img src="https://via.placeholder.com/120/cccccc/333333?text=Foto" alt="Manuela"><h3>Manuela</h3></div>
             </div>
         </section>
 
