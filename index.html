@@ -879,24 +879,26 @@
             ];
 
             JavaScript
-function gerarEstruturaPerfil(aluno, turmaOrigem) {
-    const caminhoFotoPrincipal = aluno.foto || 'https://via.placeholder.com/200/cccccc/333333?text=Foto';
+ffunction gerarEstruturaPerfil(aluno, turmaOrigem) {
+    const caminhoFoto = aluno.foto || 'https://via.placeholder.com/200/cccccc/333333?text=Foto';
     
-    // Gera o HTML de cada foto da galeria do aluno automaticamente
+    // Gera os cards de fotos automaticamente se existirem, senão exibe um aviso ou placeholders
     const galeriaHTML = aluno.fotos && aluno.fotos.length > 0 
         ? aluno.fotos.map(f => `
             <div class="foto-wrapper">
-                <div class="zoom-img-container"><img src="${f.arquivo}" alt="${f.titulo}" loading="lazy" onclick="abrirLightbox(this.src)"></div>
+                <div class="zoom-img-container">
+                    <img src="${f.arquivo}" alt="${f.titulo}" loading="lazy" onclick="abrirLightbox(this.src)">
+                </div>
                 <div class="legenda-foto">📍 ${f.local}<br>📸 ${f.titulo}</div>
             </div>
         `).join('')
-        : '<p>Nenhuma foto cadastrada ainda.</p>';
+        : `<p style="text-align: center; width: 100%; color: #666;">Fotos em breve...</p>`;
 
     return `
     <section id="perfil-${aluno.id}" class="aba-conteudo">
         <button class="btn-voltar" onclick="mostrarSessao('${turmaOrigem}', 'btn-turmas')">⬅ Voltar para a Turma</button>
         <div class="cabecalho-aluno">
-            <img src="${caminhoFotoPrincipal}" alt="${aluno.nome}" class="foto-perfil-aluno" loading="lazy">
+            <img src="${caminhoFoto}" alt="${aluno.nome}" class="foto-perfil-aluno" loading="lazy">
             <div class="bio-aluno">
                 <h3>${aluno.nome}</h3>
                 <p><strong>Minha História:</strong> ${aluno.bio}</p>
