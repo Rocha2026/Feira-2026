@@ -704,16 +704,19 @@
             ];
 
             function gerarEstruturaPerfil(aluno, turmaOrigem) {
-                return `
-                <section id="perfil-${aluno.id}" class="aba-conteudo">
-                    <button class="btn-voltar" onclick="mostrarSessao('${turmaOrigem}', 'btn-turmas')">⬅ Voltar para a Turma</button>
-                    <div class="cabecalho-aluno">
-                        <img src="https://via.placeholder.com/200/cccccc/333333?text=Foto+${aluno.nome.split(' ')[0]}" alt="${aluno.nome}" class="foto-perfil-aluno" loading="lazy">
-                        <div class="bio-aluno">
-                            <h3>${aluno.nome}</h3>
-                            <p><strong>Minha História:</strong> ${aluno.bio}</p>
-                        </div>
-                    </div>
+    // Se o aluno não tiver foto definida, usa um fallback ou a própria foto
+    const caminhoFoto = aluno.foto || 'https://via.placeholder.com/200/cccccc/333333?text=Foto';
+    
+    return `
+    <section id="perfil-${aluno.id}" class="aba-conteudo">
+        <button class="btn-voltar" onclick="mostrarSessao('${turmaOrigem}', 'btn-turmas')">⬅ Voltar para a Turma</button>
+        <div class="cabecalho-aluno">
+            <img src="${caminhoFoto}" alt="${aluno.nome}" class="foto-perfil-aluno" loading="lazy">
+            <div class="bio-aluno">
+                <h3>${aluno.nome}</h3>
+                <p><strong>Minha História:</strong> ${aluno.bio}</p>
+            </div>
+        </div>
                     <h3>Minhas Fotografias e Visões</h3>
                     <div class="galeria">
                         <div class="foto-wrapper">
