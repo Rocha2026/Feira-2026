@@ -296,11 +296,6 @@ h2 {font-size:clamp(1.7rem,3vw,2.5rem);padding-bottom:14px;border-bottom:1px sol
 .botao-editorial {background:var(--cor-primaria);color:white;border:0;border-radius:9px;padding:11px 17px;font:inherit;font-weight:600;cursor:pointer;}
 .botao-editorial:hover {background:var(--cor-secundaria);}
 .navegacao-autores {display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;margin:30px 0;}
-.modo-leitura .cabecalho-aluno {display:block;max-width:800px;margin:auto;}
-.modo-leitura .foto-perfil-aluno {display:none;}
-.modo-leitura .bio-aluno {max-width:760px;margin:auto;padding:clamp(24px,6vw,65px);font-size:1.15rem;line-height:2.05;}
-.modo-leitura .galeria,.modo-leitura .titulo-galeria {display:none;}
-.modo-leitura .autor-selo {text-align:center;}
 .galeria {gap:22px;}
 .galeria > div:not(.foto-wrapper) {background:var(--cor-branco);padding:10px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.07);}
 .galeria > div:not(.foto-wrapper) img {max-width:100%;border-radius:6px;}
@@ -720,9 +715,9 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
             <h3 style="margin-top: 40px; color: var(--cor-secundaria);">Nossos Colaboradores (Autores)</h3>
             <div class="grade-alunos">
                 <!-- 21 Alunos -->
-                <div class="cartao-aluno" style="cursor: default;"><img src="alicia.jpg" alt="Alicia Carla Haussler Rôlla"><h3>Alicia</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="alicia.jpg" alt="Alicia"><h3>Alicia</h3></div>
                 <div class="cartao-aluno" style="cursor: default;"><img src="alhena.jpg" alt="Alhena Fessel Gomes"><h3>Alhena Fessel Gomes</h3></div>
-                <div class="cartao-aluno" style="cursor: default;"><img src="Ana livia painel.jpg" alt="Ana Luiza Almeida Camargo"><h3>Ana Luiza</h3></div>
+                <div class="cartao-aluno" style="cursor: default;"><img src="Ana livia painel.jpg" alt="Ana Luiza"><h3>Ana Luiza</h3></div>
                 <div class="cartao-aluno" style="cursor: default;"><img src="Beatris anjo.jpg" alt="Beatris Vitoria Da Costa Guitierrez"><h3>Beatris Vitoria Da Costa</h3></div>
                 <div class="cartao-aluno" style="cursor: default;"><img src="carlos.jpg" alt="Carlos Wesley Francisco"><h3>Carlos Wesley Francisco</h3></div>
                 <div class="cartao-aluno" style="cursor: default;"><img src="Charles painel.jpg" alt="Charles Henrique Castro Guimarães"><h3>Charles Henrique</h3></div>
@@ -996,7 +991,7 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
                 },
                 {
                     id: 'c-debora', 
-                    nome: 'Debora Pereira Galdino de Sousa Silva',
+                    nome: 'Debora pereira Galdino de Sousa Silva',
                     foto: 'debora painel.jpg',
                     fotoAluno: 'DÉBORA PEREIRA G DE SOUSA SILVA - MONUMENTO DAS ÁGUAS (CAVALOS) - 5º C.jpeg',
                     bio: "<strong>MINHA AUTOBIOGRAFIA</strong><br><br>Oi, meu nome é Débora Pereira Galdino de Sousa Silva. Tenho 11 anos. Nasci em Bertioga dia 15/07/2015. Eu moro com minha mãe, meu padrasto e meu irmão.<br><br>Eu vim de outra escola onde eu tinha várias amigas, mas eu já tenho amigas e já estou me acostumando.<br><br>Eu gosto muito quando a família está reunida contando histórias da infância.<br><br>Gosto de inglês e livros. O meu favorito é “O diário de uma princesa desastrada”. Sou meio nerd, gosto de jogos, principalmente de objetivos, fuga, sobrevivência, um pouco de terror e uma pitadinha de terror psicológico. Gosto de pelúcias e animais, principalmente aquáticos e terrestres.<br><br>Eu morava em Bertioga, mas recebemos uma oportunidade muito boa e, então, estamos morando aqui agora.<br><br>Eu quero ser escritora, professora de inglês ou aeromoça."
@@ -1122,7 +1117,7 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
                             <p><strong>Minha História:</strong> ${aluno.bio}</p>
                         </div>
                     </div>
-                    <div class="acoes-leitura"><button class="botao-editorial" onclick="alternarModoLeitura(this)">📖 Modo leitura</button></div>
+                    
                     <h3 class="titulo-galeria">Minhas Fotografias e Visões</h3>
                     <div class="galeria">
                         <div class="foto-wrapper">
@@ -1150,7 +1145,7 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
             <div class="grade-alunos">
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-alice-l', 'btn-turmas')"><img src="lopes anjo.jpg" alt="Alice Lopes"><h3>Alice Lopes</h3></div>
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-alice-s', 'btn-turmas')"><img src="santiago anjo.jpg" alt="Alice Santiago"><h3>Alice Santiago</h3></div>
-                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-debora', 'btn-turmas')"><img src="debora painel.jpg" alt="Debora Pereira Galdino de Sousa Silva"><h3>Debora pereira Galdino de Sousa Silva</h3></div>
+                <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-debora', 'btn-turmas')"><img src="debora painel.jpg" alt="Debora pereira Galdino de Sousa Silva"><h3>Debora pereira Galdino de Sousa Silva</h3></div>
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-alicia', 'btn-turmas')"><img src="alicia anjo.jpg" alt="Alicia Marques"><h3>Alicia Marques</h3></div>
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-ana-laura', 'btn-turmas')"><img src="ana laura anjo.jpg" alt="Ana Laura"><h3>Ana Laura</h3></div>
                 <div class="cartao-aluno" onclick="mostrarSessao('perfil-c-caio', 'btn-turmas')"><img src="caio painel.jpg" alt="Caio Lima"><h3>Caio Lima</h3></div>
@@ -1777,12 +1772,6 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
       input.addEventListener('input',filtrar);filtrar();
     });
   }
-  window.alternarModoLeitura=function(botao){
-    const perfil=botao.closest('.perfil-editorial');if(!perfil)return;
-    const ativo=perfil.classList.toggle('modo-leitura');
-    botao.textContent=ativo?'✕ Sair do modo leitura':'📖 Modo leitura';
-    botao.setAttribute('aria-pressed',String(ativo));
-  };
   window.navegarAutor=function(id,delta){
     const perfil=document.getElementById('perfil-'+id);
     if(!perfil)return;
