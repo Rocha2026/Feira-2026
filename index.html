@@ -546,6 +546,11 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
 .cert-campo-assinatura span{display:block;font:400 .76em 'DM Sans',sans-serif;margin-top:4px}
 .cert-campo-assinatura strong{overflow-wrap:anywhere;text-align:center}
 </style>
+<style id="idiomas-autobiografia-css">
+.audio-opcoes .audio-idioma{min-width:116px;max-width:160px}
+.audio-opcoes{gap:9px 12px}
+@media(max-width:650px){.audio-opcoes label{flex-wrap:wrap}}
+</style>
 </head>
 <body>
 
@@ -1856,11 +1861,13 @@ const esc=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const textoHtml=html=>{const d=document.createElement('div');d.innerHTML=html||'';return d.textContent||'';};
 const turmaDe=a=>a.id.startsWith('a-')?'a':a.id.startsWith('b-')?'b':'c';
 let falaAtiva=null,livroTurma='c',pagina=0;
-let leitor={token:0,trechos:[],pos:0,voz:null,velocidade:.88,pausado:false,ativo:false};
-function vozesPortugues(){
+let leitor={token:0,trechos:[],pos:0,voz:null,idioma:'pt-BR',velocidade:.88,pausado:false,ativo:false};
+const idiomasLeitura={'pt-BR':'Português','en-US':'Inglês','ja-JP':'Japonês','ko-KR':'Coreano'};
+const cacheTraducoes=new Map();
+function vozesIdioma(lang){
  if(!('speechSynthesis' in window))return [];
- return speechSynthesis.getVoices().filter(v=>/^pt(-|$)/i.test(v.lang)).sort((a,b)=>{
-  const pontos=v=>Number(/pt-BR/i.test(v.lang))*10+Number(/natural|neural|online|google|microsoft/i.test(v.name))*3+Number(v.localService);
+ return speechSynthesis.getVoices().filter(v=>v.lang.toLowerCase().startsWith(lang.toLowerCase().split('-')[0])).sort((a,b)=>{
+  const pontos=v=>Number(v.lang.toLowerCase()===lang.toLowerCase())*10+Number(/natural|neural|online|google|microsoft/i.test(v.name))*3+Number(v.localService);
   return pontos(b)-pontos(a);
  });
 }
@@ -1886,7 +1893,7 @@ function atualizarLeitor(){
   const estado=barra.querySelector('.audio-estado');
   if(play)play.textContent=ativo?'⏹ Parar leitura':'🔊 Ouvir autobiografia';
   if(pausa){pausa.hidden=!ativo;pausa.textContent=leitor.pausado?'▶ Continuar':'⏸ Pausar';}
-  if(estado)estado.textContent=ativo?`Lendo em voz alta · trecho ${Math.min(leitor.pos+1,leitor.trechos.length)} de ${leitor.trechos.length}`:'Leitura em voz alta disponível';
+  if(estado)estado.textContent=ativo?`Lendo em ${idiomasLeitura[leitor.idioma]} · trecho ${Math.min(leitor.pos+1,leitor.trechos.length)} de ${leitor.trechos.length}`:'Leitura em voz alta disponível';
  });
 }
 function pararLeitura(){
@@ -1899,21 +1906,56 @@ function falarProximo(token){
  if(leitor.pos>=leitor.trechos.length){pararLeitura();return;}
  const trecho=leitor.trechos[leitor.pos];
  const u=new SpeechSynthesisUtterance(trecho);
- u.lang=leitor.voz?.lang||'pt-BR';u.voice=leitor.voz||null;u.rate=leitor.velocidade;u.pitch=1;u.volume=1;
+ u.lang=leitor.voz?.lang||leitor.idioma;u.voice=leitor.voz||null;u.rate=leitor.velocidade;u.pitch=1;u.volume=1;
  u.onend=()=>{if(token!==leitor.token)return;leitor.pos++;atualizarLeitor();falarProximo(token);};
  u.onerror=(e)=>{if(token!==leitor.token)return;if(e.error==='interrupted'||e.error==='canceled')return;leitor.pos++;falarProximo(token);};
  speechSynthesis.speak(u);atualizarLeitor();
 }
-function falar(a,botao){
- if(!('speechSynthesis' in window)){alert('Leitura de voz indisponível. Experimente Chrome ou Edge com uma voz em português instalada.');return;}
+async function traduzirTexto(texto,idioma){
+ if(idioma==='pt-BR')return texto;
+ const chave=idioma+'|'+texto;
+ if(cacheTraducoes.has(chave))return cacheTraducoes.get(chave);
+ const destino={'en-US':'en','ja-JP':'ja','ko-KR':'ko'}[idioma];
+ // Tradução automática sob demanda. O serviço recebe somente o texto após confirmação do visitante.
+ const blocos=texto.match(/.{1,350}(?:\s|$)|.{1,350}/gu)||[texto];
+ const traduzidos=[];
+ for(const bloco of blocos){
+  const url='https://api.mymemory.translated.net/get?q='+encodeURIComponent(bloco.trim())+'&langpair=pt|'+destino;
+  const resposta=await fetch(url,{signal:AbortSignal.timeout(12000)});
+  if(!resposta.ok)throw new Error('Serviço de tradução indisponível');
+  const dados=await resposta.json();
+  const resultado=dados.responseData?.translatedText;
+  if(!resultado||dados.responseStatus!==200||/MYMEMORY WARNING/i.test(resultado))throw new Error('Limite ou falha na tradução');
+  traduzidos.push(resultado);
+ }
+ const final=traduzidos.join(' ');
+ cacheTraducoes.set(chave,final);
+ return final;
+}
+async function falar(a,botao){
+ if(!('speechSynthesis' in window)){alert('Leitura em voz alta indisponível neste navegador.');return;}
  if(leitor.ativo&&falaAtiva===a.id){pararLeitura();return;}
  pararLeitura();
  const barra=botao.closest('.recursos-literarios');
+ const idioma=barra?.querySelector('.audio-idioma')?.value||'pt-BR';
  const vozNome=barra?.querySelector('.audio-voz')?.value;
- const voz=vozesPortugues().find(v=>v.name===vozNome)||vozesPortugues()[0]||null;
- leitor.voz=voz;
- leitor.velocidade=0.78;
- leitor.trechos=dividirLeitura(a.bio);
+ const voz=vozesIdioma(idioma).find(v=>v.name===vozNome)||vozesIdioma(idioma)[0]||null;
+ if(idioma!=='pt-BR'&&!voz){alert('Não há voz instalada para '+idiomasLeitura[idioma]+'. Instale uma voz deste idioma no sistema ou navegador.');return;}
+ const texto=textoHtml(a.bio).replace(/\s+/g,' ').trim();
+ if(!texto){alert('Autobiografia não encontrada.');return;}
+ let traduzido=texto;
+ if(idioma!=='pt-BR'){
+  if(!window.confirm('Para traduzir para '+idiomasLeitura[idioma]+', o texto da autobiografia será enviado ao serviço externo MyMemory. A tradução pode conter erros. Deseja continuar?'))return;
+  const estado=barra.querySelector('.audio-estado');
+  if(estado)estado.textContent='Traduzindo para '+idiomasLeitura[idioma]+'…';
+  botao.disabled=true;
+  try{traduzido=await traduzirTexto(texto,idioma);}
+  catch(e){if(estado)estado.textContent='Não foi possível traduzir. Tente novamente mais tarde.';botao.disabled=false;return;}
+  botao.disabled=false;
+ }
+ pararLeitura();
+ leitor.voz=voz;leitor.idioma=idioma;leitor.velocidade=.78;
+ leitor.trechos=dividirLeitura(traduzido);
  leitor.pos=0;leitor.ativo=true;leitor.pausado=false;falaAtiva=a.id;
  const token=leitor.token;
  atualizarLeitor();falarProximo(token);
@@ -1927,9 +1969,10 @@ function pausarLeitura(){
 function popularVozes(){
  document.querySelectorAll('.audio-voz').forEach(select=>{
   const anterior=select.value;
-  const lista=vozesPortugues();
+  const idioma=select.closest('.audio-opcoes')?.querySelector('.audio-idioma')?.value||'pt-BR';
+  const lista=vozesIdioma(idioma);
   select.replaceChildren();
-  if(!lista.length){select.add(new Option('Voz padrão do dispositivo',''));return;}
+  if(!lista.length){select.add(new Option('Nenhuma voz instalada',''));return;}
   lista.forEach(v=>select.add(new Option(v.name+' · '+v.lang,v.name)));
   if(lista.some(v=>v.name===anterior))select.value=anterior;
  });
@@ -2016,9 +2059,14 @@ function montarPerfis(){
    const pausa=document.createElement('button');pausa.type='button';pausa.className='btn-pausa-literaria';pausa.textContent='⏸ Pausar';pausa.hidden=true;pausa.onclick=pausarLeitura;
    const cert=document.createElement('button');cert.type='button';cert.className='btn-certificado-literario';cert.textContent='🏅 Meu certificado';cert.onclick=()=>certificado(a);
    const opcoes=document.createElement('div');opcoes.className='audio-opcoes';
+   const idiomaRotulo=document.createElement('label');idiomaRotulo.textContent='Idioma: ';
+   const idiomaSelect=document.createElement('select');idiomaSelect.className='audio-idioma';idiomaSelect.setAttribute('aria-label','Idioma da leitura da autobiografia');
+   Object.entries(idiomasLeitura).forEach(([codigo,nome])=>idiomaSelect.add(new Option(nome,codigo)));
+   idiomaSelect.onchange=()=>{if(leitor.ativo&&falaAtiva===a.id)pararLeitura();popularVozes();};
+   idiomaRotulo.append(idiomaSelect);
    const rotulo=document.createElement('label');rotulo.textContent='Voz: ';
    const voz=document.createElement('select');voz.className='audio-voz';voz.setAttribute('aria-label','Escolher voz da leitura');rotulo.append(voz);
-   opcoes.append(rotulo);
+   opcoes.append(idiomaRotulo,rotulo);
    const estado=document.createElement('div');estado.className='audio-estado';estado.textContent='Leitura em voz alta disponível';estado.setAttribute('aria-live','polite');
    const esquerda=document.createElement('div');esquerda.className='audio-grupo-esquerda';
    esquerda.append(ouvir,pausa,opcoes);
