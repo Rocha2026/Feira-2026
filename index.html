@@ -260,7 +260,85 @@
             .aba-conteudo { display: block !important; page-break-after: always; }
             .em-construcao, .conteudo-secreto { display: block !important; }
         }
-    </style>
+    
+/* ===== EDIÇÃO EXPOSIÇÃO DIGITAL 2026 ===== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+:root { --cor-primaria:#174f53; --cor-secundaria:#357c79; --cor-fundo:#f7f5ef; --cor-texto:#263537; --cor-destaque:#eaece6; --cor-branco:#fffefa; --ouro:#b99459; }
+body {font-family:'DM Sans','Segoe UI',sans-serif;letter-spacing:.005em;}
+body.dark-mode {--cor-fundo:#111d20;--cor-texto:#e7eceb;--cor-branco:#1b292c;--cor-destaque:#293a3d;--cor-primaria:#78c5bb;--cor-secundaria:#569e96;}
+h1,h2,.bio-aluno h3,.autor-nome,.titulo-literario {font-family:'Playfair Display',Georgia,serif;}
+header {padding:5.5rem 24px 5rem;background:linear-gradient(120deg,#103d43,#286b69 68%,#367f7b);border-bottom:5px solid var(--ouro);}
+header h1 {font-size:clamp(3rem,7vw,5.6rem);line-height:1.08;letter-spacing:-.035em;}
+header p {max-width:700px;font-size:1.1rem;opacity:.92;}
+header .escola-nome {color:#e5d5b9;}
+nav {position:sticky;top:0;z-index:90;backdrop-filter:blur(15px);background:rgba(35,105,103,.96);}
+nav button {font-size:.92rem;padding:10px 13px;}
+main {max-width:1150px;padding:clamp(20px,4vw,50px);margin:32px auto;border:1px solid rgba(60,90,90,.08);box-shadow:0 15px 55px rgba(10,55,55,.07);border-radius:18px;}
+h2 {font-size:clamp(1.7rem,3vw,2.5rem);padding-bottom:14px;border-bottom:1px solid var(--ouro);}
+.aba-conteudo.ativo {animation:entradaSuave .5s ease both;}
+@keyframes entradaSuave {from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.cartao-aluno,.cartao-turma,.foto-wrapper,.parceria-perfil {transition:transform .28s ease,box-shadow .28s ease;}
+.cartao-aluno {border:1px solid rgba(32,90,87,.09);padding:22px 14px;border-radius:14px;}
+.cartao-aluno:hover,.cartao-turma:hover {transform:translateY(-5px);box-shadow:0 12px 28px rgba(15,66,66,.13);}
+.cartao-aluno img {width:132px;height:132px;box-shadow:0 4px 14px rgba(0,0,0,.1);}
+.grade-alunos {grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:18px;}
+.busca-alunos {width:100%;box-sizing:border-box;border:1px solid #bacac7;border-radius:12px;padding:16px 20px;font:inherit;font-size:1rem;background:var(--cor-branco);color:var(--cor-texto);outline:none;}
+.busca-alunos:focus {border-color:var(--cor-secundaria);box-shadow:0 0 0 3px rgba(53,124,121,.14);}
+.busca-info {margin:9px 0 20px;color:var(--cor-texto);opacity:.7;font-size:.9rem;}
+.perfil-editorial .cabecalho-aluno {align-items:stretch;gap:28px;}
+.perfil-editorial .foto-perfil-aluno {width:min(100%,270px);height:340px;border-radius:12px;border:0;box-shadow:0 12px 30px rgba(0,0,0,.12);}
+.perfil-editorial .bio-aluno {background:var(--cor-branco);color:var(--cor-texto);border:1px solid rgba(60,100,100,.13);border-left:4px solid var(--ouro);padding:clamp(22px,4vw,42px);box-shadow:0 8px 26px rgba(0,0,0,.04);line-height:1.95;}
+.perfil-editorial .bio-aluno h3 {font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;margin-bottom:12px;}
+.perfil-editorial .bio-aluno p {margin-bottom:0;}
+.perfil-editorial .bio-aluno strong:first-child {font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;color:var(--cor-primaria);}
+.autor-selo {font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cor-secundaria);font-weight:700;margin-bottom:14px;}
+.acoes-leitura {display:flex;flex-wrap:wrap;gap:10px;margin:18px 0;}
+.botao-editorial {background:var(--cor-primaria);color:white;border:0;border-radius:9px;padding:11px 17px;font:inherit;font-weight:600;cursor:pointer;}
+.botao-editorial:hover {background:var(--cor-secundaria);}
+.navegacao-autores {display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;margin:30px 0;}
+.modo-leitura .cabecalho-aluno {display:block;max-width:800px;margin:auto;}
+.modo-leitura .foto-perfil-aluno {display:none;}
+.modo-leitura .bio-aluno {max-width:760px;margin:auto;padding:clamp(24px,6vw,65px);font-size:1.15rem;line-height:2.05;}
+.modo-leitura .galeria,.modo-leitura .titulo-galeria {display:none;}
+.modo-leitura .autor-selo {text-align:center;}
+.galeria {gap:22px;}
+.galeria > div:not(.foto-wrapper) {background:var(--cor-branco);padding:10px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.07);}
+.galeria > div:not(.foto-wrapper) img {max-width:100%;border-radius:6px;}
+.foto-wrapper {border-radius:12px;padding:12px 12px 22px;}
+.zoom-img-container {border-radius:7px;}
+.zoom-img-container:hover img {transform:scale(1.12);}
+.lightbox {backdrop-filter:blur(12px);}
+.lightbox-img {max-width:86vw;max-height:73vh;object-fit:contain;}
+.controles-galeria {display:flex;gap:12px;align-items:center;margin-top:12px;}
+.controles-galeria button {background:rgba(255,255,255,.16);border:1px solid #ddd;color:#fff;border-radius:8px;padding:10px 16px;cursor:pointer;font:inherit;}
+#contador-lightbox {color:white;font-size:.85rem;}
+@media(max-width:700px) {.perfil-editorial .foto-perfil-aluno{width:100%;height:270px;object-position:center 25%;}.perfil-editorial .bio-aluno{min-width:0;width:100%;box-sizing:border-box;}nav{position:relative;}header{padding:4rem 20px;}main{margin:12px auto;padding:18px;}.galeria>div{max-width:100%;box-sizing:border-box;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}}
+@media print {.acoes-leitura,.navegacao-autores,.busca-alunos,.busca-info{display:none!important;}.perfil-editorial .bio-aluno{box-shadow:none;border:0;color:#000;}}
+
+
+/* Impressão direcionada: somente a autobiografia selecionada. */
+@media print {
+  body.imprimindo-historia header, body.imprimindo-historia nav,
+  body.imprimindo-historia footer, body.imprimindo-historia #btn-topo,
+  body.imprimindo-historia #preloader, body.imprimindo-historia #modo-tv-overlay {display:none!important;}
+  body.imprimindo-historia main {margin:0!important;padding:0!important;box-shadow:none!important;border:0!important;max-width:none!important;}
+  body.imprimindo-historia main > .aba-conteudo {display:none!important;}
+  body.imprimindo-historia main > .aba-conteudo.perfil-editorial.perfil-para-imprimir {display:block!important;animation:none!important;}
+  body.imprimindo-historia .perfil-para-imprimir .btn-voltar,
+  body.imprimindo-historia .perfil-para-imprimir .foto-perfil-aluno,
+  body.imprimindo-historia .perfil-para-imprimir .acoes-leitura,
+  body.imprimindo-historia .perfil-para-imprimir .galeria,
+  body.imprimindo-historia .perfil-para-imprimir .titulo-galeria,
+  body.imprimindo-historia .perfil-para-imprimir .navegacao-autores {display:none!important;}
+  body.imprimindo-historia .perfil-para-imprimir .cabecalho-aluno {display:block!important;margin:0!important;}
+  body.imprimindo-historia .perfil-para-imprimir .bio-aluno {display:block!important;max-width:none!important;min-width:0!important;width:auto!important;padding:0!important;background:white!important;color:black!important;border:0!important;box-shadow:none!important;font-size:11pt!important;line-height:1.65!important;}
+  body.imprimindo-historia .perfil-para-imprimir .bio-aluno h3 {font-size:23pt!important;color:#174f53!important;}
+  body.imprimindo-historia .perfil-para-imprimir .autor-selo {color:#555!important;}
+  body.imprimindo-historia .perfil-para-imprimir .bio-aluno p {color:black!important;}
+  @page {size:A4;margin:19mm;}
+}
+</style>
 </head>
 <body>
 
@@ -633,7 +711,133 @@
     }
             ];
 
-                           },
+            const perfis5C = [
+                {
+                    id: 'c-alice-l', 
+                    nome: 'Alice Lopes Daniel',
+                    foto: 'lopes anjo.jpg',
+                    fotoAluno: 'ALICE LOPES DANIEL - ESCADÃO - 5º C.jpeg',
+                    bio: "<strong>MINHA HISTÓRIA</strong><br><br>Meu nome é Alice Lopes Daniel. Nasci no dia 13 de maio de 2016, em Piracicaba.<br><br>Desde então, venho descobrindo, todos os dias, um pouco mais sobre a vida, sobre as pessoas e sobre quem eu quero ser.<br><br>Sou filha de João Paulo Daniel e Luciana Lopes, minha mãe, que são as pessoas que eu mais amo.<br><br>Sou uma estudante dedicada e gosto de aprender coisas novas.<br><br>Também adoro esportes! Tenho uma paixão especial pelo vôlei e pela ginástica artística. Gosto dos desafios, de aprender novos movimentos, superar meus limites e comemorar cada conquista.<br><br>Não tenho irmãos. Sou filha única.<br><br>Sou carinhosa e respeito muito meus pais e amo ajudar as pessoas. São as coisas que amo e acredito muito na generosidade, porque faz bem e é muito bonito fazer bem às pessoas.<br><br>Também gosto de cuidar da minha alimentação. Minhas comidas preferidas são verduras e legumes, mas tenho uma grande fraqueza: comida japonesa!<br><br>Ainda sou pequena, mas já tenho muitos sonhos. Sei que ainda vou aprender muito, enfrentar desafios, fazer novas descobertas e viver momentos inesquecíveis.<br><br>Quero continuar estudando, praticando meus esportes, conquistando meus objetivos e, principalmente, mantendo sempre esse meu jeito de ser.<br><br>Essa sou eu...e um pouquinho da minha história, e tem uma missão maior que essas, ser feliz...!"
+                },
+                {
+                    id: 'c-alice-s', 
+                    nome: 'Alice Santiago Campos',
+                    foto: 'santiago anjo.jpg',
+                    fotoAluno: 'ALICE SANTIAGO CAMPOS - FONTANÁRIO - 5º C.jpeg',
+                    bio: "<strong>SOU ALICE</strong><br><br>Sou Alice Santiago Campos. Eu nasci dia 20/07/2015 em São Paulo, no Bairro do Limão. Eu tenho uma irmã que se chama Mariana e tem 18 anos. Ela quer ser veterinária.<br><br>Tenho minha mãe sempre presente comigo. Meu pai mora em são Paulo e só vou às vezes pra lá. Tenho minha vó e meu vô que são muito legais comigo e me levam para lugares legais.<br><br>Minha infância é bem legal. Tenho vários amigos. A parte ruim só foi quando meus pais se separaram, mas acontece.<br><br>O que me marcou foi um fato que aconteceu no meu condomínio antigo. Eu brincava muito lá. E uma vez, quando eu e meus amigos estávamos andando de bicicleta, um amigo quebrou o braço na minha frente!!<br><br>Eu entrei na escola no 1º ano e tenho muitas lembranças boas.<br><br>Eu gosto de aprender ciências.<br><br>As pessoas mais importantes da escola são minhas melhores amigas.<br><br>Eu gosto muito de escutar música, de conversar, de viajar e me divertir.<br><br>Minhas cores favoritas são preto, azul e roxo.<br><br>Minha atividade preferida é jogar vôlei.<br><br>Minha viagem favorita foi quando fui aos Estados Unidos ver meu primo e me diverti muito.<br><br>Quando crescer quero ser policial ou bióloga marinha e não pretendo ter filhos.<br><br>Eu gosto dos meus amigos e familiares.<br><br>Gosto de como me visto e como eu sou. Amo minha infância.<br><br>Agora estou com 11 anos e, ano que vem, vou fazer 12. Tenho uma vida feliz."
+                },
+                {
+                    id: 'c-alicia', 
+                    nome: 'Alicia Marques Fernandes',
+                    foto: 'alicia anjo.jpg',
+                    fotoAluno: 'ALICIA MARQUES FERNANDES - MONUMENTO DAS ÁGUAS (CAVALOS) - 5º C.jpeg',
+                    bio: "<strong>MINHA AUTOBIOGRAFIA</strong><br><br>Meu nome é Alicia Marques Fernandes. Eu nasci no dia 28 de outubro de 2015. Tenho um irmão mais velho chamado Vinícius Marques Fernandes, minha mãe se chama Aline do Rosário Marques Fernandes e meu pai se chama Vanderlei Fernandes.<br><br>Dei meus primeiros passos com 11 meses e a primeira palavra que eu falei foi “papai”.<br><br>Eu nasci na Unimed em Piracicaba.<br><br>Atualmente, tenho um cachorro chamado Fofinho e faltam 50 dias para o meu aniversário.<br><br>Eu tenho ancestralidade indígena em minha história.<br><br>Já estudei em várias escolas em São Pedro, mas hoje em dia estudo em Águas de São Pedro, na EMEF Maria Luiza Fornasier Franzin, onde estou há quatro anos. Eu entrei no 2º ano, agora já estou no 5º ano.<br><br>Já morei em Águas de São Pedro, mas atualmente moro em São Pedro, no bairro Novo Horizonte.<br><br>Eu já viajei de avião duas vezes, uma para Porto de Galinhas e a outra, para Natal, no Rio Grande do Norte e foram as melhores viagens da minha vida.<br><br>De terça e quinta-feira, vou para a ginástica depois que saio da escola.<br><br>Meu sonho é viajar para a Disney dos Estados Unidos, a de Paris e a da China. As três são maravilhosas. São lindas pelos vídeos, imagina pessoalmente.<br><br>Meu esporte preferido na escola é vôlei. Quando eu crescer eu quero ser três coisas: ginasta profissional, cantora e manicure.<br><br>Minha matéria preferida é matemática.<br><br>Minha melhor amiga é a Heloisa. Eu a conheço desde que entrei na escola. E são minhas amigas a Melissa, Isabella, Alice Santiago, Catarina e Gabriela.<br><br>A minha professora preferida é a minha professora atual, a tia Cibelle.<br><br>Meu pai trabalha na troca de óleo no posto Shell, e meu irmão também, mas ele é frentista. A minha mãe tem uma loja de roupas chamada “Aline Marques”.<br><br>Eu fico o dia inteiro na escola, só de segunda que saio meio-dia."
+                },
+                {
+                    id: 'c-ana-laura', 
+                    nome: 'Ana Laura Tuchapiscki da Silva',
+                    foto: 'ana laura anjo.jpg',
+                    fotoAluno: 'ANA LAURA TUCHAPSCKI DA SILVA - PRAÇA DR OCTÁVIO MOURA ANDRADE (SENAC) - 5º C.jpeg',
+                    bio: "<strong>ESSA SOU EU</strong><br><br>Meu nome é Ana Laura Tuchapscki da Silva, tenho 10 anos. Nasci no Hospital São Lucas, em São Pedro, no dia 26/06/2016.<br><br>Minha família é uma família grande. Moro com minha mãe e minha irmã, e as pessoas que marcaram bastante a minha vida foram o meu avô Aquiles e minha bisavó Cida, que cuidavam bastante de mim.<br><br>Eu estudo na escola Maria Luiza Fornasier Franzin desde março deste ano. Fiz bastante amizades e gosto bastante de estudar matemática.<br><br>Gosto de sair bastante no final de semana, ir ao Parque Maria Angélica com minha mãe e quando estou com meu pai, gosto de sair pra comer à noite em Águas.<br><br>Quando meu tio Anderson vem de viagem, a gente sai pra tomar café da manhã com ele, eu e a Rayane.<br><br>Minha comida preferida é strogonoff.<br><br>Já fiz várias viagens para a praia. A que eu mais gostei foi pra Arraial do Cabo.<br><br>Sou uma menina amorosa, desejo fazer minha faculdade e me formar como advogada para poder fazer o bem."
+                },
+                {
+                    id: 'c-caio', 
+                    nome: 'Caio Lima De Mello',
+                    foto: 'caio painel.jpg',
+                    fotoAluno: 'CAIO LIMA DE MELLO - MINI-HORTO - 5º C.jpeg',
+                    bio: "<strong>A MINHA VIDA</strong><br><br>Eu sou Caio Lima de Mello. Nasci no dia 5 de julho de 2015 e as pessoas mais importantes da minha vida são meu pai, minha mãe, meu irmão e minha vó.<br><br>Minha infância é feliz porque tem vários acontecimentos que me deixam mais feliz. As melhores lembranças foram brincar com a “Filó”, minha cachorrinha, ver a minha bisa no meu aniversário que foi em Campinas, no Parque dos Dinossauros.<br><br>Comecei a estudar na EMEI VIDA com a tia Vera. Meu momento favorito era a hora do sono. Um dia eu fingi que estava dormindo para dormir mais.<br><br>Minha comida favorita é parmegiana de frango bem caprichado, hamburguer e batata com cheddar e bacon.<br><br>Meus filmes favoritos são: Minions, Bolt, Peabody e Sherman, Minions e Monstros, Space Jam, Homem-Aranha – um novo dia e Minecraft.<br><br>Meus jogos favoritos são: Halo, Roblox, Rayman, Gears of War, Mortal Combat etc.<br><br>No futuro, gostaria de praticar esportes diferentes como karatê e ski.<br><br>Gostaria de ter uma casa e fazer um curso de ciências da computação. Eu vou morar sozinho."
+                },
+                {
+                    id: 'c-catarina', 
+                    nome: 'Catarina Varela Simões',
+                    foto: 'catarina anjo.jpg',
+                    fotoAluno: 'CATARINA VARELA SIMÕES - MINI-HORTO - 5º C.jpeg',
+                    bio: "<strong>DEZ ANOS DE MUITA HISTÓRIA</strong><br><br>Meu nome é Catarina Varela Simões. Nasci no dia 14 de fevereiro de 2016 em Piracicaba. Moro com minha mãe, Bruna, e minha vó, Elenize, em Águas. Elas são duas pessoas importantes para mim. Minha mãe sempre faz comidas magníficas e eu amo muito ela e a minha vó.<br><br>Desde pequena, viajo todo ano para São Lourenço – MG, onde mora meu tio Rodrigo no nosso sítio. Minha dinda também mora lá. Eu sempre vou para a casa dela dormir e passar o dia. Ela sempre foi uma pessoa muito especial para mim.<br><br>Quando fui a São Lourenço pela primeira vez, conheci meus cachorros, Nil e Tés. Eles eram meus melhores amigos!<br><br>Comecei a ir à escola quando era bem pequena. Eu insisti muito com a minha para ir à escola, mas ela achava que eu era pequena demais. Uma pessoa que foi muito importante para mim, foi a professora Marta, do primeiro ano. Adoro ela de paixão!<br><br>Sempre tive muitas festas de aniversário. Na de 5 anos, escolhi o tema de astronauta. Minha mãe que decorou e ficou tudo muito lindo. Na de 6, eu escolhi o tema unicórnio. Minha mãe fez uma pinhata enorme de unicórnio, e a última grande festa que eu tive foi a de 8 anos. Eu quis o tema de Minie e foi lá em Minas, nas férias. Depois disso, eu passei a preferir um bolinho simples, sem muita decoração.<br><br>Desde pequena, eu sempre adorei ler. Quando eu aprontava, meu castigo era ficar sem a historinha antes de dormir. A leitura sempre foi um universo muito importante para mim, o que me fez ter a cultura e todo vocabulário que eu tenho hoje.<br><br>O que eu também adoro é carnaval. Para mim é a data mais importante do ano e eu sempre passo o carnaval em São Lourenço, o que torna ainda mais especial. Minha mãe sempre faz fantasias para eu sair com o meu tio.<br><br>Esse ano fui a Porto Alegre – RS, ver minha bisavó, Lucíola, e pela primeira vez, viajei de avião. Foi tudo muito incrível.<br><br>Quando eu crescer, quero fazer uma boa faculdade, e isso é o que me motiva a medalhar nas Olímpiadas, porque muitas boas faculdades oferecem bolsas para medalhistas. Depois quero trabalhar como cientista forense, sonho em viajar e conhecer o mundo inteiro."
+                },
+                {
+                    id: 'c-debora', 
+                    nome: 'Debora pereira Galdino de Sousa Silva',
+                    foto: 'debora painel.jpg',
+                    fotoAluno: 'DÉBORA PEREIRA G DE SOUSA SILVA - MONUMENTO DAS ÁGUAS (CAVALOS) - 5º C.jpeg',
+                    bio: "<strong>MINHA AUTOBIOGRAFIA</strong><br><br>Oi, meu nome é Débora Pereira Galdino de Sousa Silva. Tenho 11 anos. Nasci em Bertioga dia 15/07/2015. Eu moro com minha mãe, meu padrasto e meu irmão.<br><br>Eu vim de outra escola onde eu tinha várias amigas, mas eu já tenho amigas e já estou me acostumando.<br><br>Eu gosto muito quando a família está reunida contando histórias da infância.<br><br>Gosto de inglês e livros. O meu favorito é “O diário de uma princesa desastrada”. Sou meio nerd, gosto de jogos, principalmente de objetivos, fuga, sobrevivência, um pouco de terror e uma pitadinha de terror psicológico. Gosto de pelúcias e animais, principalmente aquáticos e terrestres.<br><br>Eu morava em Bertioga, mas recebemos uma oportunidade muito boa e, então, estamos morando aqui agora.<br><br>Eu quero ser escritora, professora de inglês ou aeromoça."
+                },
+                {
+                    id: 'c-gabriel', 
+                    nome: 'Gabriel Soares Martins',
+                    foto: 'soares anjo.jpg',
+                    fotoAluno: 'GABRIEL SOARES MARTINS - MONUMENTO DAS ÁGUAS (CAVALOS) - 5º C.jpeg',
+                    bio: "<strong>MINHA HISTÓRIA</strong><br><br>Sou o Gabriel Soares Martins, tenho 10 anos. Nasci no dia 5 de janeiro de 2016, na maternidade de Campinas.<br><br>Meu pai se chama Aldecir Soares Filho e minha mãe, Aline Martins Soares. Também tenho uma irmã que se chama Julia Martins Soares.<br><br>Quando eu era menor, eu morei em Campinas até os 6 anos. Depois me mudei para onde estou até hoje.<br><br>Voltando para o assunto de Campinas, eu gostava muito de lá, porque minha família inteira mora lá e o meu pai tinha uma loja de carros que era muito grande e tinha nossa casa em cima.<br><br>Quando mudei de escola, demorei um pouco para me adaptar. Mas com o tempo fiz amigos que estão junto comigo até hoje.<br><br>Gosto muito de jogar futebol. Minha comida preferida é arroz, feijão tropeiro e churrasco. Também gosto muito de frutas.<br><br>Meu sonho é ser jogador de futebol, jogar num time grande da Europa e conseguir ganhar a Copa do Mundo."
+                },
+                {
+                    id: 'c-gabriela', 
+                    nome: 'Gabriela Camargo Lorenzo',
+                    foto: 'gabriela anjo.jpg',
+                    fotoAluno: 'GABRIELA CAMARGO LORENZO - BOULEVARD - 5º C.jpeg',
+                    bio: "<strong>QUEM SOU EU!</strong><br><br>Olá, meu nome é Gabriela Camargo Lorenzo. Eu nasci no dia 28/02/2016, na cidade de São Paulo, no Hospital Santa Joana.<br><br>Eu tenho dois irmãos, sou de origem croata e eu tenho algumas pessoas muito importantes, aqueles que eu amo.<br><br>Minha festa de 6 anos foi o máximo. Teve buffet, maquiagem etc.<br><br>Eu adoro brincar com meus primos. Eu sempre brincava com eles na empresa do meu vô.<br><br>Eu comecei a estudar desde pequena. Já estudei em três escolas. Na primeira, minha melhor amiga era a Valentina. Na segunda, era a Isabella Moda Rowas e na terceira, a de agora, a Melissa Ferrari Prado e a Alicia Marques.<br><br>Eu amo comida japonesa e churrasco.<br><br>Eu adoro brincar de esconde-esconde, amo fazer jazz, gosto de todas as músicas, amo Harry Potter, Chiquititas e adoro pintar.<br><br>Gosto muito de ir a Monte Verde, em Minas Gerais.<br><br>Quero muito ir para a Croácia com a minha tia avó.<br><br>Quando eu crescer quero ser bióloga, morar num apartamento e quero ter uma filha. Não quero ter marido, quero ser independente com a minha filha."
+                },
+                {
+                    id: 'c-gael', 
+                    nome: 'Gael De Araujo Gomes',
+                    foto: 'gael anjo.jpg',
+                    fotoAluno: 'GAEL DE ARAUJO GOMES - PRAÇA DR OCTÁVIO MOURA ANDRADE (SENAC) - 5º C.jpeg',
+                    bio: "<strong>MINHA AUTOBIOGRAFIA</strong><br><br>Eu, Gael de Araújo Gomes, nasci na data de 30/03/2016, na cidade de São Paulo, no bairro Moóca as 7h39, no Hospital Vila Alpina, de parto natural.<br><br>Meu pai, Fábio de Freitas Gomes, minha mãe, Amy Araújo e meu irmão mais velho, Mateus de Araújo Gomes, fazem parte da minha infância.<br><br>Sobre a minha infância, minha brincadeira preferida era corre leão. Hoje em dia a minha brincadeira preferida é pega-pega. Eu também tive muitos machucados, como dois pontos, tanto no pé e no queixo. Também já fui picado por escorpião. Já caí de um brinquedo num parque. Eu amassei o osso e tive que usar tala.<br><br>Comecei a estudar com dois anos e meio numa escola Waldorf. Minha primeira professora se chamava Talita e o nome do meu melhor amigo era Gustavo.<br><br>Sobre meus gostos, minha comida preferida é pizza, minha brincadeira preferida, corre leão, meu esporte preferido, futebol, minhas músicas preferidas são de uma banda chamada Imagine Dragons, meu filme preferido é “Diário de um Banana” e minha atividade preferida é jogar videogame.<br><br>A viagem que eu mais gostei, foi quando eu, meu irmão e minha mãe fomos para São Tomé das Letras, porque tinha cachorro e gatos soltos e nenhum atacava você.<br><br>Meu sonho é ser policial. Fiquei inspirado no policial do PROERD."
+                },
+                {
+                    id: 'c-heitor', 
+                    nome: 'Heitor Cardoso De Lima',
+                    foto: '.jpg',
+                    fotoAluno: 'HEITOR CARDOSO DE LIMA - CAPELA NOSSA SENHORA APARECIDA - 5º C.jpeg',
+                    bio: "<strong>MINHA HISTÓRIA NESTES 10 ANOS DE VIDA</strong><br><br>Olá, me chamo Heitor, tenho 10 anos. Nasci no dia 29/12/2015, em Recife – PE.<br><br>Morei lá por quase 3 anos e depois me mudei para Águas de São Pedro – SP, a atual cidade em que moro.<br><br>Na minha casa residem minha mãe, Aline Cardoso de Lima, meu pai, Carlos Eduardo de Lima, meu irmão, Jean Carlos de Lima e meu cachorro Bartolomeu, que eu chamo de Bartô.<br><br>Um acontecimento marcante foi visitar minha vovó materna em Tocantins. Quase todo ano vamos lá. Lá, fui visitar a Praça dos Girassóis e tiramos muitas fotos. Uma delas, sou eu apontando para um lugar que é o meio do Brasil. Tiramos fotos de araras e tucanos também.<br><br>Também gostei muito do passeio de trenzinho pelos pontos turísticos de Águas de São Pedro que fizemos na escola.<br><br>Sou um menino estudioso, curioso e um pouco brincalhão. Minha matéria favorita é história, porque aprende sobre a história do universo.<br><br>Tenho muitos amigos na escola e gosto, também, de Educação Física.<br><br>Eu adoro comer pizza e minha fruta favorita é uva verde. Meu filme favorito é “Turbo”, da Disney, e minha série de livros preferida é “Aventuras de Mike” e “Turma da Mônica”.<br><br>Eu quero ser médico, ser rico e bonito e fazer o bem sem olhar a quem."
+                },
+                {
+                    id: 'c-helena', 
+                    nome: 'Helena Ye Jin Park',
+                    foto: 'helena painel.jpg',
+                    fotoAluno: 'HELENA YE JIN PARK - ESCADÃO - 5º C.jpeg',
+                    bio: "<strong>MINHA HISTÓRIA</strong><br><br>Meu nome é Helena Ye Jin Park. Eu nasci no dia 26 de junho de 2015, na cidade de São Paulo.<br><br>Minha família é formada pelo meu pai, minha mãe, meu irmão mais novo e minha avó. Nós moramos todos juntos.<br><br>Quando eu tinha um ano fui morar na praia de Bertioga. Eu ia quase todos os dias na praia para brincar na areia e pular as ondas.<br><br>Eu comecei a estudar quando eu mudei para Águas de São Pedro. O primeiro dia na escola foi muito bom, apesar de eu não entender o português. A professora, as amigas e os amigos foram muito gentis. Até hoje são gentis. Eu gosto muito da escola.<br><br>A minha comida favorita é a comida coreana.<br><br>Eu gosto de desenhar, de pintar, gosto de jogar vôlei, de pular corda e brincar com meu irmão.<br><br>Eu me sinto uma menina muito feliz. No futuro eu desejo ser chefe de cozinha ou fazer decoração interna.<br><br>Meu objetivo agora é falar bem o português para me comunicar com as minhas amigas e com as pessoas."
+                },
+                {
+                    id: 'c-heloisa', 
+                    nome: 'Heloisa Barboza Braz',
+                    foto: 'heloisa anjo.jpg',
+                    fotoAluno: 'HELOISA BARBOSA BRAZ - MINI-HORTO 5º C.jpeg',
+                    bio: "<strong>ESTA SOU EU</strong><br><br>Oi! Meu nome é Heloisa Barboza Braz. Nasci no dia 10/02/2016, no dia do aniversário da minha vó materna. Minha mãe tinha 27 anos e meu pai 40 anos quando eu nasci.<br><br>Morei em Itapevi e, em 2018, vim morar em Águas de São Pedro. Em 2019 comecei a estudar na EMEI VIDA. No ano seguinte, veio a pandemia. Passei a estudar em casa.<br><br>Nesse tempo, ganhei uma irmãzinha e minha vó veio morar na minha casa.<br><br>Isso foi muito importante para mim.<br><br>Voltei a estudar na escola.<br><br>Hoje estou no 5º ano com minhas melhores amigas.<br><br>Estou fazendo aula de ballet e jazz.<br><br>Quando crescer, quero ser professora de ballet e jazz."
+                },
+                {
+                    id: 'c-isabella', 
+                    nome: 'Isabella Amato Garcia',
+                    foto: 'isabela painel.jpg',
+                    fotoAluno: 'ISABELLA AMATO GARCIA - PRAÇA DR OCTÁVIO MOURA ANDRADE (SENAC) - 5º C.jpeg',
+                    bio: "<strong>MINHA AUTOBIOGRAFIA</strong><br><br>Meu nome é Isabella Amato Garcia. Eu nasci no dia 17 de maio de 2016, em Piracicaba. Eu moro junto com minha mãe, meu pai e minha irmã.<br><br>Eu e meu pai brincamos muito. Meu pai me leva para o parque para brincar.<br><br>Eu e minha mãe ajudamos o abrigo. Às vezes nós vamos lá. Enquanto minha mãe está ajudando eu brinco com as crianças.<br><br>Eu e minha irmã brincamos de vôlei, pintar as unhas etc.<br><br>Quando eu era bem pequena, meu avô me levava para vários lugares. Eu tinha um avô e eu pulava em cima da barriga dele, ele me dava “MM”. Eu amava muito ele, mas ele virou estrelinha.<br><br>Eu tinha outro vô que me levava todo dia em um mercadinho e comprava Kinder Ovo, e ele também virou estrelinha.<br><br>Eu entrei na escola com 7 meses e comecei a estudar com 4 anos.<br><br>Minha matéria favorita é história. Tenho várias amigas e minha professora favorita é a tia Cibelle. Ela é muito legal!<br><br>Eu gosto muito de brincar de queimada, vôlei e escuto muito “Jet em Balneário”.<br><br>Meu filme favorito é Homem-Aranha e meu livro preferido é Circo da Lua.<br><br>Já fui em várias festas, como a de uma amiga da minha irmã. Foi um baile, teve drink, música e foi muito legal.<br><br>Eu já me mudei várias vezes. Já morei em São Paulo e em Águas de São Pedro.<br><br>Eu tenho vários sonhos, como ir para Paris, para o Japão e para vários lugares no futuro.<br><br>Minha mãe falou que eu e ela vamos para São Paulo porque meu primo acabou de nascer. Minha mãe vai para ajudar minha tia, enquanto eu e meus outros dois primos ficamos brincando.<br><br>No futuro, quando for adulta, eu pretendo ir para Paris e levar toda a minha família, minha mãe, meu pai e minha irmã."
+                },
+                {
+                    id: 'c-joao-lucas', 
+                    nome: 'João Lucas Soares Gouveia',
+                    foto: 'joao anjo.jpg',
+                    fotoAluno: 'JOÃO LUCAS SOARES GOUVEIA - FONTANÁRIO - 5º C.jpeg',
+                    bio: "<strong>QUEM SOU EU</strong><br><br>Olá! Meu nome é João Lucas Soares Gouveia. Eu nasci no dia 22 de janeiro de 2016, em Piracicaba.<br><br>A minha família são minha mãe, meu pai, meu irmão, as minhas avós, meus avôs, minhas tias e meus tios. Eles são muito importantes para mim, porque eles me apoiaram em todos os momentos e estão sempre presentes.<br><br>A minha infância é muito legal. Eu andava de ônibus no pré e brincava com meus amigos. Eu brincava com meus pais todo final de semana, e a gente tomava açaí na frente de casa com o portão aberto olhando as corujas de noite.<br><br>No meu primeiro dia de aula no 1º ano, eu estava nervoso, já que eu não conhecia ninguém, pois os meus amigos do pré não estavam comigo. Eles foram para escolas diferentes da minha.<br><br>As minhas viagens são muito legais. Eu já acampei várias vezes e eu gosto muito. Fui viajar de avião e foi muito legal.<br><br>O nascimento do meu irmão foi muito importante para mim. Ele era fofo e gordinho.<br><br>Eu, no fundo, ainda sou criança, mas com sonho de ser goleiro ou jogador de tênis de mesa.<br><br>Eu não queria mudar de cidade ou país no momento, eu gosto da cidade onde eu moro."
+                },
+                {
+                    id: 'c-lorenzo', 
+                    nome: 'Lorenzo Ryu Shigueno Fernandes',
+                    foto: 'lorenzo painel.jpg',
+                    fotoAluno: 'LORENZO RYU SHIGENO FERNANDES - TORRE BALLONI - 5º C.jpeg',
+                    bio: "<strong>PEDAÇOS DA MINHA VIDA</strong><br><br>Meu nome é Lorenzo Ryu Shigueno Fernandes, e eu nasci em Florianópolis no dia 08/02/2016.<br><br>Eu sou filho único e eu tenho mãe, pai e uma cachorra que se chama Molie, e todos da família são importantes e fazem parte da minha vida.<br><br>Aconteceu uma coisa quando eu tinha 2 anos. Eu fugi da sala da creche e nenhum adulto viu. Eu fiz isso porque eu queria brincar no parquinho e, por sorte meu amigo viu e chamou um adulto.<br><br>Eu fui pra escola com 6 meses de idade. Eu gosto de robótica. É a minha aula preferida. Os professores, as tias da merenda, os que limpam o chão e todos os outros são importantes.<br><br>Em relação aos meus gostos, eu gosto de comidas, brincar na rua, vôlei, a música Thriller, qualquer gibi e jogar no Xbox.<br><br>Eu ganhei uma partida de Fortnite e vi um arco-íris.<br><br>Meu sonho é ser profissional em jogos e o meu objetivo agora é ir para a França e treinar no Fortnite."
+                },
+                {
+                    id: 'c-maria-julia', 
+                    nome: 'Maria Julia De Lima Pimenta',
+                    foto: 'maju painel.jpg',
+                    fotoAluno: 'MARIA JULIA DE LIMA PIMENTA - TORRE BALLONI - 5º C.jpeg',
+                    bio: "<strong>A AUTOBIOGRAFIA DA MARIA JÚLIA</strong><br><br>Eu sou Maria Júlia de Lima Pimenta. Eu tenho 11 anos e nasci nos Estados Unidos, na cidade de Newark, Nova Jersey, no dia 04/10/2015.<br><br>Meu pai, Mirson, tem 54 anos e ele nasceu em Minas Gerais. A minha mãe Ivoneide tem 48 anos e ela nasceu em Pernambuco. Tenho duas irmãs mais velhas. Uma irmã se chama Ana Clara que tem 18 anos e nasceu em Portugal. A outra se chama Dayane que tem 31 anos e nasceu em São Paulo.<br><br>Até meus cinco anos de idade, eu e minha família moramos nos Estados Unidos. Em 2019, nós fomos para a Disney, que foi uma viagem muito divertida.<br><br>Durante a pandemia eu fazia aula online em casa e também aprendia a tocar piano. Eu gostava muito de brincar com minhas bonecas e, de vez em quando, eu e minha família fazíamos noites de filmes.<br><br>Em 2022, a gente se mudou para o Brasil, para Águas de São Pedro, onde eu comecei a estudar na escola que eu estudo até hoje, EMEF Maria Luiza Fornasier Franzin.<br><br>Nessa escola eu fiz vários amigos e amigas que eu tenho até hoje. Minhas matérias favoritas são Artes, porque eu gosto de desenhar e pintar e matemática, porque eu gosto de montar cálculos e resolvê-los. Desde que eu cheguei na escola fomos em um monte de passeios, e o meu preferido foi quando a gente foi para o Thermas, no 2º ano.<br><br>Desde que eu e minha família chegamos aqui no Brasil, visitamos vários lugares como Ilha Bela, Ubatuba e Rio de Janeiro, onde nós visitamos um monte de praias e nos divertimos muito lá.<br><br>Hoje em dia minha comida preferida é salmão, morango e pão com frango. Meu gênero de música preferido é o K-pop. Eu gosto de cantar, dançar, jogar jogos online e ver filmes com minha irmã.<br><br>Meus animais preferidos são cervos, raposas, gatos e coelhos. Meu esporte favorito é vôlei e eu treino toda segunda e quarta.<br><br>Muitas coisas mudaram quando eu cheguei aqui no Brasil e estou gostando muito daqui. É um lugar bem bonito."
+                },
+                {
+                    id: 'c-melissa', 
+                    nome: 'Melissa Ferrari Prado',
+                    foto: 'ferrari painel.jpg',
+                    fotoAluno: 'MELISSA FERRARI PRADO - CAPELA NOSSA SENHORA APARECIDA - 5º C.jpeg',
+                    bio: "<strong>MEMÓRIAS DE MELISSA</strong><br><br>Meu nome é Melissa Ferrari Prado e eu nasci em Ribeirão Preto no dia 07/05/2016 às 10h07. Mas minha família não é de lá.  Fomos para lá, porque me pai trabalhava lá. Tanto é que eu me mudei com 3 dias de vida.<br><br>Na minha casa somos em quatro, minha mãe, Dayse, meu pai, Cristiano Henrique, meu irmão, Felipe e euzinha.<br><br>Minha mãe falou que eu nasci com muito cabelo, e cabelo preto. E ela falou que eu andei com 10 meses, e andava muito bem. Com 46 dias comecei a “falar” (balbuciar). Eu me expressava muito bem e minha primeira palavra foi “mamãe”.<br><br>As únicas escolas que eu estudei até agora foram as de Águas de São Pedro. Eu comecei na creche. Eu gosto de matemática e português.<br><br>As pessoas mais importantes são meus pais, professores e amigos.<br><br>Eu gosto de comer coisas mais salgadas, como carne, pães, palmito, azeitonas, frios etc. De doces, eu gosto também, mas um pouco menos.<br><br>Eu gosto de ginástica, tênis, vôlei etc.<br><br>Meu gosto musical é de trilhas sonoras de filmes como Rapunzel e Zootopia, que são meus filmes favoritos. Eu gosto de outros cantores também.<br><br>Meus momentos especiais são as viagens em família. Fomos para praia, São Paulo, Ribeirão Preto etc.<br><br>A minha conquista é ter várias medalhas de ginástica e também a minha mudança pra Pira.<br><br>Meu sonho é ser atleta profissional.<br><br>Eu sou católica e coroinha."
+                },
                 {
                     id: 'c-pedro-custodio', 
                     nome: 'Pedro Custodio',
@@ -666,16 +870,18 @@
 
             function gerarEstruturaPerfil(aluno, turmaOrigem) {
                 return `
-                <section id="perfil-${aluno.id}" class="aba-conteudo">
+                <section id="perfil-${aluno.id}" class="aba-conteudo perfil-editorial">
                     <button class="btn-voltar" onclick="mostrarSessao('${turmaOrigem}', 'btn-turmas')">⬅ Voltar para a Turma</button>
                     <div class="cabecalho-aluno">
                         <img src="${aluno.foto}" alt="${aluno.nome}" class="foto-perfil-aluno" loading="lazy">
                         <div class="bio-aluno">
+                            <div class="autor-selo">Feira Literária 2026 · Jovem autor</div>
                             <h3>${aluno.nome}</h3>
                             <p><strong>Minha História:</strong> ${aluno.bio}</p>
                         </div>
                     </div>
-                    <h3>Minhas Fotografias e Visões</h3>
+                    <div class="acoes-leitura"><button class="botao-editorial" onclick="alternarModoLeitura(this)">📖 Modo leitura</button><button class="botao-editorial" onclick="imprimirHistoria(this)">🖨️ Imprimir história</button></div>
+                    <h3 class="titulo-galeria">Minhas Fotografias e Visões</h3>
                     <div class="galeria">
                         <div class="foto-wrapper">
                             <div class="zoom-img-container">
@@ -684,6 +890,7 @@
                 <div class="legenda-foto">📸 Registro do Aluno</div>
             </div>
         </div>
+        <div class="navegacao-autores"><button class="botao-editorial" onclick="navegarAutor('${aluno.id}',-1)">← Autor anterior</button><button class="botao-editorial" onclick="navegarAutor('${aluno.id}',1)">Próximo autor →</button></div>
     </section>`;
             }
 
@@ -1088,7 +1295,8 @@
         <span class="lightbox-fechar" onclick="fecharLightbox(event)">&times;</span>
         <img id="lightbox-img" class="lightbox-img" src="" loading="lazy">
         <a id="btn-download-lightbox" href="" download class="btn-baixar" style="margin-top: 20px;" onclick="event.stopPropagation()">📥 Baixar para o Celular</a>
-        <p style="color: white; margin-top: 15px;">Clique no fundo escuro para fechar</p>
+        <div class="controles-galeria" onclick="event.stopPropagation()"><button onclick="navegarGaleria(-1)" aria-label="Fotografia anterior">← Anterior</button><span id="contador-lightbox"></span><button onclick="navegarGaleria(1)" aria-label="Próxima fotografia">Próxima →</button></div>
+        <p style="color: white; margin-top: 12px;">Use as setas do teclado para navegar · Esc para fechar</p>
     </div>
 
     <!-- MODO TV OVERLAY -->
@@ -1297,5 +1505,99 @@
             });
         }, 1000);
     </script>
+
+<script>
+(function(){
+  'use strict';
+  const normalize = s => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  function instalarBuscas(){
+    document.querySelectorAll('#quinto-b .grade-alunos, #quinto-c .grade-alunos').forEach((grade)=>{
+      if(grade.previousElementSibling?.classList.contains('busca-info')) return;
+      const input=document.createElement('input');
+      input.className='busca-alunos';input.type='search';input.placeholder='Buscar aluno pelo nome...';
+      input.setAttribute('aria-label','Buscar aluno pelo nome');
+      const info=document.createElement('div');info.className='busca-info';info.setAttribute('aria-live','polite');
+      grade.parentNode.insertBefore(input,grade);
+      grade.parentNode.insertBefore(info,grade);
+      const cards=[...grade.querySelectorAll('.cartao-aluno')];
+      function filtrar(){
+        let total=0;cards.forEach(c=>{const ok=normalize(c.textContent).includes(normalize(input.value.trim()));c.style.display=ok?'':'none';if(ok)total++;});
+        info.textContent=total+' aluno'+(total===1?' encontrado':'s encontrados');
+      }
+      input.addEventListener('input',filtrar);filtrar();
+    });
+  }
+  window.alternarModoLeitura=function(botao){
+    const perfil=botao.closest('.perfil-editorial');if(!perfil)return;
+    const ativo=perfil.classList.toggle('modo-leitura');
+    botao.textContent=ativo?'✕ Sair do modo leitura':'📖 Modo leitura';
+    botao.setAttribute('aria-pressed',String(ativo));
+  };
+  window.navegarAutor=function(id,delta){
+    const perfil=document.getElementById('perfil-'+id);
+    if(!perfil)return;
+    const turma=perfil.querySelector('.btn-voltar')?.getAttribute('onclick')?.match(/'quinto-[bc]'/)?.[0]?.replace(/'/g,'');
+    const grupo=turma==='quinto-b' ? (typeof perfis5B!=='undefined'?perfis5B:[]) : (typeof perfis5C!=='undefined'?perfis5C:[]);
+    const idx=grupo.findIndex(a=>a.id===id);
+    if(idx<0||!grupo.length)return;
+    const proximo=grupo[(idx+delta+grupo.length)%grupo.length];
+    if(typeof mostrarSessao==='function')mostrarSessao('perfil-'+proximo.id,'btn-turmas');
+  };
+  let imagens=[],indice=0;
+  function listaGaleria(){
+    return [...document.querySelectorAll('.galeria img')].filter(img=>img.getAttribute('src')&&!img.classList.contains('img-fundo'));
+  }
+  const originalAbrir=window.abrirLightbox;
+  window.abrirLightbox=function(src){
+    imagens=listaGaleria();indice=imagens.findIndex(i=>i.src===src||i.getAttribute('src')===src);
+    if(indice<0){imagens=[{src}];indice=0;}
+    if(typeof originalAbrir==='function')originalAbrir(src);
+    atualizarContador();
+  };
+  function atualizarContador(){
+    const el=document.getElementById('contador-lightbox');
+    if(el)el.textContent=(indice+1)+' / '+imagens.length;
+  }
+  window.navegarGaleria=function(delta){
+    if(!imagens.length)return;
+    indice=(indice+delta+imagens.length)%imagens.length;
+    const src=imagens[indice].src;
+    document.getElementById('lightbox-img').src=src;
+    document.getElementById('btn-download-lightbox').href=src;
+    atualizarContador();
+  };
+  document.addEventListener('keydown',function(e){
+    const lb=document.getElementById('lightbox');
+    if(lb?.style.display==='flex'){
+      if(e.key==='ArrowRight')navegarGaleria(1);
+      if(e.key==='ArrowLeft')navegarGaleria(-1);
+      if(e.key==='Escape')lb.style.display='none';
+    }
+  });
+  document.querySelectorAll('.galeria > div > img').forEach(img=>{
+    if(!img.hasAttribute('onclick')){img.style.cursor='zoom-in';img.addEventListener('click',()=>window.abrirLightbox(img.src));}
+  });
+  instalarBuscas();
+})();
+</script>
+
+<script>
+// Mantém o diálogo nativo de impressão, mas imprime somente o perfil clicado.
+window.imprimirHistoria = function(botao) {
+  const perfil = botao.closest('.perfil-editorial');
+  if (!perfil) return;
+  document.querySelectorAll('.perfil-para-imprimir').forEach(el=>el.classList.remove('perfil-para-imprimir'));
+  perfil.classList.add('perfil-para-imprimir');
+  document.body.classList.add('imprimindo-historia');
+  const limpar = () => {
+    document.body.classList.remove('imprimindo-historia');
+    perfil.classList.remove('perfil-para-imprimir');
+    window.removeEventListener('afterprint', limpar);
+  };
+  window.addEventListener('afterprint', limpar);
+  try { window.print(); }
+  catch (erro) { limpar(); alert('Não foi possível abrir a impressão. Use Ctrl+P ou Cmd+P no navegador.'); }
+};
+</script>
 </body>
 </html>
