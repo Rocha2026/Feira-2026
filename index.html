@@ -710,7 +710,129 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
  #livro-digital-overlay .livro-capitulo-sub{padding-bottom:5px!important}
  #livro-digital-overlay .livro-capitulo{padding-top:3px!important}
 }
-</style></head>
+</style>
+<style id="almanaque-historico-5a-2026">
+/* Almanaque editorial do 5º A: vitrine histórica sem PDF fictício. */
+#quinto-a .alm5a-vitrine{margin:30px 0 40px;color:#f4ead6;background:radial-gradient(circle at 95% 0%,#286960 0%,transparent 42%),linear-gradient(135deg,#0d3437,#174e49 70%,#103839);border:1px solid #bda16c;border-radius:22px;overflow:hidden;box-shadow:0 25px 55px #0e3b391d;position:relative;isolation:isolate}
+#quinto-a .alm5a-vitrine:before{content:'❧';position:absolute;top:-125px;right:-15px;font:350px Georgia,serif;color:#d5b87912;pointer-events:none;z-index:-1}
+#quinto-a .alm5a-sup{padding:22px clamp(22px,5vw,48px) 12px;border-bottom:1px solid #d3b88535;display:flex;gap:15px;justify-content:space-between;align-items:center;flex-wrap:wrap;color:#e4c98e;font:700 .7rem 'DM Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase}
+#quinto-a .alm5a-sup span:last-child{color:#e9e2d3;letter-spacing:.07em}
+#quinto-a .alm5a-hero{display:grid;grid-template-columns:minmax(250px,.85fr) minmax(0,1.15fr);gap:clamp(24px,5vw,70px);align-items:center;padding:clamp(26px,5vw,58px)}
+#quinto-a .alm5a-livro-suporte{min-width:0;perspective:950px;padding:16px 15px 30px}
+#quinto-a .alm5a-livro{position:relative;max-width:350px;width:100%;min-height:460px;margin:0 auto;transform:rotateY(-12deg) rotate(-2deg);transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(18px 26px 15px #071f2070)}
+#quinto-a .alm5a-livro:hover{transform:rotateY(-4deg) rotate(0deg) translateY(-5px)}
+#quinto-a .alm5a-livro:before{content:'';position:absolute;z-index:-1;left:11px;right:-13px;top:14px;bottom:-14px;background:repeating-linear-gradient(to bottom,#f7edce 0,#f7edce 2px,#e4d6b4 3px,#fff5db 5px);border-radius:2px 8px 8px 2px;box-shadow:10px 10px 0 #143c3c}
+#quinto-a .alm5a-capa{min-height:460px;background:linear-gradient(126deg,#11483d,#0a2e31 74%);border:2px solid #d6b678;box-shadow:inset 8px 0 0 #082829,inset 13px 0 0 #b8995c42,inset 0 0 0 11px #164c43,inset 0 0 0 12px #c7aa6b;box-sizing:border-box;border-radius:4px 9px 9px 4px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:42px 28px 34px;color:#e4ce9f}
+#quinto-a .alm5a-capa-mark{font:700 .64rem/1.6 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#edd4a3}
+#quinto-a .alm5a-capa h3{font:500 clamp(1.9rem,3.4vw,2.7rem)/1.16 'Playfair Display',Georgia,serif;color:#ffe8b4;letter-spacing:-.03em;margin:13px 0 8px;text-shadow:0 2px 12px #0005}
+#quinto-a .alm5a-capa-orn{font:40px Georgia,serif;color:#e0bd75;line-height:1}
+#quinto-a .alm5a-foto-capa{width:100%;height:145px;position:relative;border:6px solid #e9dcc0;background:linear-gradient(150deg,#cfb887,#567f75);box-shadow:0 6px 18px #0006;overflow:hidden;box-sizing:border-box}
+#quinto-a .alm5a-foto-capa img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.7) sepia(.13)}
+#quinto-a .alm5a-capa-rodape{font:700 .7rem/1.6 'DM Sans',sans-serif;letter-spacing:.17em;text-transform:uppercase;color:#edd5a5}
+#quinto-a .alm5a-etiqueta{display:inline-block;margin:0 0 15px;border:1px solid #d4b57d9c;border-radius:100px;padding:7px 13px;color:#f1d9a6;font:700 .69rem 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase}
+#quinto-a .alm5a-info h3{font:500 clamp(2rem,4.3vw,3.6rem)/1.15 'Playfair Display',Georgia,serif;margin:0 0 20px;color:#fff1d6;letter-spacing:-.03em}
+#quinto-a .alm5a-info>p{max-width:510px;line-height:1.85;color:#e7e8dc;margin:0 0 20px;font-size:1.02rem}
+#quinto-a .alm5a-status{background:#e2c99815;border:1px solid #d3b67b70;border-left:4px solid #e1bf7d;border-radius:9px;padding:15px 17px;margin:22px 0;color:#f5e9d0;font-size:.94rem;line-height:1.65}
+#quinto-a .alm5a-status strong{display:block;color:#e4c281;margin-bottom:3px}
+#quinto-a .alm5a-acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;align-items:center}
+#quinto-a .alm5a-btn{appearance:none;background:#e9d4aa;color:#163f3b;border:1px solid #f3dcac;border-radius:10px;padding:14px 20px;font:700 .9rem 'DM Sans',sans-serif;cursor:pointer;transition:transform .22s,background .22s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+#quinto-a .alm5a-btn:hover{transform:translateY(-2px);background:#ffedd0}
+#quinto-a .alm5a-acoes a[hidden],#quinto-a .alm5a-folhas[hidden],#quinto-a .alm5a-aviso[hidden]{display:none!important}
+#quinto-a .alm5a-nota{font-size:.76rem;color:#c1d3ca;line-height:1.5;margin-top:12px}
+#quinto-a .alm5a-separador{height:1px;margin:0 38px;background:linear-gradient(90deg,transparent,#d2b77e80,transparent)}
+#quinto-a .alm5a-folhas{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:28px clamp(22px,5vw,55px) 40px;box-shadow:0 18px 35px #051d1b68;transform:perspective(1100px) rotateX(3deg)}
+#quinto-a .alm5a-folha{min-height:220px;background:#f7f0df;color:#36413a;box-sizing:border-box;padding:clamp(20px,3vw,36px);border:1px solid #e1d4b8;position:relative;overflow:hidden}
+#quinto-a .alm5a-folha:first-child{background:linear-gradient(90deg,#e5d9c3,#fcf7e9 10%,#f7efdf);border-radius:4px 0 0 4px;box-shadow:inset -10px 0 22px #6d503015}
+#quinto-a .alm5a-folha:last-child{background:linear-gradient(90deg,#e9dfca,#fffaf0 10%,#f1e4cd);border-radius:0 4px 4px 0;box-shadow:inset 9px 0 20px #6d503014}
+#quinto-a .alm5a-folha:after{content:'❧';position:absolute;bottom:-35px;right:8px;color:#b9976155;font:130px Georgia,serif;pointer-events:none}
+#quinto-a .alm5a-folha .alm5a-pag-kicker{font:700 .65rem 'DM Sans',sans-serif;letter-spacing:.19em;text-transform:uppercase;color:#9b7e4d}
+#quinto-a .alm5a-folha h4{font:500 clamp(1.3rem,2.3vw,2rem)/1.25 'Playfair Display',Georgia,serif;margin:16px 0;color:#214c48}
+#quinto-a .alm5a-folha p{max-width:340px;font:1rem/1.75 Georgia,serif;margin:0;position:relative;z-index:1}
+#quinto-a .alm5a-aviso{max-width:700px;text-align:center;margin:0 auto 30px!important;padding:0 20px;font-size:.83rem;color:#cadbd2}
+/* Prévia interativa: não reproduz nem inventa páginas do PDF ainda inexistente. */
+#alm5a-modal{position:fixed;inset:0;z-index:10160;background:#071d20ef;backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}
+#alm5a-modal.aberto{display:flex}
+#alm5a-modal .alm5a-janela{width:min(950px,100%);height:min(820px,94dvh);max-height:94dvh;display:flex;flex-direction:column;background:#f6efdf;border:1px solid #c2a370;border-radius:15px;overflow:hidden;box-shadow:0 22px 80px #0008}
+#alm5a-modal .alm5a-toolbar{flex-shrink:0;padding:14px clamp(14px,3vw,28px);background:#123f40;color:#f8e6c6;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:2px solid #bfa171}
+#alm5a-modal .alm5a-toolbar strong{font:600 .9rem 'DM Sans',sans-serif}
+#alm5a-modal .alm5a-toolbar small{display:block;font:500 .7rem 'DM Sans',sans-serif;color:#d4c4a3;margin-top:3px}
+#alm5a-modal button{cursor:pointer;font-family:'DM Sans',sans-serif}
+#alm5a-modal .alm5a-fechar{background:#ffffff1b;color:#fff;border:1px solid #e9d4ac70;border-radius:9px;padding:9px 13px;font-weight:700}
+#alm5a-modal .alm5a-miolo{flex:1;min-height:0;overflow:auto;background:radial-gradient(ellipse at center,#eee4d0,#d9c9aa);padding:clamp(12px,3vw,35px);display:flex}
+#alm5a-modal .alm5a-pagina{width:min(720px,100%);min-height:100%;margin:auto;box-sizing:border-box;background:linear-gradient(100deg,#efe3ce,#fffaf0 12%,#fbf6e9 92%,#e9ddc4);box-shadow:-7px 0 0 #bd9f6a,0 13px 35px #4e371d60;border:1px solid #bca479;padding:clamp(24px,5vw,62px);animation:alm5a-virar .45s ease both;color:#254440}
+#alm5a-modal .alm5a-pagina[hidden]{display:none}
+#alm5a-modal .alm5a-pagina h2{font:500 clamp(2.05rem,4.4vw,3.7rem)/1.17 'Playfair Display',Georgia,serif;color:#174b46;border:0;margin:23px 0;letter-spacing:-.025em}
+#alm5a-modal .alm5a-pagina p{font:clamp(.97rem,1.7vw,1.13rem)/1.9 Georgia,serif;color:#43534a;max-width:590px}
+#alm5a-modal .alm5a-pagina .alm5a-mini-marca{font:700 .69rem 'DM Sans',sans-serif;letter-spacing:.18em;color:#9b7c47;text-transform:uppercase}
+#alm5a-modal .alm5a-pagina .alm5a-ornamento{font:70px Georgia,serif;color:#b49a64;margin:20px 0 6px}
+#alm5a-modal .alm5a-pagina .alm5a-pagina-imagem{display:block;width:100%;height:clamp(150px,22vh,250px);object-fit:cover;border:8px solid #efe1c5;box-sizing:border-box;filter:sepia(.18);box-shadow:0 6px 18px #0002}
+#alm5a-modal .alm5a-pagina .alm5a-epigrafe{font-style:italic;color:#937448}
+#alm5a-modal .alm5a-controles{flex-shrink:0;display:flex;justify-content:space-between;align-items:center;gap:10px;background:#173e3f;border-top:1px solid #c7ae76;padding:13px clamp(14px,3vw,25px);color:#e9dcc0}
+#alm5a-modal .alm5a-controles button{padding:10px 15px;border-radius:8px;background:#e7d1a8;border:1px solid #f2dcba;color:#123d3e;font-weight:700}
+#alm5a-modal .alm5a-controles button:disabled{opacity:.35;cursor:not-allowed}
+#alm5a-modal .alm5a-contador{font:700 .76rem 'DM Sans',sans-serif;letter-spacing:.07em}
+#alm5a-modal #alm5a-pdf-iframe{flex:1;min-height:0;width:100%;border:0;background:#fff}
+#alm5a-modal #alm5a-pdf-iframe[hidden],#alm5a-modal #alm5a-miolo[hidden],#alm5a-modal #alm5a-controles[hidden]{display:none!important}
+@keyframes alm5a-virar{from{opacity:.3;transform:translateX(18px) rotateY(-4deg)}to{opacity:1;transform:translateX(0) rotateY(0)}}
+@media(max-width:760px){#quinto-a .alm5a-hero{grid-template-columns:1fr}#quinto-a .alm5a-livro{max-width:320px;min-height:430px}#quinto-a .alm5a-capa{min-height:430px}#quinto-a .alm5a-folhas{grid-template-columns:1fr;transform:none}#quinto-a .alm5a-folha:first-child,#quinto-a .alm5a-folha:last-child{border-radius:5px}#quinto-a .alm5a-folha{min-height:170px}#quinto-a .alm5a-info h3{text-align:left}}
+@media(max-width:460px){#quinto-a .alm5a-livro-suporte{padding:0 10px 20px}#quinto-a .alm5a-hero{padding:25px 20px}#quinto-a .alm5a-sup{padding:17px 20px}#quinto-a .alm5a-folhas{margin:22px 20px 30px}#alm5a-modal{padding:8px}#alm5a-modal .alm5a-pagina{padding:24px 20px}#alm5a-modal .alm5a-controles button{padding:9px 10px;font-size:.8rem}}
+@media(prefers-reduced-motion:reduce){#quinto-a .alm5a-livro,#alm5a-modal .alm5a-pagina{transition:none;animation:none}}
+@media print{#alm5a-modal,#quinto-a .alm5a-acoes{display:none!important}#quinto-a .alm5a-folhas{box-shadow:none;transform:none}}
+</style>
+<style id="modo-tv-cinematografico-2026">
+/* Projeção: legendas legíveis, foto inteira sem cortes, cenas e transições delicadas. */
+#modo-tv-overlay{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;box-sizing:border-box;display:none;align-items:stretch;justify-content:stretch;flex-direction:column;overflow:hidden;background:radial-gradient(circle at 50% 40%,#1d4f4d 0%,#0b292d 57%,#051419 100%);color:#fff5df;z-index:10000;font-family:'DM Sans',sans-serif}
+#modo-tv-overlay:before{content:'';position:absolute;inset:13px;pointer-events:none;border:1px solid #c4a5723d;z-index:3}
+#modo-tv-overlay .tv-ornamento-esq,#modo-tv-overlay .tv-ornamento-dir{position:absolute;pointer-events:none;color:#c3a57365;font:52px Georgia,serif;z-index:3;top:17px}
+#modo-tv-overlay .tv-ornamento-esq{left:29px}#modo-tv-overlay .tv-ornamento-dir{right:29px;top:auto;bottom:12px;transform:rotate(180deg)}
+#modo-tv-overlay .tv-topo{z-index:5;position:relative;flex-shrink:0;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px clamp(24px,5vw,75px) 12px}
+#modo-tv-overlay .tv-marca{display:flex;flex-direction:column;gap:4px}
+#modo-tv-overlay .tv-marca>strong{font:700 clamp(.65rem,.95vw,.83rem) 'DM Sans',sans-serif;letter-spacing:.18em;color:#dec18d}
+#modo-tv-overlay .tv-marca>span{font:500 .76rem 'DM Sans',sans-serif;color:#c5d4ca;letter-spacing:.08em}
+#modo-tv-overlay .tv-acoes{display:flex;gap:8px;align-items:center}
+#modo-tv-overlay .tv-controle{position:static;min-height:37px;border:1px solid #d1b78070;background:#ffffff19;color:#faf2de;padding:9px 15px;border-radius:8px;font:700 .75rem 'DM Sans',sans-serif;cursor:pointer;backdrop-filter:blur(6px)}
+#modo-tv-overlay .tv-controle:hover{background:#ffffff30}
+#modo-tv-overlay .tv-cena{position:relative;z-index:2;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;padding:30px;box-sizing:border-box;text-align:center;animation:tv-aparecer 1s ease both}
+#modo-tv-overlay .tv-cena[hidden],#modo-tv-overlay .tv-palco[hidden]{display:none!important}
+#modo-tv-overlay .tv-cena-selo{border:1px solid #c6a978a1;border-radius:100px;padding:10px 20px;color:#e8cc96;font:700 .74rem 'DM Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase}
+#modo-tv-overlay .tv-cena-simbolo{font:75px/1 Georgia,serif;color:#d4b376;text-shadow:0 7px 30px #0006}
+#modo-tv-overlay .tv-cena h2{border:0!important;font:500 clamp(2.65rem,7.6vw,7.7rem)/1.08 'Playfair Display',Georgia,serif!important;letter-spacing:-.04em;color:#fff0cf!important;margin:5px 0 0!important;max-width:1200px;text-shadow:0 7px 35px #0005}
+#modo-tv-overlay .tv-cena p{font:400 clamp(.95rem,1.7vw,1.6rem)/1.6 'DM Sans',sans-serif;color:#d8e1d6;max-width:800px;margin:0}
+#modo-tv-overlay .tv-cena-linha{height:1px;width:185px;background:linear-gradient(90deg,transparent,#e6c586,transparent);margin:8px 0}
+#modo-tv-overlay .tv-palco{position:relative;z-index:1;flex:1;min-height:0;overflow:hidden;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:5px clamp(18px,4vw,60px) 15px;box-sizing:border-box}
+#modo-tv-overlay #tv-fundo{position:absolute;inset:-30px;width:calc(100% + 60px);height:calc(100% + 60px);object-fit:cover;filter:blur(38px) brightness(.3) saturate(.85);opacity:.6;pointer-events:none;z-index:-1}
+#modo-tv-overlay .tv-quadro{position:relative;display:flex;flex:1;min-height:0;width:100%;max-width:calc(160vh);justify-content:center;align-items:center;padding:0 15px;box-sizing:border-box}
+#modo-tv-overlay #tv-imagem{display:block!important;position:relative;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;opacity:0;border:5px solid #e5d5b6;box-sizing:border-box;box-shadow:0 14px 58px #000a;transition:opacity .85s ease;transform-origin:center;animation:tv-respiro 10s ease-in-out infinite alternate}
+#modo-tv-overlay .tv-ficha{flex-shrink:0;max-width:min(100%,960px);width:100%;margin:15px auto 0;padding:9px 10px;text-align:center;background:linear-gradient(90deg,transparent,#0b3034aa 18%,#0b3034aa 82%,transparent)}
+#modo-tv-overlay #tv-categoria{font:700 .65rem 'DM Sans',sans-serif;letter-spacing:.19em;text-transform:uppercase;color:#d9bb83}
+#modo-tv-overlay #tv-legenda{opacity:1!important;transition:none!important;margin:5px 0 0;font:500 clamp(1.15rem,2.5vw,2.3rem)/1.25 'Playfair Display',Georgia,serif;color:#ffedce;letter-spacing:0}
+#modo-tv-overlay #tv-descricao{margin:7px 0 0;color:#d4e2dc;font:.82rem 'DM Sans',sans-serif}
+#modo-tv-overlay .tv-rodape{z-index:4;position:relative;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px clamp(24px,5vw,75px) 19px;color:#c9d5cb;font:700 .67rem 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+#modo-tv-overlay .tv-progresso-fundo{width:min(280px,36vw);height:3px;background:#ffffff32;border-radius:5px;overflow:hidden}
+#modo-tv-overlay #tv-progresso{display:block;width:0;height:100%;background:#e0ba7b;transition:none;border-radius:5px}
+@keyframes tv-respiro{from{transform:scale(1)}to{transform:scale(1.025)}}
+@keyframes tv-aparecer{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:750px){#modo-tv-overlay .tv-topo{padding:15px 20px 8px}#modo-tv-overlay .tv-marca>span{display:none}#modo-tv-overlay .tv-palco{padding:4px 14px 10px}#modo-tv-overlay .tv-quadro{padding:0}#modo-tv-overlay #tv-imagem{border-width:3px}#modo-tv-overlay .tv-ficha{margin-top:7px}#modo-tv-overlay .tv-rodape{padding:10px 20px 17px;font-size:.55rem;gap:8px}#modo-tv-overlay .tv-progresso-fundo{width:26vw}#modo-tv-overlay .tv-cena-simbolo{font-size:55px}#modo-tv-overlay .tv-ornamento-esq,#modo-tv-overlay .tv-ornamento-dir{font-size:32px}}
+@media(max-height:650px){#modo-tv-overlay .tv-topo{padding-top:8px}#modo-tv-overlay .tv-rodape{padding-bottom:9px}#modo-tv-overlay .tv-ficha{margin-top:6px}#modo-tv-overlay #tv-descricao{display:none}}
+@media(prefers-reduced-motion:reduce){#modo-tv-overlay .tv-cena,#modo-tv-overlay #tv-imagem{animation:none!important}#modo-tv-overlay #tv-imagem{transition:none!important}}
+@media print{#modo-tv-overlay{display:none!important}}
+</style>
+<style id="almanaque-pdf-exemplo-2026">
+/* PDF de exemplo dentro do leitor esmeralda/dourado; mantém a capa histórica acessível. */
+#alm5a-modal .alm5a-toolbar-acoes{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:10px}
+#alm5a-modal .alm5a-alternar{display:flex;gap:5px;flex-wrap:wrap}
+#alm5a-modal .alm5a-alternar button{border:1px solid #d7be8d80;border-radius:8px;padding:9px 11px;background:#ffffff17;color:#f4e6c9;font:700 .73rem 'DM Sans',sans-serif;cursor:pointer}
+#alm5a-modal .alm5a-alternar button[aria-pressed="true"]{background:#e6ce9e;color:#163c3b;border-color:#f4e0b9}
+#alm5a-modal .alm5a-pdf-area{flex:1;min-height:0;display:flex;flex-direction:column;background:radial-gradient(circle at top,#ebdfc6,#d8c49f);padding:12px clamp(10px,2vw,22px) clamp(10px,2vw,18px)}
+#alm5a-modal .alm5a-pdf-area[hidden]{display:none!important}
+#alm5a-modal .alm5a-pdf-orientacao{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:4px 4px 12px;color:#31514b;font:500 .78rem/1.55 'DM Sans',sans-serif}
+#alm5a-modal .alm5a-pdf-orientacao strong{color:#816236;letter-spacing:.09em}
+#alm5a-modal .alm5a-pdf-orientacao a{color:#164d48;font-weight:800;text-decoration:underline;white-space:nowrap}
+#alm5a-modal #alm5a-pdf-iframe{display:block;flex:1;width:100%;min-height:0;border:1px solid #bda77a;border-radius:5px;background:white;box-shadow:0 9px 30px #50371837}
+@media(max-width:700px){#alm5a-modal .alm5a-toolbar{align-items:flex-start;flex-direction:column;gap:12px}#alm5a-modal .alm5a-toolbar-acoes{width:100%;justify-content:space-between}#alm5a-modal .alm5a-alternar button{padding:9px 9px;font-size:.67rem}#alm5a-modal .alm5a-pdf-orientacao{font-size:.72rem}}
+@media(max-width:400px){#alm5a-modal .alm5a-toolbar-acoes{align-items:stretch;flex-direction:column}#alm5a-modal .alm5a-alternar button{flex:1}#alm5a-modal .alm5a-fechar{align-self:flex-end}}
+</style>
+</head>
 <body>
 
     <div id="preloader">
@@ -854,16 +976,51 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
             <h2>5º Ano A - Profa. Patrícia</h2>
             <p>O 5º Ano A mergulhou na história e geografia de Águas de São Pedro para criar um material riquíssimo: o <strong>Almanaque</strong> da cidade. Neste documento, você encontrará dados históricos e curiosidades pesquisadas pelos próprios alunos.</p>
             
-            <div class="cartao-almanaque">
-                <img src="aguas.jpeg" alt="Capa do Almanaque">
-                <h3 style="margin: 0; font-size: 1.5rem;">Almanaque Águas de São Pedro</h3>
-                <p>Produzido pelo 5º Ano A</p>
-                <a href="" download class="btn-baixar" style="background-color: white; color: var(--cor-primaria); border: 2px solid white; display: block; width: 80%; margin: 15px auto;">📥 Baixar PDF Completo</a>
-            </div>
-
-            <div class="container-pdf">
-                <embed src="" type="application/pdf" width="100%" height="100%">
-                <p style="text-align: center; padding: 20px;">Se o Almanaque não carregar aqui, você pode <a href="" target="_blank">clicar aqui para abrir o PDF</a> ou fazer o download no botão acima.</p>
+            <!-- VITRINE EDITORIAL DO ALMANAQUE DO 5º A — DEMONSTRAÇÃO COM ARQUIVO.PDF -->
+            <div class="alm5a-vitrine" id="almanaque-5a">
+                <div class="alm5a-sup"><span>XV Feira Literária · 2026</span><span>5º Ano A · Leitor em demonstração</span></div>
+                <div class="alm5a-hero">
+                    <div class="alm5a-livro-suporte">
+                        <div class="alm5a-livro" aria-label="Capa editorial ilustrada do Almanaque de Águas de São Pedro">
+                            <div class="alm5a-capa">
+                                <div class="alm5a-capa-mark">Olhares que contam histórias</div>
+                                <div>
+                                    <div class="alm5a-capa-orn" aria-hidden="true">❧</div>
+                                    <h3>Almanaque de<br>Águas de São Pedro</h3>
+                                    <div style="font:italic .95rem/1.5 Georgia,serif;color:#e9d9bc;margin:12px 0">Histórias, descobertas e curiosidades da nossa cidade</div>
+                                </div>
+                                <div class="alm5a-foto-capa"><img src="aguas.jpeg" alt="Imagem ilustrativa de Águas de São Pedro" loading="lazy" onerror="this.style.display='none'"></div>
+                                <div class="alm5a-capa-rodape">Uma produção do 5º Ano A · 2026</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alm5a-info">
+                        <span class="alm5a-etiqueta">Edição histórica ilustrada</span>
+                        <h3>Uma cidade.<br>Inúmeras histórias para descobrir.</h3>
+                        <p>O 5º Ano A, com a professora Patrícia, está preparando um Almanaque dedicado à história, à geografia e às curiosidades de Águas de São Pedro, resultado das pesquisas realizadas pelos estudantes.</p>
+                        <p>Uma viagem pela memória da nossa cidade, apresentada através do olhar curioso de seus jovens autores.</p>
+                        <div class="alm5a-status" role="status"><strong>✦ Teste do leitor digital</strong>Veja como será a experiência de leitura com um PDF de exemplo sobre Águas de São Pedro. O Almanaque original dos alunos ainda está em produção e será inserido quando estiver pronto.</div>
+                        <div class="alm5a-acoes">
+                            <button class="alm5a-btn" type="button" id="alm5a-abrir" onclick="abrirAlmanaque5A()">📖 Visualizar PDF no leitor digital</button>
+                            <a class="alm5a-btn" id="alm5a-download" href="Arquivo.pdf" download="Arquivo.pdf">↓ Baixar PDF de exemplo</a>
+                        </div>
+                        <div class="alm5a-nota">Documento usado somente no teste: artigo “Águas de São Pedro: a primeira Cidade-Jardim brasileira”, de Ricardo Trevisan e Ricardo Siloto da Silva. Não é a produção dos estudantes.</div>
+                    </div>
+                </div>
+                <div class="alm5a-separador" aria-hidden="true"></div>
+                <div class="alm5a-folhas" aria-label="Amostra da identidade visual das páginas futuras do Almanaque">
+                    <div class="alm5a-folha">
+                        <div class="alm5a-pag-kicker">O projeto · 5º Ano A</div>
+                        <h4>Águas de São Pedro, uma história para contar</h4>
+                        <p>Da pesquisa à descoberta, cada registro ajuda a preservar o conhecimento sobre a cidade.</p>
+                    </div>
+                    <div class="alm5a-folha">
+                        <div class="alm5a-pag-kicker">Nosso convite</div>
+                        <h4>Descubra a cidade por novos olhares</h4>
+                        <p>Em breve, as páginas deste Almanaque reunirão o trabalho desenvolvido pelos nossos estudantes.</p>
+                    </div>
+                </div>
+                <p class="alm5a-aviso">A capa e as páginas históricas ilustradas representam a identidade visual proposta. O PDF no leitor é apenas uma amostra para testar a leitura; não é o Almanaque produzido pelo 5º Ano A.</p>
             </div>
 
             <div class="gerador-certificado-a">
@@ -1397,11 +1554,77 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
       </div>
     </div>
 
-    <!-- MODO TV OVERLAY -->
-    <div id="modo-tv-overlay">
-        <button class="btn-fechar-tv" onclick="sairModoTV()">✖ Sair da Exposição</button>
-        <img id="tv-imagem" src="" alt="Modo TV" loading="lazy">
-        <div id="tv-legenda">Preparando Exposição Fotográfica...</div>
+    <!-- LEITOR ALMANAQUE 5º A: duas visualizações, capa editorial e PDF de demonstração -->
+    <div id="alm5a-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Apresentação digital do Almanaque do 5º Ano A">
+        <div class="alm5a-janela">
+            <div class="alm5a-toolbar">
+                <div><strong>Almanaque de Águas de São Pedro</strong><small>5º Ano A · Demonstração do leitor · XV Feira Literária 2026</small></div>
+                <div class="alm5a-toolbar-acoes">
+                    <div class="alm5a-alternar" role="group" aria-label="Modo de visualização do Almanaque">
+                        <button type="button" id="alm5a-tab-pdf" aria-pressed="true" onclick="selecionarModoAlmanaque5A('pdf')">📄 PDF de exemplo</button>
+                        <button type="button" id="alm5a-tab-capa" aria-pressed="false" onclick="selecionarModoAlmanaque5A('capa')">✦ Capa e apresentação</button>
+                    </div>
+                    <button type="button" id="alm5a-fechar" class="alm5a-fechar" onclick="fecharAlmanaque5A()">✕ Fechar</button>
+                </div>
+            </div>
+            <div class="alm5a-miolo" id="alm5a-miolo">
+                <article class="alm5a-pagina" data-alm5a-pagina="0">
+                    <div class="alm5a-mini-marca">XV Feira Literária · 2026</div>
+                    <div class="alm5a-ornamento" aria-hidden="true">❧</div>
+                    <h2>Almanaque de<br>Águas de São Pedro</h2>
+                    <p class="alm5a-epigrafe">Histórias, descobertas e curiosidades da nossa cidade.</p>
+                    <img class="alm5a-pagina-imagem" src="aguas.jpeg" alt="Imagem ilustrativa da cidade de Águas de São Pedro" onerror="this.style.display='none'" loading="lazy">
+                    <p class="alm5a-mini-marca">Produção dos alunos do 5º Ano A · Profa. Patrícia</p>
+                </article>
+                <article class="alm5a-pagina" data-alm5a-pagina="1" hidden>
+                    <div class="alm5a-mini-marca">Apresentação do projeto</div>
+                    <div class="alm5a-ornamento" aria-hidden="true">✧</div>
+                    <h2>Nossa cidade, nossos olhares</h2>
+                    <p>O 5º Ano A mergulhou na história e geografia de Águas de São Pedro para criar um Almanaque sobre a cidade, reunindo pesquisas e curiosidades investigadas pelos próprios alunos.</p>
+                    <p>Este é um convite para conhecer o projeto enquanto o material completo ainda está sendo produzido.</p>
+                    <p class="alm5a-epigrafe">A curiosidade abre caminhos; a pesquisa transforma descobertas em memória.</p>
+                </article>
+                <article class="alm5a-pagina" data-alm5a-pagina="2" hidden>
+                    <div class="alm5a-mini-marca">Um trabalho em construção</div>
+                    <div class="alm5a-ornamento" aria-hidden="true">❦</div>
+                    <h2>Novas páginas estão a caminho</h2>
+                    <p>O Almanaque ainda está em elaboração. Quando o documento final estiver pronto, esta vitrine receberá a edição original para leitura e download.</p>
+                    <p>Até lá, visite os registros dos bastidores no <strong>Making Off</strong> e conheça os alunos colaboradores listados na aba do 5º Ano A.</p>
+                    <p class="alm5a-epigrafe">Uma produção coletiva dos estudantes do 5º Ano A, orientados pela professora Patrícia.</p>
+                </article>
+            </div>
+            <div class="alm5a-pdf-area" id="alm5a-pdf-area" hidden>
+                <div class="alm5a-pdf-orientacao"><span><strong>DOCUMENTO DE DEMONSTRAÇÃO</strong> · Artigo de pesquisa histórica (21 páginas). O Almanaque do 5º A continua em produção.</span><a href="Arquivo.pdf" id="alm5a-abrir-nova" target="_blank" rel="noopener">↗ Abrir PDF em nova aba</a></div>
+                <iframe id="alm5a-pdf-iframe" title="Leitura do PDF demonstrativo Arquivo.pdf sobre Águas de São Pedro" loading="lazy"></iframe>
+            </div>
+            <div class="alm5a-controles" id="alm5a-controles">
+                <button type="button" id="alm5a-anterior" onclick="mudarPaginaAlmanaque5A(-1)" aria-label="Página anterior da apresentação" disabled>← Anterior</button>
+                <span class="alm5a-contador" id="alm5a-contador" aria-live="polite">1 / 3</span>
+                <button type="button" id="alm5a-proximo" onclick="mudarPaginaAlmanaque5A(1)" aria-label="Próxima página da apresentação">Próxima →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODO TV: MOSTRA CINEMATOGRÁFICA COM BASTIDORES EM DESTAQUE -->
+    <div id="modo-tv-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Exposição audiovisual da XV Feira Literária">
+        <span class="tv-ornamento-esq" aria-hidden="true">❧</span><span class="tv-ornamento-dir" aria-hidden="true">❧</span>
+        <div class="tv-topo">
+            <div class="tv-marca"><strong>XV FEIRA LITERÁRIA · 2026</strong><span>Olhares que contam histórias · Águas de São Pedro</span></div>
+            <div class="tv-acoes"><button type="button" id="tv-pausar" class="tv-controle" onclick="alternarPausaTV()" aria-label="Pausar apresentação">Ⅱ Pausar</button><button type="button" class="tv-controle btn-fechar-tv" onclick="sairModoTV()">✕ Sair da exposição</button></div>
+        </div>
+        <div id="tv-cena" class="tv-cena">
+            <div class="tv-cena-selo">Uma exposição de memórias e descobertas</div>
+            <div class="tv-cena-simbolo" aria-hidden="true">✧</div>
+            <h2 id="tv-cena-titulo">Por trás dos olhares</h2>
+            <div class="tv-cena-linha" aria-hidden="true"></div>
+            <p id="tv-cena-subtitulo">Cada história começa com um olhar. Descubra os caminhos percorridos pelos nossos estudantes.</p>
+        </div>
+        <div id="tv-palco" class="tv-palco" hidden>
+            <img id="tv-fundo" alt="" aria-hidden="true">
+            <div class="tv-quadro"><img id="tv-imagem" alt="Fotografia da exposição" decoding="async"></div>
+            <div class="tv-ficha"><div id="tv-categoria">BASTIDORES · 5º ANO A</div><h2 id="tv-legenda">Preparando exposição fotográfica</h2><p id="tv-descricao">Olhares que contam histórias</p></div>
+        </div>
+        <div class="tv-rodape"><span id="tv-etapa">BASTIDORES DA CRIAÇÃO</span><div class="tv-progresso-fundo" aria-hidden="true"><span id="tv-progresso"></span></div><span id="tv-contador">XV FEIRA LITERÁRIA</span></div>
     </div>
 
     <footer>
@@ -1501,69 +1724,293 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
             window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=${dataInicio}/${dataFim}`, '_blank');
         }
 
-        // MODO TV
-        let tvIntervalo;
+        // MODO TV CINEMATOGRÁFICO — 70% bastidores / 30% obras selecionadas
+        // As imagens reais continuam vindo da galeria, sem duplicar arquivos.
+        let tvTemporizador = null;
         let tvIndice = 0;
         let listaImagensTV = [];
+        let tvBastidores = [];
+        let tvObras = [];
+        let tvObrasCursor = 0;
+        let tvCiclo = 0;
+        let tvAtivo = false;
+        let tvPausado = false;
+        let tvFimPrazo = 0;
+        let tvRestante = 0;
+        let tvFalhasSeguidas = 0;
+        let tvExecucao = 0;
+        const TV_TEMPOS = { abertura: 4700, capitulo: 2900, foto: 7200 };
 
-        function iniciarModoTV() {
-            const agora = new Date().getTime();
-            const overlay = document.getElementById('modo-tv-overlay');
+        function tvExtrairFotos() {
+            const vistos = new Set();
+            const makingTitles = [
+                'O início de cada descoberta',
+                'Ideias que ganham forma',
+                'Pesquisas que contam histórias',
+                'Entre páginas e curiosidades',
+                'O olhar de quem investiga',
+                'Construindo nosso Almanaque',
+                'Cada detalhe faz parte da história'
+            ];
+            const obraTitles = [
+                'Um olhar, uma história',
+                'A cidade pelos olhos dos estudantes',
+                'Histórias reveladas em imagens',
+                'A arte de observar',
+                'Um instante para recordar',
+                'Olhares que contam histórias'
+            ];
+            const imagens = Array.from(document.querySelectorAll('.galeria img:not(.img-fundo):not(.img-sobreposicao)'));
+            const todos = [];
+            let indiceObra = 0;
+            imagens.forEach((img) => {
+                const src = img.getAttribute('src');
+                if (!src || !src.trim()) return;
+                const chave = new URL(src, document.baseURI).href;
+                if (vistos.has(chave)) return;
+                vistos.add(chave);
+                const arquivo = decodeURIComponent(src.split('/').pop().split('?')[0]);
+                const nome = arquivo.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+                const legendaGaleria = img.closest('div')?.querySelector('.legenda-foto')?.textContent?.replace(/^\s*📸\s*/, '').trim() || '';
+                const making = /making\s*off|atividade\s*autobiografia|palestra|passeio/.test(nome);
+                const item = { src: chave, tipo: 'foto', categoria: '', titulo: '', descricao: '' };
+                if (making) {
+                    if (/making\s*off/.test(nome)) {
+                        const n = Number(arquivo.match(/\((\d+)\)/)?.[1] || '0');
+                        item.categoria = 'BASTIDORES · 5º ANO A';
+                        item.titulo = makingTitles[n % makingTitles.length];
+                        item.descricao = 'Pesquisas para o Almanaque de Águas de São Pedro';
+                    } else if (/atividade\s*autobiografia/.test(nome)) {
+                        item.categoria = 'BASTIDORES · 5º ANO B';
+                        item.titulo = 'Memórias que se transformam em palavras';
+                        item.descricao = 'Atividades sobre autobiografia';
+                    } else if (/palestra/.test(nome)) {
+                        item.categoria = 'BASTIDORES · NOSSA CIDADE';
+                        item.titulo = 'Aprendendo sobre Águas de São Pedro';
+                        item.descricao = legendaGaleria || 'Palestra sobre a cidade';
+                    } else {
+                        item.categoria = 'BASTIDORES · 5º ANOS';
+                        item.titulo = 'Descobrindo os caminhos da cidade';
+                        item.descricao = legendaGaleria || 'Passeio pelos pontos da cidade';
+                    }
+                } else {
+                    item.categoria = 'EXPOSIÇÃO FOTOGRÁFICA · ESTUDANTES';
+                    item.titulo = obraTitles[(indiceObra++) % obraTitles.length];
+                    item.descricao = 'As fotografias criadas pelos alunos · Olhares que contam histórias';
+                }
+                todos.push({ ...item, making });
+            });
+            tvBastidores = todos.filter(item => item.making);
+            tvObras = todos.filter(item => !item.making);
+        }
+
+        function tvMontarRoteiro() {
+            const roteiro = [{
+                tipo: 'abertura',
+                titulo: 'Por trás dos olhares',
+                subtitulo: 'Toda fotografia guarda uma história. Conheça os bastidores, as pesquisas e os registros dos nossos estudantes.'
+            }];
+            const bastidores = tvBastidores;
+            const obrasPorCiclo = bastidores.length
+                ? Math.min(tvObras.length, Math.max(1, Math.round(bastidores.length * 3 / 7)))
+                : Math.min(tvObras.length, 18);
+            const obrasSelecionadas = [];
+            for (let i = 0; i < obrasPorCiclo; i++) {
+                obrasSelecionadas.push(tvObras[(tvObrasCursor + i) % tvObras.length]);
+            }
+            if (tvObras.length) tvObrasCursor = (tvObrasCursor + obrasPorCiclo) % tvObras.length;
+
+            if (bastidores.length && obrasSelecionadas.length) {
+                let obrasExibidas = 0;
+                bastidores.forEach((foto, indice) => {
+                    if (indice === Math.ceil(bastidores.length / 2)) {
+                        roteiro.push({ tipo: 'capitulo', titulo: 'Olhares que ganham vida', subtitulo: 'Da pesquisa às fotografias, cada criação revela uma nova perspectiva.' });
+                    }
+                    roteiro.push(foto);
+                    const meta = Math.floor(((indice + 1) * obrasSelecionadas.length) / bastidores.length);
+                    while (obrasExibidas < meta) roteiro.push(obrasSelecionadas[obrasExibidas++]);
+                });
+            } else {
+                bastidores.forEach(foto => roteiro.push(foto));
+                obrasSelecionadas.forEach(foto => roteiro.push(foto));
+            }
+            return roteiro;
+        }
+
+        function tvProgressoZerar() {
+            const barra = document.getElementById('tv-progresso');
+            if (!barra) return;
+            barra.style.transition = 'none';
+            barra.style.width = '0%';
+        }
+        function tvProgressoIniciar(duracao) {
+            const barra = document.getElementById('tv-progresso');
+            if (!barra) return;
+            barra.style.transition = 'none';
+            barra.style.width = '0%';
+            void barra.offsetWidth;
+            if (!tvPausado) {
+                barra.style.transition = 'width ' + duracao + 'ms linear';
+                barra.style.width = '100%';
+            }
+        }
+        function tvAgendar(duracao) {
+            clearTimeout(tvTemporizador);
+            tvRestante = duracao;
+            tvProgressoIniciar(duracao);
+            if (!tvAtivo || tvPausado) return;
+            tvFimPrazo = performance.now() + duracao;
+            tvTemporizador = setTimeout(tvAvancar, duracao);
+        }
+        function tvExibirMensagem(titulo, subtitulo) {
+            document.getElementById('tv-palco').hidden = true;
+            const cena = document.getElementById('tv-cena');
+            cena.hidden = false;
+            // Reinicia animação da cena sem usar bibliotecas externas.
+            cena.style.animation = 'none';
+            void cena.offsetWidth;
+            cena.style.animation = '';
+            document.getElementById('tv-cena-titulo').textContent = titulo;
+            document.getElementById('tv-cena-subtitulo').textContent = subtitulo;
+            document.getElementById('tv-etapa').textContent = 'OLHARES QUE CONTAM HISTÓRIAS';
+            document.getElementById('tv-contador').textContent = 'XV FEIRA LITERÁRIA · 2026';
+        }
+        function tvAvancar() {
+            clearTimeout(tvTemporizador);
+            if (!tvAtivo || tvPausado) return;
+            if (tvIndice >= listaImagensTV.length) {
+                tvCiclo++;
+                listaImagensTV = tvMontarRoteiro();
+                tvIndice = 0;
+            }
+            const foto = listaImagensTV[tvIndice++];
+            if (!foto) return;
+            if (foto.tipo !== 'foto') {
+                tvExibirMensagem(foto.titulo, foto.subtitulo);
+                tvAgendar(TV_TEMPOS[foto.tipo] || TV_TEMPOS.capitulo);
+                return;
+            }
+            const idExecucao = tvExecucao;
+            const visual = new Image();
             const imgEl = document.getElementById('tv-imagem');
-            const legendaEl = document.getElementById('tv-legenda');
-
-            overlay.style.display = 'flex';
-
-            // BLOQUEADOR AQUI: Verifica se a data atual é menor que a do evento
-            if (agora < dataEvento) {
-                imgEl.style.display = 'none'; // Esconde a imagem
-                legendaEl.innerHTML = "🔒 <strong>Acesso Restrito!</strong><br><br>O Modo TV contém os trabalhos dos alunos e só será desbloqueado no dia da Feira Literária.";
-                legendaEl.style.opacity = 1;
-                legendaEl.style.textAlign = 'center';
-                return; // Para a função aqui para não rodar as fotos
-            }
-
-            // SE ESTIVER DESBLOQUEADO, INICIA O SLIDESHOW
-            imgEl.style.display = 'block';
-            legendaEl.style.textAlign = 'center';
-            
-            // Tenta colocar em tela cheia
-            if (overlay.requestFullscreen) {
-                overlay.requestFullscreen().catch(err => console.warn(err));
-            }
-            
-            // Pega todas as fotos da galeria para passar na TV
-            const imagensElementos = document.querySelectorAll('.galeria img:not(.img-fundo):not(.img-sobreposicao)');
-            listaImagensTV = Array.from(imagensElementos).map(img => ({ src: img.src, legenda: img.alt || "Exposição Olhares que contam histórias" }));
-            
-            if (listaImagensTV.length === 0) return;
-
+            imgEl.style.opacity = '0';
+            visual.onload = () => {
+                if (!tvAtivo || idExecucao !== tvExecucao) return;
+                tvFalhasSeguidas = 0;
+                document.getElementById('tv-cena').hidden = true;
+                document.getElementById('tv-palco').hidden = false;
+                imgEl.src = foto.src;
+                imgEl.alt = foto.categoria + ': ' + foto.titulo;
+                document.getElementById('tv-fundo').src = foto.src;
+                document.getElementById('tv-categoria').textContent = foto.categoria;
+                document.getElementById('tv-legenda').textContent = foto.titulo;
+                document.getElementById('tv-descricao').textContent = foto.descricao;
+                document.getElementById('tv-etapa').textContent = foto.making ? 'BASTIDORES DA CRIAÇÃO' : 'GALERIA DOS ESTUDANTES';
+                document.getElementById('tv-contador').textContent = 'CENA ' + tvIndice + ' / ' + listaImagensTV.length;
+                requestAnimationFrame(() => requestAnimationFrame(() => { imgEl.style.opacity = '1'; }));
+                tvAgendar(TV_TEMPOS.foto);
+            };
+            visual.onerror = () => {
+                if (!tvAtivo || idExecucao !== tvExecucao) return;
+                console.warn('Modo TV: imagem indisponível, avançando:', foto.src);
+                tvFalhasSeguidas++;
+                if (tvFalhasSeguidas >= Math.max(1, tvBastidores.length + tvObras.length)) {
+                    tvExibirMensagem('Fotografias indisponíveis', 'Confira se os arquivos das imagens estão publicados junto ao index.html no GitHub.');
+                    tvProgressoZerar();
+                    return;
+                }
+                tvTemporizador = setTimeout(tvAvancar, 80);
+            };
+            visual.src = foto.src;
+        }
+        function iniciarModoTV() {
+            // Previne vários temporizadores após entrar e sair repetidamente.
+            clearTimeout(tvTemporizador);
+            tvExecucao++;
+            tvAtivo = true;
+            tvPausado = false;
             tvIndice = 0;
-            trocarSlideTV(imgEl, legendaEl);
-            
-            // Troca de foto a cada 6 segundos
-            tvIntervalo = setInterval(() => {
-                tvIndice = (tvIndice + 1) % listaImagensTV.length;
-                trocarSlideTV(imgEl, legendaEl);
-            }, 6000); 
-        }
-
-        function trocarSlideTV(imgEl, legendaEl) {
-            imgEl.style.opacity = 0; legendaEl.style.opacity = 0;
-            setTimeout(() => {
-                imgEl.src = listaImagensTV[tvIndice].src;
-                legendaEl.innerText = listaImagensTV[tvIndice].legenda;
-                imgEl.style.opacity = 1; legendaEl.style.opacity = 1;
-            }, 1000); // Efeito de transição suave
-        }
-
-        function sairModoTV() {
-            clearInterval(tvIntervalo); // Para o slideshow
-            document.getElementById('modo-tv-overlay').style.display = 'none';
-            if (document.fullscreenElement && document.exitFullscreen) {
-                document.exitFullscreen().catch(err => console.warn(err));
+            tvCiclo = 0;
+            tvObrasCursor = 0;
+            tvFalhasSeguidas = 0;
+            tvProgressoZerar();
+            const overlay = document.getElementById('modo-tv-overlay');
+            overlay.style.display = 'flex';
+            overlay.setAttribute('aria-hidden', 'false');
+            const botaoPausa = document.getElementById('tv-pausar');
+            botaoPausa.textContent = 'Ⅱ Pausar';
+            botaoPausa.setAttribute('aria-label', 'Pausar apresentação');
+            if (new Date().getTime() < dataEvento) {
+                tvAtivo = false;
+                tvExibirMensagem('Exposição em preparação', 'O Modo TV será liberado na data programada para a Feira Literária.');
+                return;
+            }
+            tvExtrairFotos();
+            if (!tvBastidores.length && !tvObras.length) {
+                tvAtivo = false;
+                tvExibirMensagem('Exposição em preparação', 'Ainda não há fotografias cadastradas para a apresentação.');
+                return;
+            }
+            listaImagensTV = tvMontarRoteiro();
+            tvAvancar();
+            if (overlay.requestFullscreen) {
+                try { const pedido = overlay.requestFullscreen(); if (pedido && pedido.catch) pedido.catch(() => {}); }
+                catch (erro) { console.info('Tela cheia indisponível:', erro); }
             }
         }
+        function alternarPausaTV() {
+            if (!tvAtivo) return;
+            const barra = document.getElementById('tv-progresso');
+            const botao = document.getElementById('tv-pausar');
+            tvPausado = !tvPausado;
+            if (tvPausado) {
+                tvRestante = Math.max(100, tvFimPrazo - performance.now());
+                clearTimeout(tvTemporizador);
+                const total = barra.parentElement.clientWidth || 1;
+                const perc = Math.min(100, Math.max(0, (parseFloat(getComputedStyle(barra).width) || 0) / total * 100));
+                barra.style.transition = 'none';
+                barra.style.width = perc + '%';
+                botao.textContent = '▶ Continuar';
+                botao.setAttribute('aria-label', 'Continuar apresentação');
+            } else {
+                const restante = Math.max(100, tvRestante || TV_TEMPOS.foto);
+                tvFimPrazo = performance.now() + restante;
+                barra.style.transition = 'width ' + restante + 'ms linear';
+                barra.style.width = '100%';
+                tvTemporizador = setTimeout(tvAvancar, restante);
+                botao.textContent = 'Ⅱ Pausar';
+                botao.setAttribute('aria-label', 'Pausar apresentação');
+            }
+        }
+        function sairModoTV() {
+            clearTimeout(tvTemporizador);
+            tvAtivo = false;
+            tvPausado = false;
+            tvExecucao++;
+            const overlay = document.getElementById('modo-tv-overlay');
+            overlay.style.display = 'none';
+            overlay.setAttribute('aria-hidden', 'true');
+            tvProgressoZerar();
+            if (document.fullscreenElement === overlay && document.exitFullscreen) {
+                const pedido = document.exitFullscreen();
+                if (pedido && pedido.catch) pedido.catch(() => {});
+            }
+        }
+        document.addEventListener('keydown', (evento) => {
+            const overlay = document.getElementById('modo-tv-overlay');
+            if (overlay?.style.display !== 'flex') return;
+            if (evento.key === 'Escape') sairModoTV();
+            if (evento.code === 'Space' && !['BUTTON', 'INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+                evento.preventDefault();
+                alternarPausaTV();
+            }
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            const overlay = document.getElementById('modo-tv-overlay');
+            if (tvAtivo && overlay?.style.display === 'flex' &&
+                !document.fullscreenElement) sairModoTV();
+        });
 
         // CONTADOR REGRESSIVO E SISTEMA DE DESBLOQUEIO
         let dataEvento = new Date("2025-11-28T08:00:00-03:00").getTime();
@@ -2257,6 +2704,91 @@ renderSala();
   b.addEventListener('click',()=>{input.value=nome;input.scrollIntoView({behavior:'smooth',block:'center'});input.focus();});
   card.appendChild(b);
  });
+})();
+</script>
+<script id="almanaque-5a-leitor-script">
+/* ===== ALMANAQUE HISTÓRICO DO 5º ANO A — DOCUMENTO PDF DE TESTE =====
+   O arquivo publicado no mesmo diretório do index.html chama-se Arquivo.pdf.
+   Quando a versão dos alunos estiver pronta, vincule o PDF definitivo aqui e
+   atualize os textos de demonstração, sem modificar os demais recursos do site.
+*/
+(function () {
+    'use strict';
+    const ALMANAQUE_5A_PDF = 'Arquivo.pdf';
+    let paginaAtual = 0;
+    let modoAtual = 'pdf';
+    let overflowOriginal = '';
+    const modal = document.getElementById('alm5a-modal');
+    const paginas = Array.from(document.querySelectorAll('#alm5a-modal [data-alm5a-pagina]'));
+    const iframe = document.getElementById('alm5a-pdf-iframe');
+    const areaPDF = document.getElementById('alm5a-pdf-area');
+    const navegador = document.getElementById('alm5a-controles');
+    const miolo = document.getElementById('alm5a-miolo');
+    const botaoPDF = document.getElementById('alm5a-tab-pdf');
+    const botaoCapa = document.getElementById('alm5a-tab-capa');
+    if (!modal || !paginas.length || !iframe || !areaPDF) return;
+
+    function renderizarPagina() {
+        paginas.forEach((pagina, i) => { pagina.hidden = i !== paginaAtual; });
+        document.getElementById('alm5a-contador').textContent = (paginaAtual + 1) + ' / ' + paginas.length;
+        document.getElementById('alm5a-anterior').disabled = paginaAtual === 0;
+        document.getElementById('alm5a-proximo').disabled = paginaAtual === paginas.length - 1;
+        miolo.scrollTop = 0;
+    }
+
+    window.selecionarModoAlmanaque5A = function (modo) {
+        modoAtual = modo === 'capa' ? 'capa' : 'pdf';
+        const exibirPDF = modoAtual === 'pdf';
+        miolo.hidden = exibirPDF;
+        navegador.hidden = exibirPDF;
+        areaPDF.hidden = !exibirPDF;
+        botaoPDF.setAttribute('aria-pressed', String(exibirPDF));
+        botaoCapa.setAttribute('aria-pressed', String(!exibirPDF));
+        if (exibirPDF) {
+            // Carrega somente quando o visitante abre a demonstração.
+            if (!iframe.getAttribute('src')) iframe.src = ALMANAQUE_5A_PDF + '#view=FitH';
+        } else {
+            renderizarPagina();
+        }
+    };
+
+    window.mudarPaginaAlmanaque5A = function (direcao) {
+        if (!modal.classList.contains('aberto') || modoAtual !== 'capa') return;
+        paginaAtual = Math.max(0, Math.min(paginas.length - 1, paginaAtual + direcao));
+        renderizarPagina();
+    };
+
+    window.abrirAlmanaque5A = function () {
+        if (modal.classList.contains('aberto')) return;
+        overflowOriginal = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        modal.classList.add('aberto');
+        modal.setAttribute('aria-hidden', 'false');
+        window.selecionarModoAlmanaque5A('pdf');
+        document.getElementById('alm5a-fechar').focus();
+    };
+
+    window.fecharAlmanaque5A = function () {
+        modal.classList.remove('aberto');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = overflowOriginal;
+        const botao = document.getElementById('alm5a-abrir');
+        if (botao) botao.focus();
+    };
+
+    modal.addEventListener('click', (evento) => {
+        if (evento.target === modal) window.fecharAlmanaque5A();
+    });
+    document.addEventListener('keydown', (evento) => {
+        if (!modal.classList.contains('aberto')) return;
+        if (evento.key === 'Escape') {
+            evento.preventDefault(); window.fecharAlmanaque5A();
+        } else if (modoAtual === 'capa' && evento.key === 'ArrowRight') {
+            window.mudarPaginaAlmanaque5A(1);
+        } else if (modoAtual === 'capa' && evento.key === 'ArrowLeft') {
+            window.mudarPaginaAlmanaque5A(-1);
+        }
+    });
 })();
 </script>
 </body>
