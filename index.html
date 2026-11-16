@@ -1724,14 +1724,12 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
             window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=${dataInicio}/${dataFim}`, '_blank');
         }
 
-        // MODO TV CINEMATOGRÁFICO — 70% bastidores / 30% obras selecionadas
-        // As imagens reais continuam vindo da galeria, sem duplicar arquivos.
+        // MODO TV — apresentação integral dos bastidores, sem intercalar fotografias das obras finais.
+        // As fotos são localizadas diretamente na galeria Making Off, na ordem em que estão cadastradas.
         let tvTemporizador = null;
         let tvIndice = 0;
         let listaImagensTV = [];
         let tvBastidores = [];
-        let tvObras = [];
-        let tvObrasCursor = 0;
         let tvCiclo = 0;
         let tvAtivo = false;
         let tvPausado = false;
@@ -1752,89 +1750,54 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
                 'Construindo nosso Almanaque',
                 'Cada detalhe faz parte da história'
             ];
-            const obraTitles = [
-                'Um olhar, uma história',
-                'A cidade pelos olhos dos estudantes',
-                'Histórias reveladas em imagens',
-                'A arte de observar',
-                'Um instante para recordar',
-                'Olhares que contam histórias'
-            ];
-            const imagens = Array.from(document.querySelectorAll('.galeria img:not(.img-fundo):not(.img-sobreposicao)'));
-            const todos = [];
-            let indiceObra = 0;
+            const imagens = document.querySelectorAll('#makingoff .galeria img:not(.img-fundo):not(.img-sobreposicao)');
+            tvBastidores = [];
             imagens.forEach((img) => {
                 const src = img.getAttribute('src');
                 if (!src || !src.trim()) return;
                 const chave = new URL(src, document.baseURI).href;
                 if (vistos.has(chave)) return;
-                vistos.add(chave);
                 const arquivo = decodeURIComponent(src.split('/').pop().split('?')[0]);
                 const nome = arquivo.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+                // Não exibe fotos das obras finais (painéis e retratos dos alunos).
+                // Inclui os registros de pesquisa, aula, palestra, passeio e making of.
+                if (!/making\s*off|atividade\s*autobiografia|palestra|passeio/.test(nome)) return;
+                vistos.add(chave);
                 const legendaGaleria = img.closest('div')?.querySelector('.legenda-foto')?.textContent?.replace(/^\s*📸\s*/, '').trim() || '';
-                const making = /making\s*off|atividade\s*autobiografia|palestra|passeio/.test(nome);
                 const item = { src: chave, tipo: 'foto', categoria: '', titulo: '', descricao: '' };
-                if (making) {
-                    if (/making\s*off/.test(nome)) {
-                        const n = Number(arquivo.match(/\((\d+)\)/)?.[1] || '0');
-                        item.categoria = 'BASTIDORES · 5º ANO A';
-                        item.titulo = makingTitles[n % makingTitles.length];
-                        item.descricao = 'Pesquisas para o Almanaque de Águas de São Pedro';
-                    } else if (/atividade\s*autobiografia/.test(nome)) {
-                        item.categoria = 'BASTIDORES · 5º ANO B';
-                        item.titulo = 'Memórias que se transformam em palavras';
-                        item.descricao = 'Atividades sobre autobiografia';
-                    } else if (/palestra/.test(nome)) {
-                        item.categoria = 'BASTIDORES · NOSSA CIDADE';
-                        item.titulo = 'Aprendendo sobre Águas de São Pedro';
-                        item.descricao = legendaGaleria || 'Palestra sobre a cidade';
-                    } else {
-                        item.categoria = 'BASTIDORES · 5º ANOS';
-                        item.titulo = 'Descobrindo os caminhos da cidade';
-                        item.descricao = legendaGaleria || 'Passeio pelos pontos da cidade';
-                    }
+                if (/making\s*off\s*5/.test(nome)) {
+                    const n = Number(arquivo.match(/\((\d+)\)/)?.[1] || '0');
+                    item.categoria = 'BASTIDORES · 5º ANO A';
+                    item.titulo = makingTitles[n % makingTitles.length];
+                    item.descricao = 'Pesquisas para o Almanaque de Águas de São Pedro';
+                } else if (/atividade\s*autobiografia/.test(nome)) {
+                    item.categoria = 'BASTIDORES · 5º ANO B';
+                    item.titulo = 'Memórias que se transformam em palavras';
+                    item.descricao = 'Atividades sobre autobiografia';
+                } else if (/palestra/.test(nome)) {
+                    item.categoria = 'BASTIDORES · NOSSA CIDADE';
+                    item.titulo = 'Aprendendo sobre Águas de São Pedro';
+                    item.descricao = legendaGaleria || 'Palestra sobre a cidade';
+                } else if (/passeio/.test(nome)) {
+                    item.categoria = 'BASTIDORES · 5º ANOS';
+                    item.titulo = 'Descobrindo os caminhos da cidade';
+                    item.descricao = legendaGaleria || 'Passeio pelos pontos da cidade';
                 } else {
-                    item.categoria = 'EXPOSIÇÃO FOTOGRÁFICA · ESTUDANTES';
-                    item.titulo = obraTitles[(indiceObra++) % obraTitles.length];
-                    item.descricao = 'As fotografias criadas pelos alunos · Olhares que contam histórias';
+                    item.categoria = 'BASTIDORES · FEIRA LITERÁRIA';
+                    item.titulo = 'Momentos que fazem parte da história';
+                    item.descricao = legendaGaleria || 'Registros do processo de criação';
                 }
-                todos.push({ ...item, making });
+                tvBastidores.push(item);
             });
-            tvBastidores = todos.filter(item => item.making);
-            tvObras = todos.filter(item => !item.making);
         }
 
         function tvMontarRoteiro() {
-            const roteiro = [{
+            // Todos os bastidores cadastrados, em ordem, uma vez por ciclo; nenhum trabalho final é intercalado.
+            return [{
                 tipo: 'abertura',
                 titulo: 'Por trás dos olhares',
-                subtitulo: 'Toda fotografia guarda uma história. Conheça os bastidores, as pesquisas e os registros dos nossos estudantes.'
-            }];
-            const bastidores = tvBastidores;
-            const obrasPorCiclo = bastidores.length
-                ? Math.min(tvObras.length, Math.max(1, Math.round(bastidores.length * 3 / 7)))
-                : Math.min(tvObras.length, 18);
-            const obrasSelecionadas = [];
-            for (let i = 0; i < obrasPorCiclo; i++) {
-                obrasSelecionadas.push(tvObras[(tvObrasCursor + i) % tvObras.length]);
-            }
-            if (tvObras.length) tvObrasCursor = (tvObrasCursor + obrasPorCiclo) % tvObras.length;
-
-            if (bastidores.length && obrasSelecionadas.length) {
-                let obrasExibidas = 0;
-                bastidores.forEach((foto, indice) => {
-                    if (indice === Math.ceil(bastidores.length / 2)) {
-                        roteiro.push({ tipo: 'capitulo', titulo: 'Olhares que ganham vida', subtitulo: 'Da pesquisa às fotografias, cada criação revela uma nova perspectiva.' });
-                    }
-                    roteiro.push(foto);
-                    const meta = Math.floor(((indice + 1) * obrasSelecionadas.length) / bastidores.length);
-                    while (obrasExibidas < meta) roteiro.push(obrasSelecionadas[obrasExibidas++]);
-                });
-            } else {
-                bastidores.forEach(foto => roteiro.push(foto));
-                obrasSelecionadas.forEach(foto => roteiro.push(foto));
-            }
-            return roteiro;
+                subtitulo: 'Conheça os bastidores, as pesquisas, as atividades e os passeios que deram vida à nossa Feira Literária.'
+            }, ...tvBastidores];
         }
 
         function tvProgressoZerar() {
@@ -1905,8 +1868,10 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
                 document.getElementById('tv-categoria').textContent = foto.categoria;
                 document.getElementById('tv-legenda').textContent = foto.titulo;
                 document.getElementById('tv-descricao').textContent = foto.descricao;
-                document.getElementById('tv-etapa').textContent = foto.making ? 'BASTIDORES DA CRIAÇÃO' : 'GALERIA DOS ESTUDANTES';
-                document.getElementById('tv-contador').textContent = 'CENA ' + tvIndice + ' / ' + listaImagensTV.length;
+                document.getElementById('tv-etapa').textContent = 'BASTIDORES DA CRIAÇÃO';
+                // O contador considera apenas fotografias, não a abertura nem a divisão de capítulos.
+                const numeroFoto = listaImagensTV.slice(0, tvIndice).filter(item => item.tipo === 'foto').length;
+                document.getElementById('tv-contador').textContent = 'FOTO ' + numeroFoto + ' / ' + (tvBastidores.length);
                 requestAnimationFrame(() => requestAnimationFrame(() => { imgEl.style.opacity = '1'; }));
                 tvAgendar(TV_TEMPOS.foto);
             };
@@ -1914,7 +1879,7 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
                 if (!tvAtivo || idExecucao !== tvExecucao) return;
                 console.warn('Modo TV: imagem indisponível, avançando:', foto.src);
                 tvFalhasSeguidas++;
-                if (tvFalhasSeguidas >= Math.max(1, tvBastidores.length + tvObras.length)) {
+                if (tvFalhasSeguidas >= Math.max(1, tvBastidores.length)) {
                     tvExibirMensagem('Fotografias indisponíveis', 'Confira se os arquivos das imagens estão publicados junto ao index.html no GitHub.');
                     tvProgressoZerar();
                     return;
@@ -1931,7 +1896,6 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
             tvPausado = false;
             tvIndice = 0;
             tvCiclo = 0;
-            tvObrasCursor = 0;
             tvFalhasSeguidas = 0;
             tvProgressoZerar();
             const overlay = document.getElementById('modo-tv-overlay');
@@ -1946,7 +1910,7 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
                 return;
             }
             tvExtrairFotos();
-            if (!tvBastidores.length && !tvObras.length) {
+            if (!tvBastidores.length) {
                 tvAtivo = false;
                 tvExibirMensagem('Exposição em preparação', 'Ainda não há fotografias cadastradas para a apresentação.');
                 return;
