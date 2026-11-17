@@ -1724,8 +1724,8 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
             window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=${dataInicio}/${dataFim}`, '_blank');
         }
 
-        // MODO TV — apresentação integral dos bastidores, sem intercalar fotografias das obras finais.
-        // As fotos são localizadas diretamente na galeria Making Off, na ordem em que estão cadastradas.
+        // MODO TV — exibe TODOS os registros cadastrados na aba Making Off.
+        // A ordem é a mesma da galeria, inclusive se uma fotografia tiver sido cadastrada mais de uma vez.
         let tvTemporizador = null;
         let tvIndice = 0;
         let listaImagensTV = [];
@@ -1740,8 +1740,7 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
         const TV_TEMPOS = { abertura: 4700, capitulo: 2900, foto: 7200 };
 
         function tvExtrairFotos() {
-            const vistos = new Set();
-            const makingTitles = [
+            const titulosAlmanaque = [
                 'O início de cada descoberta',
                 'Ideias que ganham forma',
                 'Pesquisas que contam histórias',
@@ -1750,30 +1749,36 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
                 'Construindo nosso Almanaque',
                 'Cada detalhe faz parte da história'
             ];
-            const imagens = document.querySelectorAll('#makingoff .galeria img:not(.img-fundo):not(.img-sobreposicao)');
+            // NÃO filtrar por palavras no arquivo nem eliminar registros duplicados:
+            // se a imagem estiver na galeria Making Off, ela integra o looping.
+            const imagens = document.querySelectorAll('#makingoff .galeria img');
             tvBastidores = [];
             imagens.forEach((img) => {
                 const src = img.getAttribute('src');
                 if (!src || !src.trim()) return;
-                const chave = new URL(src, document.baseURI).href;
-                if (vistos.has(chave)) return;
-                const arquivo = decodeURIComponent(src.split('/').pop().split('?')[0]);
+                let endereco;
+                try { endereco = new URL(src, document.baseURI).href; }
+                catch (erro) { console.warn('Modo TV: endereço inválido:', src); return; }
+                let arquivo = src.split('/').pop().split('?')[0];
+                try { arquivo = decodeURIComponent(arquivo); } catch (erro) { /* mantém o nome original */ }
                 const nome = arquivo.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-                // Não exibe fotos das obras finais (painéis e retratos dos alunos).
-                // Inclui os registros de pesquisa, aula, palestra, passeio e making of.
-                if (!/making\s*off|atividade\s*autobiografia|palestra|passeio/.test(nome)) return;
-                vistos.add(chave);
-                const legendaGaleria = img.closest('div')?.querySelector('.legenda-foto')?.textContent?.replace(/^\s*📸\s*/, '').trim() || '';
-                const item = { src: chave, tipo: 'foto', categoria: '', titulo: '', descricao: '' };
+                const legendaOriginal = img.closest('div')?.querySelector('.legenda-foto')?.textContent || '';
+                const legendaGaleria = legendaOriginal.replace(/^\s*📸\s*/, '').trim();
+                const nomeLegivel = arquivo.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
+                const item = {
+                    src: endereco, tipo: 'foto', categoria: 'MAKING OFF · FEIRA LITERÁRIA',
+                    titulo: legendaGaleria || (nomeLegivel ? nomeLegivel.charAt(0).toUpperCase() + nomeLegivel.slice(1) : 'Olhares que contam histórias'),
+                    descricao: 'Registro da galeria Making Off · XV Feira Literária 2026'
+                };
                 if (/making\s*off\s*5/.test(nome)) {
                     const n = Number(arquivo.match(/\((\d+)\)/)?.[1] || '0');
                     item.categoria = 'BASTIDORES · 5º ANO A';
-                    item.titulo = makingTitles[n % makingTitles.length];
+                    item.titulo = titulosAlmanaque[n % titulosAlmanaque.length];
                     item.descricao = 'Pesquisas para o Almanaque de Águas de São Pedro';
                 } else if (/atividade\s*autobiografia/.test(nome)) {
                     item.categoria = 'BASTIDORES · 5º ANO B';
                     item.titulo = 'Memórias que se transformam em palavras';
-                    item.descricao = 'Atividades sobre autobiografia';
+                    item.descricao = legendaGaleria || 'Atividades sobre autobiografia';
                 } else if (/palestra/.test(nome)) {
                     item.categoria = 'BASTIDORES · NOSSA CIDADE';
                     item.titulo = 'Aprendendo sobre Águas de São Pedro';
@@ -1782,17 +1787,13 @@ body.dark-mode .experiencias-label{color:#b6c9c4}
                     item.categoria = 'BASTIDORES · 5º ANOS';
                     item.titulo = 'Descobrindo os caminhos da cidade';
                     item.descricao = legendaGaleria || 'Passeio pelos pontos da cidade';
-                } else {
-                    item.categoria = 'BASTIDORES · FEIRA LITERÁRIA';
-                    item.titulo = 'Momentos que fazem parte da história';
-                    item.descricao = legendaGaleria || 'Registros do processo de criação';
                 }
                 tvBastidores.push(item);
             });
         }
 
         function tvMontarRoteiro() {
-            // Todos os bastidores cadastrados, em ordem, uma vez por ciclo; nenhum trabalho final é intercalado.
+            // Todas as fotos da aba Making Off, em ordem, uma vez por ciclo, sem filtro nem amostragem.
             return [{
                 tipo: 'abertura',
                 titulo: 'Por trás dos olhares',
